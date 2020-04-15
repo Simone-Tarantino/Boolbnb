@@ -19,8 +19,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::name('admin.')
+    ->prefix('admin')
+    ->namespace('Admin')
+    ->middleware('auth')
+    ->group(function () {
+        Route::resource('houses', 'HouseController');
+    });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

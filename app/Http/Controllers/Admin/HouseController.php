@@ -10,6 +10,17 @@ use Illuminate\Http\Request;
 
 class HouseController extends Controller
 {
+
+    private $validationHouse = [   
+        'room_number' => 'required|numeric',
+        'bed' => 'required|numeric',
+        'bathroom' => 'required|numeric',
+        'mq' => 'required|numeric',
+        'address' => 'required|string',
+        'img_path' => 'image|nullable',
+        'status' => 'required|boolean'
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -41,15 +52,17 @@ class HouseController extends Controller
     {
         $idUser = Auth::user()->id;
 
-        $request->validate([
-            'room_number' => 'required|numeric',
-            'bed' => 'required|numeric',
-            'bathroom' => 'required|numeric',
-            'mq' => 'required|numeric',
-            'address' => 'required|string',
-            'img_path' => 'image',
-            'status' => 'required|boolean'
-        ]);
+        $request->validate($this->validationHouse);
+
+        // $request->validate([
+        //     'room_number' => 'required|numeric',
+        //     'bed' => 'required|numeric',
+        //     'bathroom' => 'required|numeric',
+        //     'mq' => 'required|numeric',
+        //     'address' => 'required|string',
+        //     'img_path' => 'image',
+        //     'status' => 'required|boolean'
+        // ]);
 
         $data = $request->all();
 
@@ -65,7 +78,7 @@ class HouseController extends Controller
             return redirect()->back();
         }
 
-        return redirect()->route('admin.houses.index');
+        return redirect()->route('admin.houses.show', $newHouse);
     }
 
     /**
@@ -77,7 +90,7 @@ class HouseController extends Controller
     public function show(House $house)
     {
         if (empty($house)) {
-            abort(‘404’);
+            abort('404');
         }
         return view('admin.houses.show', compact('house'));
     }
@@ -88,9 +101,13 @@ class HouseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(House $house)
     {
-        //
+        if (empty($house)) {
+            abort('404');
+        }
+
+        return view('admin.houses.edit', compact('house'));
     }
 
     /**
@@ -100,9 +117,13 @@ class HouseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, House $house)
     {
-        //
+        $data = $request->all();
+        $request->validate($this->validationHouse);
+        $house->update($data);
+
+        return redirect()->route('admin.houses.show', $house);
     }
 
     /**
@@ -111,8 +132,14 @@ class HouseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(House $house)
     {
-        //
+        if (empty($house) || $house->user_id != Auth::id()) {
+            abort('404');
+        }
+
+        // $house->extra_service()->detach();
+        $house->delete();
+        return redirect()->route('admin.houses.index');
     }
 }

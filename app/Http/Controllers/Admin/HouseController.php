@@ -16,7 +16,8 @@ class HouseController extends Controller
      */
     public function index()
     {
-        //
+        $houses = House::all();
+        return view('admin.houses.index', compact('houses'));
     }
 
     /**
@@ -26,7 +27,7 @@ class HouseController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.houses.create');
     }
 
     /**
@@ -37,7 +38,7 @@ class HouseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\House;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 
@@ -38,7 +39,33 @@ class HouseController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $idUser = Auth::user()->id;
+
+        $request->validate([
+            'room_number' => 'required|numeric',
+            'bed' => 'required|numeric',
+            'bathroom' => 'required|numeric',
+            'mq' => 'required|numeric',
+            'address' => 'required|string',
+            'img_path' => 'image',
+            'status' => 'required|boolean'
+        ]);
+
+        $data = $request->all();
+
+        $newHouse = new House;
+
+        $path = Storage::disk('public')->put('images', $data['img_path']);
+
+        $newHouse->fill($data);
+        $newHouse->user_id = $idUser;
+        $newHouse->img_path = $path;
+        $saved = $newHouse->save();
+        if (!$saved) {
+            return redirect()->back();
+        }
+
+        return redirect()->route('admin.houses.index');
     }
 
     /**
@@ -47,9 +74,12 @@ class HouseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(House $house)
     {
-        //
+        if (empty($house)) {
+            abort(‘404’);
+        }
+        return view('admin.houses.show', compact('house'));
     }
 
     /**

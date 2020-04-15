@@ -1,8 +1,6 @@
 @extends('layouts.layout')
 @extends('layouts.app')
 @section('main')
-@foreach ($houses as $house)
-@if (Auth::id()==$house->user_id)
     <h2>Numero appartamento {{$house->id}}, pubblicato da {{$house->user_id}}</h2>
         <ul>
             <li>{{$house->room_number}}</li>
@@ -14,8 +12,6 @@
             <li>{{$house->created_at}}</li>
             <li>{{$house->updated_at}}</li>
             <li>{{$house->status}}</li>
-            <li><a href="{{route('admin.houses.show', $house)}}">Mostra appartamento</a></li>
+            <li><a href="{{route('admin.houses.edit', $house)}}">Modifica dati</a></li>
         </ul>
-        @endif
-    @endforeach    
 @endsection

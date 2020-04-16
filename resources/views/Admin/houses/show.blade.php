@@ -14,4 +14,10 @@
             <li>{{$house->status}}</li>
             <li><a href="{{route('admin.houses.edit', $house)}}">Modifica dati</a></li>
         </ul>
+        <ul>
+        @foreach ($house->extras as $extra)
+        <li>{{$extra->name}}</li>
+            
+        @endforeach
+        </ul>
 @endsection

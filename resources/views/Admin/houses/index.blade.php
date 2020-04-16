@@ -15,6 +15,11 @@
             <li>{{$house->updated_at}}</li>
             <li>{{$house->status}}</li>
             <li><a href="{{route('admin.houses.show', $house)}}">Mostra appartamento</a></li>
+            @foreach ($house->extras as $extra)
+            <li>{{$extra->name}}</li>
+            
+            @endforeach
+        
             <form action="{{route('admin.houses.destroy', $house->id)}}" method="POST">
             @csrf
             @method('DELETE')

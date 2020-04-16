@@ -27,6 +27,16 @@
                 <option value="0">Non pubblicato</option>
                 <option value="1">Pubblicato</option>
             </select></li>
+
+            <div class="form-group">
+          <label for="extras">extras</label>
+          @foreach ($extras as $extra)
+          <div>
+            <span>{{$extra->name}}</span>
+            <input type="checkbox" name="extras[]" value="{{$extra->id}}" {{($house->extras->contains($extra->id)) ? 'checked' : ''}}>
+          </div>
+          @endforeach
+        </div>
             <button type="submit">Modifica</button>
         </form>
     </div>

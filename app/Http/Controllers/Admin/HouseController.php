@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\House;
+use App\Extra;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -39,7 +40,12 @@ class HouseController extends Controller
      */
     public function create()
     {
-        return view('admin.houses.create');
+        $extras = Extra::all();
+
+        // $data = [
+        //     'extras' => $extras
+        // ];
+        return view('admin.houses.create', compact('extras'));
     }
 
     /**
@@ -53,21 +59,10 @@ class HouseController extends Controller
         $idUser = Auth::user()->id;
 
         $request->validate($this->validationHouse);
-
-        // $request->validate([
-        //     'room_number' => 'required|numeric',
-        //     'bed' => 'required|numeric',
-        //     'bathroom' => 'required|numeric',
-        //     'mq' => 'required|numeric',
-        //     'address' => 'required|string',
-        //     'img_path' => 'image',
-        //     'status' => 'required|boolean'
-        // ]);
+        
 
         $data = $request->all();
-
         $newHouse = new House;
-
         $path = Storage::disk('public')->put('images', $data['img_path']);
 
         $newHouse->fill($data);
@@ -77,7 +72,13 @@ class HouseController extends Controller
         if (!$saved) {
             return redirect()->back();
         }
-
+        // dd($extras);
+        $extras = $data['extras'];
+        if (!empty($extras)) {
+            $newHouse->extras()->attach($extras);
+        }
+        
+        
         return redirect()->route('admin.houses.show', $newHouse);
     }
 
@@ -89,6 +90,8 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
+        $extras = Extra::all();
+        // dd(($house->extras->contains($extra->id)) );
         if (empty($house)) {
             abort('404');
         }
@@ -106,8 +109,14 @@ class HouseController extends Controller
         if (empty($house)) {
             abort('404');
         }
+        $extras = Extra::all();
+        $data = [
+            'house'=> $house,
+            'extras' => $extras
+            
+        ];
 
-        return view('admin.houses.edit', compact('house'));
+        return view('admin.houses.edit', $data);
     }
 
     /**
@@ -122,6 +131,14 @@ class HouseController extends Controller
         $data = $request->all();
         $request->validate($this->validationHouse);
         $house->update($data);
+        $updated = $house->update($data);
+        if (!$updated) {
+            return redirect()->back();
+        }
+        $extras = $data['extras'];
+        if(!empty($extras)) {
+            $house->extras()->sync($extras);
+        }
 
         return redirect()->route('admin.houses.show', $house);
     }
@@ -138,7 +155,7 @@ class HouseController extends Controller
             abort('404');
         }
 
-        // $house->extra_service()->detach();
+        $house->extras()->detach();
         $house->delete();
         return redirect()->route('admin.houses.index');
     }

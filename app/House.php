@@ -21,4 +21,7 @@ class House extends Model
     {
         return $this->belongsTo('App\User');
     }
+    public function extras() {
+        return $this->belongsToMany('App\Extra');
+    }
 }

@@ -92,7 +92,7 @@ class HouseController extends Controller
     {
         $extras = Extra::all();
         // dd(($house->extras->contains($extra->id)) );
-        if (empty($house)) {
+        if (empty($house) || $house->user_id != Auth::user()->id) {
             abort('404');
         }
         return view('admin.houses.show', compact('house'));
@@ -106,9 +106,10 @@ class HouseController extends Controller
      */
     public function edit(House $house)
     {
-        if (empty($house)) {
+        if (empty($house) || $house->user_id != Auth::user()->id) {
             abort('404');
         }
+        
         $extras = Extra::all();
         $data = [
             'house'=> $house,
@@ -128,6 +129,7 @@ class HouseController extends Controller
      */
     public function update(Request $request, House $house)
     {
+        
         $data = $request->all();
         $request->validate($this->validationHouse);
         $house->update($data);

@@ -16,7 +16,9 @@
             @else 
                <li>Pubblicato: no</li>
             @endif
+            @if($house->user_id == Auth::user()->id)
             <li><a href="{{route('admin.houses.edit', $house)}}">Modifica dati</a></li>
+            @endif
         </ul>
         <ul>
         <li><h3>Servizi extra</h3></li>

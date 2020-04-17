@@ -18,8 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('home', 'HouseController@index')->name('house.home');
-// Route::get('search', 'HouseController@index')->name('house.search');
-Route::get('show', 'HouseController@show')->name('house.show');
+// Route::get('search', 'HouseController@se')->name('house.search');
+Route::get('show/{house}', 'HouseController@show')->name('house.show');
 
 
 Auth::routes();

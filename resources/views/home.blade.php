@@ -28,7 +28,7 @@
                         @else 
                             <li>Pubblicato: no</li>
                         @endif
-                        <li><a href="{{route('houses.show', $house)}}">Mostra appartamento</a></li>
+                        <li><a href="{{route('house.show', $house)}}">Mostra appartamento</a></li>
                         {{-- <li><h3>Servizi extra</h3></li>
                         @foreach ($house->extras as $extra)
                             <li>{{$extra->name}}</li>

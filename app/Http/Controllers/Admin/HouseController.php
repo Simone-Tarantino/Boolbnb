@@ -95,6 +95,7 @@ class HouseController extends Controller
         if (empty($house) || $house->user_id != Auth::user()->id) {
             abort('404');
         }
+        
         return view('admin.houses.show', compact('house'));
     }
 

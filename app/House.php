@@ -15,6 +15,8 @@ class House extends Model
         'address',
         'img_path',
         'status',
+        'latitude',
+        'longitude'
     ];
 
     public function user()

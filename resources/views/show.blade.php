@@ -24,5 +24,5 @@
         
         <div id="map"></div>
         </div>
-
+    <script src="{{asset('js/map.js')}}"></script>
 @endsection

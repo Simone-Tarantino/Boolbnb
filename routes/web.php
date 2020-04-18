@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/home', function () {
+//      return view('home');
+// });
 
-Route::get('home', 'HouseController@index')->name('house.home');
+Route::get('/', 'HouseController@index')->name('house.home');
 // Route::get('search', 'HouseController@se')->name('house.search');
 Route::get('show/{house}', 'HouseController@show')->name('house.show');
 

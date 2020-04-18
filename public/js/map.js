@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -42398,106 +42398,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-
-var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-
-var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
-
-$(document).ready(function () {
-  $('.address-input').val('');
-  $('#address').val('');
-  $('#address-lat').val('');
-  $('#address-long').val('');
-  $('.search').click(function () {
-    clearResults();
-    search();
-  });
-  $(".address-input").keydown(function () {
-    if (event.which == 13 || event.keyCode == 13) {
-      clearResults();
-      search();
-    }
-  });
-  $('.address-input').on('keyup', function () {
-    clearResults();
-
-    if ($('.address-input').val().length >= 5) {
-      search();
-    }
-  }); // $('.address-input').keydown(function(){
-  //     search();
-  // });
-
-  $(document).on('click', '.entry-result', function () {
-    clearInput();
-    $(this).find('.indirizzo').toggleClass("active"); // $(this).find('.coord').val();
-
-    var address = $(this).find('h1').html();
-    var lat = $(this).find('.lat').val();
-
-    var _long = $(this).find('.long').val();
-
-    $('#address').val(address);
-    $('#address-lat').val(lat);
-    $('#address-long').val(_long);
-    clearResults();
-  });
-
-  function clearInput() {
-    $('.address-input').val('');
-    $('#address').val('');
-    $('#address-lat').val('');
-    $('#address-long').val('');
-  }
-
-  function clearResults() {
-    $('.results').html('');
-  }
-
-  function search() {
-    var source = document.getElementById("entry-template").innerHTML;
-    var template = Handlebars.compile(source);
-    var query = $('.address-input').val();
-
-    if (query.length >= 4) {}
-
-    $.ajax({
-      url: 'https://api.tomtom.com/search/2/geocode/' + query + '.json?typeahead=true&key=jmSHc4P5sMLTeiGeWWoRL81YcCxYxqGp',
-      method: 'GET',
-      success: function success(data) {
-        var results = data.results;
-
-        for (var i = 0; i < data.results.length; i++) {
-          console.log(data.results[i]);
-          var context = {
-            address: results[i].address.freeformAddress,
-            latitude: results[i].position.lat,
-            longitude: results[i].position.lon
-          };
-          var html = template(context);
-          $(".results").append(html);
-        }
-      },
-      error: function error(request, state, errors) {
-        alert("C'è stato un problema " + errors);
-        console.log(request);
-        console.log(state);
-        console.log(errors);
-      }
-    });
-  }
-});
-
-/***/ }),
-
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -42543,26 +42443,63 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/***/ "./resources/js/map.js":
+/*!*****************************!*\
+  !*** ./resources/js/map.js ***!
+  \*****************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Stikiman\Desktop\Web Development\Boolean\Esercizi\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Stikiman\Desktop\Web Development\Boolean\Esercizi\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
+
+$(document).ready(function () {
+  // Definisco una variabile con le cordinate di longitudine e latitudine dell'appartamento
+  var lat = $("div.coord-lat").html();
+  var lon = $("div.coord-lon").html();
+  var address = $("li.address").html();
+  var cordinateAppartamento = {
+    'lat': lat,
+    'lon': lon
+  };
+  var map = tt.map({
+    container: "map",
+    key: "jmSHc4P5sMLTeiGeWWoRL81YcCxYxqGp",
+    style: "tomtom://vector/1/basic-main",
+    center: cordinateAppartamento,
+    zoom: 15
+  }); //Aggiungo un punto d'interesse all'interno della mappa
+
+  var marker = new tt.Marker().setLngLat(cordinateAppartamento).addTo(map); //Aggiungo un pop up all'interno della mappa
+
+  var popupOffsets = {
+    top: [0, 0],
+    bottom: [0, -70],
+    "bottom-right": [0, -70],
+    "bottom-left": [0, -70],
+    left: [25, -35],
+    right: [-25, -35]
+  }; //Aggiungo le informazioni del nostro appartamento
+
+  var popup = new tt.Popup({
+    offset: popupOffsets
+  }).setHTML(address);
+  marker.setPopup(popup).togglePopup();
+});
+
+/***/ }),
+
+/***/ 1:
+/*!***********************************!*\
+  !*** multi ./resources/js/map.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! C:\Users\Stikiman\Desktop\Web Development\Boolean\Esercizi\boolbnb\resources\js\map.js */"./resources/js/map.js");
 
 
 /***/ })

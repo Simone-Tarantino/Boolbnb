@@ -30,9 +30,7 @@
         @endforeach
         </ul>
         
-        <div id="map" 
-        {{-- data-lat="{{$house->latitude}}" data-lon="{{$house->longitude}}" --}}
-        ></div>
+        <div id="map" ></div>
         </div>
-
+    <script src="{{asset('js/map.js')}}"></script>
 @endsection

@@ -23,7 +23,20 @@
         <li><input type="number" id="bathroom" name="bathroom"
         min="1" max="5" placeholder="Inserisci numero di bagni"></li>
         <li><input type="number" id="mq" name="mq" step="any" min="50" max="900" placeholder="Inserisci il n. di mq"></li>
-        <li><input type="text" name="address" id="address" placeholder="Inserisci l'indirizzo"></li>
+        {{-- Input ricerca indirizzo API tomtom per ricavare lat/long --}}
+        <li><input type="text" class="address-input" name="" placeholder="Cerca Indirizzo"></li>
+        <button class="search" type="submit">Cerca</button>
+        <div class="results">
+
+        </div>
+
+        <li><input id="address" type="text" class='indirizzo' name="address" id="address" value="" readonly placeholder="Indirizzo"></li>
+        <li><input id="address-lat" type="text"  name="latitude" id="" value="" readonly placeholder="latitudine"></li>
+        <li><input id="address-long" type="text" name="longitude" id="" value="" readonly placeholder="longitudine"></li>
+
+
+        {{-- /// --}}
+        
         <li><input type="file" name="img_path" accept="image/*">
         <li><select name="status">
             <option value="0">Non pubblicato</option>
@@ -41,5 +54,18 @@
         </div>
         
         <button type="submit">Crea</button>
-    </form>
+    </button>
+
+    <script id="entry-template" type="text/x-handlebars-template">
+            <div class="entry-result">
+                <div class="indirizzo">
+                    <h1>@{{address}}</h1>
+                    <ul class="coord">
+                        <input class="lat" type="text" value="@{{latitude}}" name="" id="" readonly>
+                        <input class="long" type="text" value="@{{longitude}}" name="" id="" readonly>
+                    </ul>
+                </div>
+            </div>
+        </script>
+
 @endsection

@@ -21,7 +21,15 @@
             <li><input type="number" id="bathroom" name="bathroom"
             min="1" max="5" value="{{(!empty($house)) ?$house->bathroom : ''}}" placeholder="Inserisci numero di bagni"></li>
             <li><input type="number" id="mq" name="mq" step="any" min="50" max="900" value="{{(!empty($house)) ?$house->mq : ''}}" placeholder="Inserisci il n. di mq"></li>
-            <li><input type="text" name="address" id="address" value="{{(!empty($house)) ?$house->address : ''}}" placeholder="Inserisci l'indirizzo"></li>
+            <li><input type="text" class="address-input" name="address" value="{{(!empty($house)) ?$house->address : ''}}" placeholder="Cerca l'indirizzo"></li>
+            <button class="search" type="submit">Cerca</button>
+        <div class="results">
+
+        </div>
+
+        <li><input id="address" type="text" class='indirizzo' name="address" id="address" value="" readonly placeholder="Indirizzo"></li>
+        <li><input id="address-lat" type="text"  name="latitude" id="" value="" readonly placeholder="latitudine"></li>
+        <li><input id="address-long" type="text" name="longitude" id="" value="" readonly placeholder="longitudine"></li>
             <li><input type="file" name="img_path" accept="image/*" value="{{(!empty($house)) ?$house->img_path : ''}}">
             <li><select name="status" value="{{(!empty($house)) ?$house->status : ''}}">
                 <option value="0">Non pubblicato</option>
@@ -40,4 +48,17 @@
             <button type="submit">Modifica</button>
         </form>
     </div>
+
+     <script id="entry-template" type="text/x-handlebars-template">
+            <div class="entry-result">
+                <div class="indirizzo">
+                    <h1>@{{address}}</h1>
+                    <ul class="coord">
+                        <input class="lat" type="text" value="@{{latitude}}" name="" id="" readonly>
+                        <input class="long" type="text" value="@{{longitude}}" name="" id="" readonly>
+                    </ul>
+                </div>
+            </div>
+        </script>
+
 @endsection

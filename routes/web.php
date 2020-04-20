@@ -13,17 +13,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/home', function () {
-//      return view('home');
-// });
+// Rotta homepage
 
-Route::get('/', 'HouseController@index')->name('house.home');
-// Route::get('search', 'HouseController@se')->name('house.search');
+Route::get('/', function () {
+    return view('welcome');
+ });
+
+// Rotta pagina search
+
+Route::get('/search', 'HouseController@index')->name('house.search');
+
+// Rotta show guest
+
 Route::get('show/{house}', 'HouseController@show')->name('house.show');
 
+// Rotte auth
 
 Auth::routes();
-// Route::get('/home', 'HomeController@index')->name('home');
+
+// Rotte crud admin
 
 Route::name('admin.')
     ->prefix('admin')

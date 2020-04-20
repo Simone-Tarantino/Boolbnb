@@ -10,7 +10,7 @@ class HouseController extends Controller
     public function index()
     {
         $houses = House::all();
-        return view('home', compact('houses'));
+        return view('search', compact('houses'));
     }
 
     public function show(House $house)

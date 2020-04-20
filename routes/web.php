@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 // Rotta pagina search
 
-Route::get('/search', 'HouseController@index')->name('house.search');
+Route::post('/search', 'HouseController@distance')->name('house.search');
 
 // Rotta show guest
 

@@ -6,8 +6,10 @@
     <div class="results">
 
     </div>
-    <form method="GET" action="{{ route('house.search') }}">
-        <li><input id="address" type="text" class='indirizzo' name="address" id="address" value="" readonly placeholder="Indirizzo"></li>
+    <form method="POST" action="{{ route('house.search') }}">
+        @csrf
+        @method('POST')
+        {{-- <li><input id="address" type="text" class='indirizzo' name="address" id="address" value="" readonly placeholder="Indirizzo"></li> --}}
         <li><input id="address-lat" type="text"  name="latitude" id="" value="" readonly placeholder="latitudine"></li>
         <li><input id="address-long" type="text" name="longitude" id="" value="" readonly placeholder="longitudine"></li>
     

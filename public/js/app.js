@@ -42486,12 +42486,7 @@ $(document).ready(function () {
           $(".results").append(html);
         }
       },
-      error: function error(request, state, errors) {
-        alert("C'è stato un problema " + errors);
-        console.log(request);
-        console.log(state);
-        console.log(errors);
-      }
+      error: function error(request, state, errors) {}
     });
   }
 });

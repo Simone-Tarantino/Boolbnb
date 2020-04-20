@@ -87,10 +87,6 @@ $(document).ready(function () {
 
             },
             error: function (request, state, errors) {
-                alert("C'è stato un problema " + errors);
-                console.log(request);
-                console.log(state);
-                console.log(errors);
             }
         });
 

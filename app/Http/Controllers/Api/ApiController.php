@@ -8,32 +8,38 @@ use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
-    public function filter()
+    public function filter(Request $request)
     {
-        $extraWifi = Extra::where('name', 'Wifi')->first();
-        $houseWifi = $extraWifi->houses()->where('status', '1')->orderBy('updated_at', 'DESC')->get();
 
-        $extraPostoMacchina = Extra::where('name', 'Posto Macchina')->first();
-        $housePostoMacchina = $extraPostoMacchina->houses()->where('status', '1')->orderBy('updated_at', 'DESC')->get();
+        $dataRequest = $request->all();
 
-        $extraPiscina = Extra::where('name', 'Piscina')->first();
-        $housePiscina = $extraPiscina->houses()->where('status', '1')->orderBy('updated_at', 'DESC')->get();
+        $data = [];
 
-        $extraPortineria = Extra::where('name', 'Portineria')->first();
-        $housePortineria = $extraPortineria->houses()->where('status', '1')->orderBy('updated_at', 'DESC')->get();
-
-        $extraSauna = Extra::where('name', 'Sauna')->first();
-        $houseSauna = $extraSauna->houses()->where('status', '1')->orderBy('updated_at', 'DESC')->get();
-
-        // $articles = Category::with('articles')->get();
-
-        $data = [
-            'wifi' => $houseWifi,
-            'posto_macchina' => $housePostoMacchina,
-            'piscina' => $housePiscina,
-            'portineria' => $housePortineria,
-            'sauna' => $houseSauna
-        ];
+        if ($dataRequest['wifi'] == '1') {
+            $extraWifi = Extra::where('name', 'Wifi')->first();
+            $houseWifi = $extraWifi->houses()->where('status', '1')->orderBy('updated_at', 'DESC')->get();
+            $data[] = $houseWifi;
+        }
+        if ($dataRequest['posto_macchina'] == '1') {
+            $extraPostoMacchina = Extra::where('name', 'Posto Macchina')->first();
+            $housePostoMacchina = $extraPostoMacchina->houses()->where('status', '1')->orderBy('updated_at', 'DESC')->get();
+            $data[] = $housePostoMacchina;
+        }
+        if ($dataRequest['piscina'] == '1') {
+            $extraPiscina = Extra::where('name', 'Piscina')->first();
+            $housePiscina = $extraPiscina->houses()->where('status', '1')->orderBy('updated_at', 'DESC')->get();
+            $data[] = $housePiscina;
+        }
+        if ($dataRequest['portineria'] == '1') {
+            $extraPortineria = Extra::where('name', 'Portineria')->first();
+            $housePortineria = $extraPortineria->houses()->where('status', '1')->orderBy('updated_at', 'DESC')->get();
+            $data[] = $housePortineria;
+        }
+        if ($dataRequest['sauna'] == '1') {
+            $extraSauna = Extra::where('name', 'Sauna')->first();
+            $houseSauna = $extraSauna->houses()->where('status', '1')->orderBy('updated_at', 'DESC')->get();
+            $data[] = $houseSauna;
+        }
 
         return json_encode($data);
     }

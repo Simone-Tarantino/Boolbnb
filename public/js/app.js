@@ -42429,7 +42429,7 @@ $(document).ready(function () {
   $('.address-input').on('keyup', function () {
     clearResults();
 
-    if ($('.address-input').val().length >= 5) {
+    if ($('.address-input').val().length >= 4) {
       search();
     }
   }); // $('.address-input').keydown(function(){
@@ -42440,7 +42440,7 @@ $(document).ready(function () {
     clearInput();
     $(this).find('.indirizzo').toggleClass("active"); // $(this).find('.coord').val();
 
-    var address = $(this).find('h1').html();
+    var address = $(this).find('p').html();
     var lat = $(this).find('.lat').val();
 
     var _long = $(this).find('.long').val();
@@ -42452,8 +42452,8 @@ $(document).ready(function () {
   });
 
   function clearInput() {
-    $('.address-input').val('');
-    $('#address').val('');
+    // $('.address-input').val('');
+    // $('#address').val('');
     $('#address-lat').val('');
     $('#address-long').val('');
   }
@@ -42556,8 +42556,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Stikiman\Desktop\Web Development\Boolean\Esercizi\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Stikiman\Desktop\Web Development\Boolean\Esercizi\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/teo/Desktop/mamp_pubblic/boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/teo/Desktop/mamp_pubblic/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

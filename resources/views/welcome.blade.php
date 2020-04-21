@@ -1,21 +1,31 @@
 @extends('layouts.layout')
 @extends('layouts.app')
 @section('main')
-    <li><input type="text" class="address-input" name="" placeholder="Cerca Indirizzo"></li>
-    <button class="search" type="submit">Cerca</button>
+<div class="main_home">
+    <div class="jumbo">
+        <div class="title">
+            <h1>Benvenuto Scegli <br> Il Tuo Prossimo <br> Soggiorno</h1>
+        </div>
+        <div class="img">
+            <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+        </div>
+    </div>
+    <div class="search_box">
+    <input id="address" type="text" class="address-input" name="" placeholder="Cerca Indirizzo">
+    {{-- <button class="search" type="submit">Cerca</button> --}}
     <div class="results">
 
     </div>
     <form method="POST" action="{{ route('house.search') }}">
         @csrf
         @method('POST')
-        {{-- <li><input id="address" type="text" class='indirizzo' name="address" id="address" value="" readonly placeholder="Indirizzo"></li> --}}
-        <li><input id="address-lat" type="text"  name="latitude" id="" value="" readonly placeholder="latitudine"></li>
-        <li><input id="address-long" type="text" name="longitude" id="" value="" readonly placeholder="longitudine"></li>
+        <input id="address-lat" class="d-none" type="text"  name="latitude" id="" value="" readonly placeholder="latitudine">
+        <input id="address-long" class="d-none" type="text" name="longitude" id="" value="" readonly placeholder="longitudine">
     
-        <button type="submit">Vai</button>
+        <button class="btn_search" type="submit">Search</button>
     </form>
 
+    </div>
 
 
 
@@ -23,18 +33,15 @@
 
 
 
-
-
-
-
+</div>
 
         <script id="entry-template" type="text/x-handlebars-template">
             <div class="entry-result">
                 <div class="indirizzo">
-                    <h1>@{{address}}</h1>
+                    <p>@{{address}}</p>
                     <ul class="coord">
-                        <input class="lat" type="text" value="@{{latitude}}" name="" id="" readonly>
-                        <input class="long" type="text" value="@{{longitude}}" name="" id="" readonly>
+                        <input class="lat d-none" type="text" value="@{{latitude}}" name="" id="" readonly>
+                        <input class="long d-none" type="text" value="@{{longitude}}" name="" id="" readonly>
                     </ul>
                 </div>
             </div>

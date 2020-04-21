@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+
 @extends('layouts.app')
 @section('main')
     <h2>Numero appartamento {{$house->id}}, pubblicato da {{$house->user_id}}</h2>
@@ -11,8 +11,8 @@
             <li>Foto: {{$house->img_path}}</li>
             <li>Caricato il: {{$house->created_at}}</li>
             <li>Modificato il: {{$house->updated_at}}</li>
-            <div class='coord-lat'>{{$house->latitude}}</div>
-            <div class='coord-lon'>{{$house->longitude}}</div>
+            <div class='coord-lat' value="{{$house->latitude}}">{{$house->latitude}}</div>
+            <div class='coord-lon' value="{{$house->longitude}}">{{$house->longitude}}</div>
         </ul>
         <ul>
         <li><h3>Servizi extra</h3></li>

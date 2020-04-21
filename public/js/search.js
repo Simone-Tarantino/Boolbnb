@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -42443,10 +42443,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/map.js":
-/*!*****************************!*\
-  !*** ./resources/js/map.js ***!
-  \*****************************/
+/***/ "./resources/js/search.js":
+/*!********************************!*\
+  !*** ./resources/js/search.js ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -42456,50 +42456,18 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
-$(document).ready(function () {
-  // Definisco una variabile con le cordinate di longitudine e latitudine dell'appartamento
-  var lat = $("div.coord-lat").html();
-  var lon = $("div.coord-lon").html();
-  var address = $("li.address").html();
-  var cordinateAppartamento = {
-    'lat': lat,
-    'lon': lon
-  };
-  var map = tt.map({
-    container: "map",
-    key: "jmSHc4P5sMLTeiGeWWoRL81YcCxYxqGp",
-    style: "tomtom://vector/1/basic-main",
-    center: cordinateAppartamento,
-    zoom: 15
-  }); //Aggiungo un punto d'interesse all'interno della mappa
-
-  var marker = new tt.Marker().setLngLat(cordinateAppartamento).addTo(map); //Aggiungo un pop up all'interno della mappa
-
-  var popupOffsets = {
-    top: [0, 0],
-    bottom: [0, -70],
-    "bottom-right": [0, -70],
-    "bottom-left": [0, -70],
-    left: [25, -35],
-    right: [-25, -35]
-  }; //Aggiungo le informazioni del nostro appartamento
-
-  var popup = new tt.Popup({
-    offset: popupOffsets
-  }).setHTML(address);
-  marker.setPopup(popup).togglePopup();
-});
+$(document).ready(function () {});
 
 /***/ }),
 
-/***/ 1:
-/*!***********************************!*\
-  !*** multi ./resources/js/map.js ***!
-  \***********************************/
+/***/ 2:
+/*!**************************************!*\
+  !*** multi ./resources/js/search.js ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Stikiman\Desktop\Web Development\Boolean\Esercizi\boolbnb\resources\js\map.js */"./resources/js/map.js");
+module.exports = __webpack_require__(/*! C:\Users\Stikiman\Desktop\Web Development\Boolean\Esercizi\boolbnb\resources\js\search.js */"./resources/js/search.js");
 
 
 /***/ })

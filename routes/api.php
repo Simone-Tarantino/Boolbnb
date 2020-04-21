@@ -18,6 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::namespace('Api')->group(function () {
-//     Route::get('/houses/coordinate/{house}', 'ApiController@getLatLong');
-// });
+Route::namespace('Api')->group(function () {
+    Route::get('/filter', 'ApiController@filter');
+});

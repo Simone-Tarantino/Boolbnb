@@ -13,23 +13,19 @@ $(document).ready(function () {
         search();
     });
 
-    $(".address-input").keydown(function () {
+    $(".address-input").on('keyup', function () {
         if (event.which == 13 || event.keyCode == 13) {
             clearResults();
             search();
         }
     });
 
-    $('.address-input').on('keyup', function () {
+    $('.address-input').on('click', function () {
         clearResults();
         if ($('.address-input').val().length >= 4) {
             search();
         }
     });
-    // $('.address-input').keydown(function(){
-    //     search();
-    // });
-
     $(document).on('click', '.entry-result', function () {
         clearInput();
 
@@ -48,49 +44,56 @@ $(document).ready(function () {
     });
     
 
-    function clearInput() {
-        // $('.address-input').val('');
-        // $('#address').val('');
-        $('#address-lat').val('');
-        $('#address-long').val('');
+   
+
+}); /// FINE READY
+
+
+/////////////////////////
+       //FUNCTION//
+////////////////////////
+
+function clearInput() {
+    // $('.address-input').val('');
+    // $('#address').val('');
+    $('#address-lat').val('');
+    $('#address-long').val('');
+}
+
+function clearResults() {
+    $('.results').html('');
+}
+
+function search() {
+
+    var source = document.getElementById("entry-template").innerHTML;
+    var template = Handlebars.compile(source);
+
+    var query = $('.address-input').val();
+
+    if (query.length >= 4) {
+
     }
 
-    function clearResults() {
-        $('.results').html('');
-    }
-
-    function search() {
-
-        var source = document.getElementById("entry-template").innerHTML;
-        var template = Handlebars.compile(source);
-
-        var query = $('.address-input').val();
-
-        if (query.length >= 4) {
-
-        }
-
-        $.ajax({
-            url: 'https://api.tomtom.com/search/2/geocode/' + query + '.json?typeahead=true&key=jmSHc4P5sMLTeiGeWWoRL81YcCxYxqGp',
-            method: 'GET',
-            success: function (data) {
-                var results = data.results;
-                for (var i = 0; i < data.results.length; i++) {
-                    console.log(data.results[i]);
-                    var context = {
-                        address: results[i].address.freeformAddress,
-                        latitude: results[i].position.lat,
-                        longitude: results[i].position.lon,
-                    };
-                    var html = template(context);
-                    $(".results").append(html);
-                }
-
-            },
-            error: function (request, state, errors) {
+    $.ajax({
+        url: 'https://api.tomtom.com/search/2/geocode/' + query + '.json?typeahead=true&key=jmSHc4P5sMLTeiGeWWoRL81YcCxYxqGp',
+        method: 'GET',
+        success: function (data) {
+            var results = data.results;
+            for (var i = 0; i < data.results.length; i++) {
+                console.log(data.results[i]);
+                var context = {
+                    address: results[i].address.freeformAddress,
+                    latitude: results[i].position.lat,
+                    longitude: results[i].position.lon,
+                };
+                var html = template(context);
+                $(".results").append(html);
             }
-        });
 
-    }
+        },
+        error: function (request, state, errors) {
+        }
+    });
 
-});
+}

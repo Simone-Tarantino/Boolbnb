@@ -29,7 +29,24 @@
             
         @endforeach
         </ul>
-        
+        {{-- <h3>Lascia un messaggio</h3>
+        <form action="" method="POST">
+         @csrf
+         @method('POST')
+         <div class="form-group">
+         <input class="hidden" type="hidden" name="" value="{{$house->id}}">
+         </div>
+        <label for="email">La tua Mail</label>
+         <div class="form-group">
+        <input name='email' type="email" placeholder="inserisci mail">
+         </div>
+         <label for="messaggio">il tuo messaggio</label>
+         <div class="form-group">
+     <textarea name='messaggio' rows="4" cols="50" form="usrform" placeholder="inserisci messaggio">
+     </textarea>  
+         </div>
+<button type="submit" class="btn btn-primary">Invia</button>
+        </form> --}}
         <div id="map" ></div>
         </div>
     <script src="{{asset('js/map.js')}}"></script>

@@ -1,4 +1,4 @@
-
+@extends('layouts.layout')
 @extends('layouts.app')
 @section('main')
     <h2>Numero appartamento {{$house->id}}, pubblicato da {{$house->user_id}}</h2>
@@ -21,7 +21,6 @@
             
         @endforeach
         </ul>
-        
         <div id="map"></div>
         </div>
     <script src="{{asset('js/map.js')}}"></script>

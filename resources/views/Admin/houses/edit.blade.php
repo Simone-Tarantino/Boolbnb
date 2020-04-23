@@ -52,7 +52,7 @@
      <script id="entry-template" type="text/x-handlebars-template">
             <div class="entry-result">
                 <div class="indirizzo">
-                    <h1>@{{address}}</h1>
+                    <p>@{{address}}</p>
                     <ul class="coord">
                         <input class="lat" type="text" value="@{{latitude}}" name="" id="" readonly>
                         <input class="long" type="text" value="@{{longitude}}" name="" id="" readonly>

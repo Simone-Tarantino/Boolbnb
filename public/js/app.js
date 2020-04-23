@@ -42429,13 +42429,10 @@ $(document).ready(function () {
   $('.address-input').on('keyup', function () {
     clearResults();
 
-    if ($('.address-input').val().length >= 4) {
+    if ($('.address-input').val().length >= 5) {
       search();
     }
-  }); // $('.address-input').keydown(function(){
-  //     search();
-  // });
-
+  });
   $(document).on('click', '.entry-result', function () {
     clearInput();
     $(this).find('.indirizzo').toggleClass("active"); // $(this).find('.coord').val();
@@ -42452,8 +42449,8 @@ $(document).ready(function () {
   });
 
   function clearInput() {
-    // $('.address-input').val('');
-    // $('#address').val('');
+    $('.address-input').val('');
+    $('#address').val('');
     $('#address-lat').val('');
     $('#address-long').val('');
   }

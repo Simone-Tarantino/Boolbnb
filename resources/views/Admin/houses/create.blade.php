@@ -30,13 +30,13 @@
 
         </div>
 
-        <li><input id="address" type="text" class='indirizzo' name="address" id="address" value="" readonly placeholder="Indirizzo"></li>
+        <li><input id="address" type="text" name="address"  value="" readonly placeholder="Indirizzo"></li>
         <li><input id="address-lat" type="text"  name="latitude" id="" value="" readonly placeholder="latitudine"></li>
         <li><input id="address-long" type="text" name="longitude" id="" value="" readonly placeholder="longitudine"></li>
 
 
         {{-- /// --}}
-        
+
         <li><input type="file" name="img_path" accept="image/*">
         <li><select name="status">
             <option value="0">Non pubblicato</option>
@@ -52,14 +52,14 @@
           </div>
           @endforeach
         </div>
-        
+
         <button type="submit">Crea</button>
     </button>
 
     <script id="entry-template" type="text/x-handlebars-template">
             <div class="entry-result">
                 <div class="indirizzo">
-                    <h1>@{{address}}</h1>
+                    <p>@{{address}}</p>
                     <ul class="coord">
                         <input class="lat" type="text" value="@{{latitude}}" name="" id="" readonly>
                         <input class="long" type="text" value="@{{longitude}}" name="" id="" readonly>

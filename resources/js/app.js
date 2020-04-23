@@ -30,7 +30,6 @@ $(document).ready(function () {
     $(document).on('click', '.entry-result', function () {
         clearInput();
         $(this).find('.indirizzo').toggleClass("active");
-        // $(this).find('.coord').val();
         var address = $(this).find('p').html();
         var lat = $(this).find('.lat').val();
         var long = $(this).find('.long').val();
@@ -40,39 +39,42 @@ $(document).ready(function () {
         clearResults();
     });
 
-    function clearInput() {
-        $('.address-input').val('');
-        $('#address').val('');
-        $('#address-lat').val('');
-        $('#address-long').val('');
-    }
-
-}); /// FINE READY
-
-
-        var source = document.getElementById("entry-template").innerHTML;
-        var template = Handlebars.compile(source);
-        var query = $('.address-input').val();
-        if (query.length >= 4) {
-        }
-        $.ajax({
-            url: 'https://api.tomtom.com/search/2/geocode/' + query + '.json?typeahead=true&key=jmSHc4P5sMLTeiGeWWoRL81YcCxYxqGp',
-            method: 'GET',
-            success: function (data) {
-                var results = data.results;
-                for (var i = 0; i < data.results.length; i++) {
-                    console.log(data.results[i]);
-                    var context = {
-                        address: results[i].address.freeformAddress,
-                        latitude: results[i].position.lat,
-                        longitude: results[i].position.lon,
-                    };
-                    var html = template(context);
-                    $(".results").append(html);
-                }
-            },
-            error: function (request, state, errors) {
-            }
-        });
-    }
 });
+/// FINE READY
+
+// FUNZIONI
+
+
+        function clearInput() {
+            $('.address-input').val('');
+            $('#address').val('');
+            $('#address-lat').val('');
+            $('#address-long').val('');
+        }
+    
+    
+    
+            var source = document.getElementById("entry-template").innerHTML;
+            var template = Handlebars.compile(source);
+            var query = $('.address-input').val();
+            if (query.length >= 4) {
+            }
+            $.ajax({
+                url: 'https://api.tomtom.com/search/2/geocode/' + query + '.json?typeahead=true&key=jmSHc4P5sMLTeiGeWWoRL81YcCxYxqGp',
+                method: 'GET',
+                success: function (data) {
+                    var results = data.results;
+                    for (var i = 0; i < data.results.length; i++) {
+                        console.log(data.results[i]);
+                        var context = {
+                            address: results[i].address.freeformAddress,
+                            latitude: results[i].position.lat,
+                            longitude: results[i].position.lon,
+                        };
+                        var html = template(context);
+                        $(".results").append(html);
+                    }
+                },
+                error: function (request, state, errors) {
+                }
+            });

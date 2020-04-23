@@ -27,6 +27,11 @@ Route::post('/search', 'HouseController@distance')->name('house.search');
 
 Route::get('show/{house}', 'HouseController@show')->name('house.show');
 
+// Rotta messaggio appartamento
+
+Route::get('contact-us/{house}', 'ContactUSController@contactUS')->name('contactus');
+Route::post('contact-us', ['as' => 'contactus.store', 'uses' => 'ContactUSController@contactUSPost']);
+
 // Rotte auth
 
 Auth::routes();

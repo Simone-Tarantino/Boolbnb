@@ -45,5 +45,7 @@ Route::name('admin.')
     ->group(function () {
         Route::resource('houses', 'HouseController');
         Route::get('home', 'HomeController@index');
+        Route::get('messages', 'MessageController@index')->name('messages');
+        // Route::get('messages/{result}', 'MessageController@show')->name('messages.show');
     });
 

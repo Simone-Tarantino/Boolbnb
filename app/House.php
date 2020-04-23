@@ -28,5 +28,8 @@ class House extends Model
     {
         return $this->belongsToMany('App\Extra');
     }
-
+ public function messages()
+    {
+        return $this->hasMany('App\Message');
+    }
 }

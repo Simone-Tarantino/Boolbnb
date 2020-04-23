@@ -12,14 +12,14 @@ $(document).ready(function () {
         search();
     });
 
-    $(".address-input").keydown(function () {
+    $(".address-input").on('keyup', function () {
         if (event.which == 13 || event.keyCode == 13) {
             clearResults();
             search();
         }
     });
 
-    $('.address-input').on('keyup', function () {
+    $('.address-input').on('click', function () {
         clearResults();
         if ($('.address-input').val().length >= 5) {
             search();
@@ -47,11 +47,8 @@ $(document).ready(function () {
         $('#address-long').val('');
     }
 
-    function clearResults() {
-        $('.results').html('');
-    }
+}); /// FINE READY
 
-    function search() {
 
         var source = document.getElementById("entry-template").innerHTML;
         var template = Handlebars.compile(source);

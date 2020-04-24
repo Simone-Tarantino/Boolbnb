@@ -17,7 +17,6 @@ class MessageController extends Controller
 
         $results = DB::table('houses')
             ->join('contactus', 'houses.id', '=', 'contactus.house_id')
-            // ->join('users', 'houses.id', '=', 'users.id')
             ->where('user_id', '=', $user)
             ->orderBy('contactus.created_at', 'desc')
             ->get();
@@ -25,17 +24,4 @@ class MessageController extends Controller
 
         return view('admin.messages.index', compact('results'));
     }
-
-    // public function show(Contactus $result)
-    // {
-    //     $user = Auth::id();
-
-    //     dd($user);
-
-    //     if (empty($result)) {
-    //         abort('404');
-    //     }
-
-    //     return view('admin.messages.show', compact('result'));
-    // }
 }

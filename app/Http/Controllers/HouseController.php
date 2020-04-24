@@ -45,8 +45,6 @@ class HouseController extends Controller
                 ORDER BY distance;
             '
         );
-
-
         
         return view('search', compact('houses'));
     }

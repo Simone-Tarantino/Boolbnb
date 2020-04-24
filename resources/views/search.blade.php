@@ -1,11 +1,12 @@
+@extends('layouts.layout')
 @extends('layouts.app')
 
-@section('content')
+@section('main')
 <div class="main container-fluid">
 
         <div class="search_box">
     <input id="address" type="text" class="address-input" name="" placeholder="Cerca Indirizzo">
-    <input type="number" name="radius" id="radius">
+    <input type="number" name="distance" id="distance">
     {{-- suggerimenti ricerca --}}
     <div class="results">
 
@@ -41,3 +42,7 @@
         </script>
 
 @endsection
+@section('scripts')
+            
+            <script src="{{asset('js/search.js')}}"></script>
+        @endsection

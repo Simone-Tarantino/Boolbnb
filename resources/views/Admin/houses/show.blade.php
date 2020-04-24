@@ -49,5 +49,9 @@
         </form> --}}
         <div id="map" ></div>
         </div>
-    <script src="{{asset('js/map.js')}}"></script>
-@endsection
+        @endsection
+        
+        @section('scripts')
+            
+            <script src="{{asset('js/map.js')}}"></script>
+        @endsection

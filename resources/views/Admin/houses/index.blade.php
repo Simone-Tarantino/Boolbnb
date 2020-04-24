@@ -35,3 +35,8 @@
         @endif
     @endforeach    
 @endsection
+
+@section('scripts')
+            
+            <script src="{{asset('js/app.js')}}"></script>
+        @endsection

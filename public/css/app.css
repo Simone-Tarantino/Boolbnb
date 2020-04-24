@@ -11,6 +11,10 @@ body {
   background-color: white;
 }
 
+.active_search {
+  background-color: lightgrey;
+}
+
 .main_home {
   width: 100 .main_home;
   margin: 0 auto;

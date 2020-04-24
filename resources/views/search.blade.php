@@ -12,8 +12,8 @@
     </div>
 
 
-        <input id="address-lat" class="d-none" type="text"  name="latitude"  value="" readonly placeholder="latitudine">
-        <input id="address-long" class="d-none" type="text" name="longitude" value="" readonly placeholder="longitudine">
+        <input id="address-lat" type="text"  name="latitude"  value="" readonly placeholder="latitudine">
+        <input id="address-long" type="text" name="longitude" value="" readonly placeholder="longitudine">
 
         <button class="btn_search" id='search'>Search</button>
 
@@ -22,15 +22,9 @@
     {{-- risultati dalla home da cancellare quando si fa chiamata api --}}
 
     <div class="home-results">
-        @foreach ($distances as $distanceKey => $distance)
-        @foreach ($houses as $houseKey => $house)
-            @if ($distance <= 20 && $distanceKey == $houseKey)
+        @foreach ($houses as $house)
                   {{$house->address}}
-                  <br>
-                  {{$distance}}
-                  <br>
-                  @endif
-        @endforeach
+                  {{$house->distance}}
         @endforeach
     </div>
 

@@ -42481,10 +42481,9 @@ $(document).ready(function () {
     $('#address-lat').val(lat);
     $('#address-long').val(_long);
     clearResults();
-  });
-  $(document).on('click', '#search', function () {
-    apiCall();
-  });
+  }); // $(document).on('click', '#search', function(){
+  //     apiCall();
+  // });
 
   function clearInput() {
     // $('.address-input').val('');
@@ -42523,30 +42522,29 @@ $(document).ready(function () {
       },
       error: function error(request, state, errors) {}
     });
-  }
+  } // function apiCall()
+  // {
+  //     var lat = $('#address-lat').val();
+  //     var lon = $('#address-long').val();
+  //     var rad = $('#radius').val();
+  //     $.ajax({
+  //         url: 'http://127.0.0.1:8000/api/filter',
+  //         method: 'get',
+  //         data: {
+  //             'latitude' : lat,
+  //             'longitude' : lon,
+  //             'radius' : rad
+  //         },
+  //         success: function (data) {
+  //             var results = data.results;
+  //             for (var i = 0; i < results.length; i++) {
+  //                 console.log(results[i]);
+  //             }
+  //         },
+  //         error: function (request, state, errors) {}
+  //     });
+  // }
 
-  function apiCall() {
-    var lat = $('#address-lat').val();
-    var lon = $('#address-long').val();
-    var rad = $('#radius').val();
-    $.ajax({
-      url: 'http://127.0.0.1:8000/api/filter',
-      method: 'get',
-      data: {
-        'latitude': lat,
-        'longitude': lon,
-        'radius': rad
-      },
-      success: function success(data) {
-        var results = data.results;
-
-        for (var i = 0; i < results.length; i++) {
-          console.log(results[i]);
-        }
-      },
-      error: function error(request, state, errors) {}
-    });
-  }
 });
 
 /***/ }),

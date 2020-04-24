@@ -1,4 +1,5 @@
 @include('layouts.partials._head')
 @include('layouts.partials._header')
 @yield('main')
+@yield('scripts')
 @include('layouts.partials._footer')

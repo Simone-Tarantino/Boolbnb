@@ -42416,20 +42416,10 @@ $(document).ready(function () {
   $('#address').val('');
   $('#address-lat').val('');
   $('#address-long').val('');
-  $('.search').click(function () {
-    clearResults();
-    search();
-  });
-  $(".address-input").keydown(function () {
-    if (event.which == 13 || event.keyCode == 13) {
-      clearResults();
-      search();
-    }
-  });
   $('.address-input').on('keyup', function () {
     clearResults();
 
-    if ($('.address-input').val().length >= 5) {
+    if ($('.address-input').val().length >= 4) {
       search();
     }
   });
@@ -42446,11 +42436,13 @@ $(document).ready(function () {
     $('#address-lat').val(lat);
     $('#address-long').val(_long);
     clearResults();
-  });
+  }); // $(document).on('click', '#search', function () {
+  //     apiCall();
+  // });
 
   function clearInput() {
-    $('.address-input').val('');
-    $('#address').val('');
+    // $('.address-input').val('');
+    // $('#address').val('');
     $('#address-lat').val('');
     $('#address-long').val('');
   }
@@ -42485,7 +42477,28 @@ $(document).ready(function () {
       },
       error: function error(request, state, errors) {}
     });
-  }
+  } // function apiCall() {
+  //     var lat = $('#address-lat').val();
+  //     var lon = $('#address-long').val();
+  //     var rad = $('#radius').val();
+  //     $.ajax({
+  //         url: 'http://127.0.0.1:8000/api/filter',
+  //         method: 'get',
+  //         data: {
+  //             'latitude': lat,
+  //             'longitude': lon,
+  //             'radius': rad
+  //         },
+  //         success: function (data) {
+  //             var results = data.results;
+  //             for (var i = 0; i < results.length; i++) {
+  //                 console.log(results[i]);
+  //             }
+  //         },
+  //         error: function (request, state, errors) {}
+  //     });
+  // }
+
 });
 
 /***/ }),
@@ -42553,8 +42566,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/teo/Desktop/mamp_pubblic/boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/teo/Desktop/mamp_pubblic/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Stikiman\Desktop\Web Development\Boolean\Esercizi\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Stikiman\Desktop\Web Development\Boolean\Esercizi\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

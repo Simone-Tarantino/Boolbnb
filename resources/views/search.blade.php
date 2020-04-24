@@ -4,7 +4,7 @@
 @section('main')
 <div class="main container-fluid">
 
-        <div class="search_box">
+    <div class="search_box">
     <input id="address" type="text" class="address-input" name="" placeholder="Cerca Indirizzo">
     <input type="number" name="distance" id="distance">
     {{-- suggerimenti ricerca --}}
@@ -22,12 +22,21 @@
 
     {{-- risultati dalla home da cancellare quando si fa chiamata api --}}
 
-    <div class="home-results">
+    <div class="house-results">
         @foreach ($houses as $house)
                   {{$house->address}}
                   {{$house->distance}}
+                  {{$house->bed}}
+                  {{$house->bathroom}}
+                  {{$house->img_path}}
+                  {{$house->id}}
+                  {{$house->mq}}
+                  {{$house->room_number}}
+                  <li><a href="{{route('house.show', $house->id)}}">Mostra appartamento</a></li>
         @endforeach
     </div>
+
+
 
     <script id="entry-template" type="text/x-handlebars-template">
             <div class="entry-result">
@@ -41,8 +50,25 @@
             </div>
         </script>
 
+        <script id="search-template" type="text/x-handlebars-template">
+            <div class="entry-result">
+                    <ul class="house">
+                        <li>@{{address}}</li>
+                        <li>@{{distance}}</li>
+                        <li>@{{bathroom}}</li>
+                        <li>@{{bed}}</li>
+                        <li>@{{img_path}}</li>
+                        <li>@{{id}}</li>
+                        <li>@{{mq}}</li>
+                        <li>@{{room_number}}</li>
+                        <li><a href="http://127.0.0.1:8000/admin/houses/@{{id}}">Mostra appartamento</a></li>
+                    </ul>
+                </div>
+            </div>
+        </script>
+
 @endsection
-@section('scripts')
-            
-            <script src="{{asset('js/search.js')}}"></script>
-        @endsection
+
+@section('scripts')          
+    <script src="{{asset('js/search.js')}}"></script>
+@endsection

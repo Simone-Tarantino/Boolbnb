@@ -15,6 +15,7 @@ class ApiController extends Controller
     {
         $data = $request->all();
 
+        $published = 1;
         $circle_radius = 6372.797;
         $max_distance = $data['distance'];
         $lat = $data['latitude'];
@@ -27,7 +28,7 @@ class ApiController extends Controller
                     sin(radians(' . $lat . ')) * sin(radians(latitude))))
                     AS distance
                     FROM houses) AS distances
-                WHERE distance < ' . $max_distance . '
+                WHERE distance < ' . $max_distance . ' AND status = ' . $published . '
                 ORDER BY distance;
                 ');
 

@@ -29,6 +29,7 @@ class HouseController extends Controller
 
         $data = $request->all();
 
+        $published = 1;
         $circle_radius = 6372.797;
         $max_distance = 20;
         $lat = $data['latitude'];
@@ -41,7 +42,7 @@ class HouseController extends Controller
                     sin(radians(' . $lat . ')) * sin(radians(latitude))))
                     AS distance
                     FROM houses) AS distances
-                WHERE distance < ' . $max_distance . '
+                WHERE distance < ' . $max_distance . ' AND status = ' . $published . '
                 ORDER BY distance;
             '
         );

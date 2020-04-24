@@ -3,11 +3,16 @@ const $ = require("jquery");
 const Handlebars = require("handlebars");
 
 $(document).ready(function () {
+
+    // All'entrata della pagina tutti i valori sono vuoti e la distanza di default è 20km
+
     $('.address-input').val('');
     $('#address').val('');
     $('#address-lat').val('');
     $('#address-long').val('');
+    $('#distance').val('20');
 
+    // Digitando l'indirizzo vengono fuori risultati suggerimento indirizzo
 
     $('.address-input').on('keyup', function () {
         clearResults();
@@ -16,12 +21,12 @@ $(document).ready(function () {
         }
     });
 
+    // Click sul risultato del suggerimento per compilare latitudine e longitudine
 
     $(document).on('click', '.entry-result', function () {
         clearInput();
 
         $(this).find('.indirizzo').toggleClass("active");
-        // $(this).find('.coord').val();
         var address = $(this).find('p').html();
         var lat = $(this).find('.lat').val();
         var long = $(this).find('.long').val();
@@ -34,21 +39,39 @@ $(document).ready(function () {
 
     });
 
-    // $(document).on('click', '#search', function(){
-    //     apiCall();
-    // });
+    // Click su cerca per visualizzare gli appartamenti per lat long e distanza
 
+    $(document).on('click', '#search', function(){
+        var latitude = $('#address-lat').val();
+        var longitude = $('#address-long').val();
+        var distance = $('#distance').val();
+        clearHouses();
+        latLonSearch(latitude, longitude, distance);
+    });
+
+
+    // funzione pulizia valore input lat long per nuova ricerca
 
     function clearInput() {
-        // $('.address-input').val('');
-        // $('#address').val('');
         $('#address-lat').val('');
         $('#address-long').val('');
     }
 
+    // funzione pulizia suggerimento ricerca indirizzo
+
     function clearResults() {
         $('.results').html('');
     }
+
+    // funzione pulizia div risultati case
+
+    function clearHouses() {
+        $('.house-results').html('');
+    }
+
+    // FUNZIONI CHIAMATA API
+
+    // funzione suggerimento ricerca indirizzo e geocode automatico
 
     function search() {
 
@@ -58,56 +81,61 @@ $(document).ready(function () {
         var query = $('.address-input').val();
 
         if (query.length >= 4) {
-
+            $.ajax({
+                url: 'https://api.tomtom.com/search/2/geocode/' + query + '.json?typeahead=true&key=jmSHc4P5sMLTeiGeWWoRL81YcCxYxqGp',
+                method: 'GET',
+                success: function (data) {
+                    var results = data.results;
+                    for (var i = 0; i < data.results.length; i++) {
+                        var context = {
+                            address: results[i].address.freeformAddress,
+                            latitude: results[i].position.lat,
+                            longitude: results[i].position.lon,
+                        };
+                        var html = template(context);
+                        $(".results").append(html);
+                    }
+                },
+                error: function (request, state, errors) {}
+            });
         }
+    }
+
+    // funzione per ricerca case tramite lat long e distanza dal punto di partenza
+
+    function latLonSearch(latitude, longitude, distance) {
+
+        var source = document.getElementById("search-template").innerHTML;
+        var template = Handlebars.compile(source);
 
         $.ajax({
-            url: 'https://api.tomtom.com/search/2/geocode/' + query + '.json?typeahead=true&key=jmSHc4P5sMLTeiGeWWoRL81YcCxYxqGp',
+            url: 'http://127.0.0.1:8000/api/filter',
             method: 'GET',
+            data: {
+                'latitude' : latitude,
+                'longitude' : longitude,
+                'distance' : distance
+            },
             success: function (data) {
-                var results = data.results;
-                for (var i = 0; i < data.results.length; i++) {
-                    console.log(data.results[i]);
-                    var context = {
-                        address: results[i].address.freeformAddress,
-                        latitude: results[i].position.lat,
-                        longitude: results[i].position.lon,
+                var results = JSON.parse(data);
+                console.log(results);
+                for (var i = 0; i < results.length; i++) {
+                        var context = {
+                            address: results[i].address,
+                            distance: results[i].distance,
+                            bathroom: results[i].bathroom,
+                            bed: results[i].bed,
+                            img_path: results[i].img_path,
+                            id: results[i].id,
+                            mq: results[i].mq,
+                            room_number: results[i].room_number
                     };
                     var html = template(context);
-                    $(".results").append(html);
+                    $(".house-results").append(html);
                 }
-
             },
             error: function (request, state, errors) {}
         });
-
     }
-
-    // function apiCall()
-    // {
-    //     var lat = $('#address-lat').val();
-    //     var lon = $('#address-long').val();
-    //     var rad = $('#radius').val();
-
-    //     $.ajax({
-    //         url: 'http://127.0.0.1:8000/api/filter',
-    //         method: 'get',
-    //         data: {
-    //             'latitude' : lat,
-    //             'longitude' : lon,
-    //             'radius' : rad
-    //         },
-    //         success: function (data) {
-    //             var results = data.results;
-    //             for (var i = 0; i < results.length; i++) {
-    //                 console.log(results[i]);
-                    
-    //             }
-
-    //         },
-    //         error: function (request, state, errors) {}
-    //     });
-
-    // }
 
 });

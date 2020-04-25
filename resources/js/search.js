@@ -119,7 +119,6 @@ $(document).ready(function () {
             success: function (data) {
                 var results = JSON.parse(data);
                 console.log(results);
-                for (var x = 0; x < results.extras.length; x++) {
                 for (var i = 0; i < results.length; i++) {
                     var context = {
                         address: results[i].address,
@@ -129,15 +128,22 @@ $(document).ready(function () {
                         id: results[i].id,
                         mq: results[i].mq,
                         room_number: results[i].room_number,
-                        extras: results[i].extras[x].name
                     };
+                    for (var x = 0; x < results[i].extras.length; x++) {
+                        if (context.hasOwnProperty('extras'))
+                            context.extras += results[i].extras[x].name + ' ';
+                        else {
+                            context.extras = results[i].extras[x].name + ', ';
+                        }                
+                    }
                     var html = template(context);
-                    $(".house-results").append(html);    
+                    $(".house-results").append(html);
                 }
-            }
             },
             error: function (request, state, errors) {}
         });
     }
+
+    
 
 });

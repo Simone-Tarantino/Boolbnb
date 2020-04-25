@@ -9,7 +9,9 @@ class Extra extends Model
      protected $fillable = [
         'name'
     ];
-    public function houses() {
+
+    public function houses() 
+    {
         return $this->belongsToMany('App\House');
     }
 }

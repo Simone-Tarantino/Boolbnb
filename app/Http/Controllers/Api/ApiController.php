@@ -13,109 +13,51 @@ class ApiController extends Controller
 
     public function filterLatLong(Request $request)
     {
+
+        function distanceResults($lat1, $lon1, $latitude, $longitude, $unit)
+        {
+            //longitudine e latitudine in radianti
+            //angolo ϑ con l'asse x in un piano-xy in coordinate (longitudine e latitudine)
+            $theta = $lon1 - $longitude;
+            //function Korn Shell che prevede serie di operatori matematici e trigonometrici
+            $dist = sin(deg2rad($lat1)) * sin(deg2rad($latitude)) +  cos(deg2rad($lat1)) * cos(deg2rad($latitude)) * cos(deg2rad($theta));
+            //calcolo della distanza
+            $dist = acos($dist);
+            $dist = rad2deg($dist);
+            //conversione distanza da radianti in miglia
+            $miles = $dist * 60 * 1.1515;
+            $unit = strtoupper($unit);
+            //cambio unità di misura
+            if ($unit == "K") {
+                return ($miles * 1.609344);
+            } else if ($unit == "N") {
+                return ($miles * 0.8684);
+            } else {
+                return $miles;
+            }
+        };
+
+
+        $houses = House::where('status', 1)->get();
+
         $data = $request->all();
+        $dataLat = floatval($data['latitude']);
+        $dataLon = floatval($data['longitude']);
+        $dataDistance = intval($data['distance']);
 
-        $published = 1;
-        $circle_radius = 6372.797;
-        $max_distance = $data['distance'];
-        $lat = $data['latitude'];
-        $lng = $data['longitude'];
 
-        $houses = DB::select(
-               'SELECT * FROM
-                    (SELECT id, user_id, room_number, bed, bathroom, mq, address, img_path, status, latitude, longitude, (' . $circle_radius . ' * acos(cos(radians(' . $lat . ')) * cos(radians(latitude)) *
-                    cos(radians(longitude) - radians(' . $lng . ')) +
-                    sin(radians(' . $lat . ')) * sin(radians(latitude))))
-                    AS distance
-                    FROM houses) AS distances
-                WHERE distance < ' . $max_distance . ' AND status = ' . $published . '
-                ORDER BY distance;
-                ');
+        foreach ($houses as $key => $house) {
+            $houseLat = $house->latitude;
+            $houseLon = $house->longitude;
+
+            $result = distanceResults($houseLat, $houseLon, $dataLat, $dataLon, 'k');
+            if ($result <= $dataDistance) {
+                $filterHouse[] = $house;
+            }
+        }
+        $houses = $filterHouse;
 
         return json_encode($houses);
+    }   
 
-    }
-
-    function getHouseForExtra(Request $request)
-    {
-        // $extra = Extra::all();
-        // $house= House::all();
-        // $published = 1;
-        // $results = DB::table('extra_house')
-        //         ->join('houses', 'extra_house.house_id', '=', 'houses.id')
-        //         ->where('status', '=', $published)
-        //         ->whereIn('extra_id', $extra)
-        //         ->get();
-        // return json_encode($results);
-
-        $houses = House::all();
-
-        $data = $request->all();
-
-        $typeRequest = [
-            'wifi',
-            'posto_macchina',
-            'piscina',
-            'portineria',
-            'sauna'
-        ];
-
-        foreach ($data as $key => $value) {
-            if (!in_array($key, $typeRequest)) {
-                unset($data[$key]);
-            }
-        }
-
-        foreach ($data as $key => $value) {
-            if (array_key_first($data) == $key) {
-                $housesFiltered = $this->filterFor($key, $value, $houses);
-            }
-
-            else {
-                $housesFiltered = $this->filterFor($key, $value, $housesFiltered);
-            }
-        }
-
-
-        // if ($dataRequest == '1') {
-        //     $extra = Extra::find(2);
-        //     $extra->houses;
-        //     $data[] = $extra;
-        // }
-        // if ($dataRequest['posto_macchina'] == '1') {
-        //     $extraPostoMacchina = Extra::where('name', 'Posto Macchina')->first();
-        //     $housePostoMacchina = $extraPostoMacchina->houses()->where('status', '1')->orderBy('updated_at', 'DESC')->get();
-        //     $data[] = $housePostoMacchina;
-        // }
-        // if ($dataRequest['piscina'] == '1') {
-        //     $extraPiscina = Extra::where('name', 'Piscina')->first();
-        //     $housePiscina = $extraPiscina->houses()->where('status', '1')->orderBy('updated_at', 'DESC')->get();
-        //     $data[] = $housePiscina;
-        // }
-        // if ($dataRequest['portineria'] == '1') {
-        //     $extraPortineria = Extra::where('name', 'Portineria')->first();
-        //     $housePortineria = $extraPortineria->houses()->where('status', '1')->orderBy('updated_at', 'DESC')->get();
-        //     $data[] = $housePortineria;
-        // }
-        // if ($dataRequest['sauna'] == '1') {
-        //     $extraSauna = Extra::where('name', 'Sauna')->first();
-        //     $houseSauna = $extraSauna->houses()->where('status', '1')->orderBy('updated_at', 'DESC')->get();
-        //     $data[] = $houseSauna;
-        // }
-
-        return json_encode($housesFiltered);
-    }
-
-    private function filterFor($type, $value, $array)
-    {
-
-        $filtered = [];
-        foreach ($array as $element) {
-            if ($element[$type] == $value) {
-                $filtered[] = $element;
-            }
-        }
-        return $filtered;
-    }
-    
 }

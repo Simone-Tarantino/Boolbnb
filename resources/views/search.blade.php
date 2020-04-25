@@ -21,17 +21,20 @@
     </div>
 
     {{-- risultati dalla home da cancellare quando si fa chiamata api --}}
-
+    
     <div class="house-results">
         @foreach ($houses as $house)
-                  {{$house->address}}
-                  {{$house->distance}}
-                  {{$house->bed}}
-                  {{$house->bathroom}}
-                  {{$house->img_path}}
-                  {{$house->id}}
-                  {{$house->mq}}
-                  {{$house->room_number}}
+        {{$house->address}}
+        {{$house->distance}}
+        {{$house->bed}}
+        {{$house->bathroom}}
+        {{$house->img_path}}
+        {{$house->id}}
+        {{$house->mq}}
+        {{$house->room_number}}
+        @foreach ($house->extras as $extra)
+            {{$extra->name}}
+        @endforeach
                   <li><a href="{{route('house.show', $house->id)}}">Mostra appartamento</a></li>
         @endforeach
     </div>
@@ -54,7 +57,6 @@
             <div class="entry-result">
                     <ul class="house">
                         <li>@{{address}}</li>
-                        <li>@{{distance}}</li>
                         <li>@{{bathroom}}</li>
                         <li>@{{bed}}</li>
                         <li>@{{img_path}}</li>

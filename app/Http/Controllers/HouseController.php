@@ -27,26 +27,48 @@ class HouseController extends Controller
     public function distance(Request $request)
     {
 
-        $data = $request->all();
-
-        $published = 1;
-        $circle_radius = 6372.797;
-        $max_distance = 20;
-        $lat = $data['latitude'];
-        $lng = $data['longitude'];
-
-        $houses = DB::select(
-            'SELECT * FROM
-                    (SELECT id, user_id, room_number, bed, bathroom, mq, address, img_path, status, latitude, longitude, (' . $circle_radius . ' * acos(cos(radians(' . $lat . ')) * cos(radians(latitude)) *
-                    cos(radians(longitude) - radians(' . $lng . ')) +
-                    sin(radians(' . $lat . ')) * sin(radians(latitude))))
-                    AS distance
-                    FROM houses) AS distances
-                WHERE distance < ' . $max_distance . ' AND status = ' . $published . '
-                ORDER BY distance;
-            '
-        );
+        function distanceResults($lat1, $lon1, $latitude, $longitude, $unit)
+        {
+            //longitudine e latitudine in radianti
+            //angolo ϑ con l'asse x in un piano-xy in coordinate (longitudine e latitudine)
+            $theta = $lon1 - $longitude;
+            //function Korn Shell che prevede serie di operatori matematici e trigonometrici
+            $dist = sin(deg2rad($lat1)) * sin(deg2rad($latitude)) +  cos(deg2rad($lat1)) * cos(deg2rad($latitude)) * cos(deg2rad($theta));
+            //calcolo della distanza
+            $dist = acos($dist);
+            $dist = rad2deg($dist);
+            //conversione distanza da radianti in miglia
+            $miles = $dist * 60 * 1.1515;
+            $unit = strtoupper($unit);
+            //cambio unità di misura
+            if ($unit == "K") {
+                return ($miles * 1.609344);
+            } else if ($unit == "N") {
+                return ($miles * 0.8684);
+            } else {
+                return $miles;
+            }
         
+        };       
+    
+
+        $houses = House::where('status', 1)->get();
+
+        $data = $request->all();
+        $dataLat = floatval($data['latitude']);
+        $dataLon = floatval($data['longitude']);
+
+
+        foreach ($houses as $key => $house) {
+            $houseLat = $house->latitude;
+            $houseLon = $house->longitude;
+        
+            $result = distanceResults($houseLat, $houseLon, $dataLat, $dataLon, 'k');
+            if ($result <= 20) {
+                $filterHouse[] = $house;
+            }
+        }
+        $houses = $filterHouse;
         return view('search', compact('houses'));
     }
 

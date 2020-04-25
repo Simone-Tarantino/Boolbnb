@@ -42554,19 +42554,21 @@ $(document).ready(function () {
         var results = JSON.parse(data);
         console.log(results);
 
-        for (var i = 0; i < results.length; i++) {
-          var context = {
-            address: results[i].address,
-            distance: results[i].distance,
-            bathroom: results[i].bathroom,
-            bed: results[i].bed,
-            img_path: results[i].img_path,
-            id: results[i].id,
-            mq: results[i].mq,
-            room_number: results[i].room_number
-          };
-          var html = template(context);
-          $(".house-results").append(html);
+        for (var x = 0; x < results.extras.length; x++) {
+          for (var i = 0; i < results.length; i++) {
+            var context = {
+              address: results[i].address,
+              bathroom: results[i].bathroom,
+              bed: results[i].bed,
+              img_path: results[i].img_path,
+              id: results[i].id,
+              mq: results[i].mq,
+              room_number: results[i].room_number,
+              extras: results[i].extras[x].name
+            };
+            var html = template(context);
+            $(".house-results").append(html);
+          }
         }
       },
       error: function error(request, state, errors) {}

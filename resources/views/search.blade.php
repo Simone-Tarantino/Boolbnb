@@ -63,6 +63,9 @@
                         <li>@{{id}}</li>
                         <li>@{{mq}}</li>
                         <li>@{{room_number}}</li>
+                        <li><ul>extras:
+                            @{{extras}}
+                        </ul></>
                         <li><a href="http://127.0.0.1:8000/admin/houses/@{{id}}">Mostra appartamento</a></li>
                     </ul>
                 </div>

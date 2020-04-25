@@ -36,5 +36,86 @@ class ApiController extends Controller
 
     }
 
+    function getHouseForExtra(Request $request)
+    {
+        // $extra = Extra::all();
+        // $house= House::all();
+        // $published = 1;
+        // $results = DB::table('extra_house')
+        //         ->join('houses', 'extra_house.house_id', '=', 'houses.id')
+        //         ->where('status', '=', $published)
+        //         ->whereIn('extra_id', $extra)
+        //         ->get();
+        // return json_encode($results);
 
+        $houses = House::all();
+
+        $data = $request->all();
+
+        $typeRequest = [
+            'wifi',
+            'posto_macchina',
+            'piscina',
+            'portineria',
+            'sauna'
+        ];
+
+        foreach ($data as $key => $value) {
+            if (!in_array($key, $typeRequest)) {
+                unset($data[$key]);
+            }
+        }
+
+        foreach ($data as $key => $value) {
+            if (array_key_first($data) == $key) {
+                $housesFiltered = $this->filterFor($key, $value, $houses);
+            }
+
+            else {
+                $housesFiltered = $this->filterFor($key, $value, $housesFiltered);
+            }
+        }
+
+
+        // if ($dataRequest == '1') {
+        //     $extra = Extra::find(2);
+        //     $extra->houses;
+        //     $data[] = $extra;
+        // }
+        // if ($dataRequest['posto_macchina'] == '1') {
+        //     $extraPostoMacchina = Extra::where('name', 'Posto Macchina')->first();
+        //     $housePostoMacchina = $extraPostoMacchina->houses()->where('status', '1')->orderBy('updated_at', 'DESC')->get();
+        //     $data[] = $housePostoMacchina;
+        // }
+        // if ($dataRequest['piscina'] == '1') {
+        //     $extraPiscina = Extra::where('name', 'Piscina')->first();
+        //     $housePiscina = $extraPiscina->houses()->where('status', '1')->orderBy('updated_at', 'DESC')->get();
+        //     $data[] = $housePiscina;
+        // }
+        // if ($dataRequest['portineria'] == '1') {
+        //     $extraPortineria = Extra::where('name', 'Portineria')->first();
+        //     $housePortineria = $extraPortineria->houses()->where('status', '1')->orderBy('updated_at', 'DESC')->get();
+        //     $data[] = $housePortineria;
+        // }
+        // if ($dataRequest['sauna'] == '1') {
+        //     $extraSauna = Extra::where('name', 'Sauna')->first();
+        //     $houseSauna = $extraSauna->houses()->where('status', '1')->orderBy('updated_at', 'DESC')->get();
+        //     $data[] = $houseSauna;
+        // }
+
+        return json_encode($housesFiltered);
+    }
+
+    private function filterFor($type, $value, $array)
+    {
+
+        $filtered = [];
+        foreach ($array as $element) {
+            if ($element[$type] == $value) {
+                $filtered[] = $element;
+            }
+        }
+        return $filtered;
+    }
+    
 }

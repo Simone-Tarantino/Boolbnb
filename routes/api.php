@@ -20,4 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::namespace('Api')->group(function () {
     Route::get('/filter', 'ApiController@filterLatLong');
+    Route::post('/getHouse', 'ApiController@getHouseForExtra');
 });

@@ -71,5 +71,6 @@ class HouseController extends Controller
         $houses = $filterHouse;
         return view('search', compact('houses'));
     }
+    
 
 }

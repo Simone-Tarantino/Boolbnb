@@ -7,12 +7,37 @@
   box-sizing: border-box;
 }
 
-body {
+.main {
   background-color: white;
 }
 
 .active_search {
   background-color: lightgrey;
+}
+
+.footer {
+  width: 100%;
+  background-color: #F7F7F7;
+  color: #1E1E1E;
+  padding: 60px 0 25px;
+}
+
+.footer_top {
+  border-bottom: 1px groove lightgray;
+}
+
+.footer_bottom {
+  padding-top: 15px;
+}
+
+.footer_bottom_right {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 1.5em;
+}
+
+.footer_bottom_right i {
+  margin-left: 3em;
 }
 
 .main_home {
@@ -28,11 +53,15 @@ body {
 
 .main_home .jumbo .title {
   width: 40%;
-  padding-left: 150px;
+  padding-left: 120px;
+}
+
+.main_home .jumbo .title h1 {
+  font-size: 40px;
 }
 
 .main_home .jumbo .img {
-  width: 60%;
+  width: 50%;
 }
 
 .main_home .jumbo .img img {
@@ -73,6 +102,40 @@ body {
 
 .main_home .search_box .results .indirizzo {
   border: 1px solid lightgrey;
+}
+
+.main_admin_index .title {
+  width: 20%;
+  margin: 50px 0;
+}
+
+.main_admin_index .title h2 {
+  font-size: 3em;
+  color: coral;
+}
+
+.main_admin_index .box {
+  margin: 0 0 30px 30px;
+}
+
+.main_admin_index .box .btn_zone {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.main_admin_index .box .btn_zone .btn_look {
+  margin: 0 20px;
+}
+
+.main_show .img_show {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.main_show h2 {
+  text-align: center;
+  color: coral;
 }
 
 /*!

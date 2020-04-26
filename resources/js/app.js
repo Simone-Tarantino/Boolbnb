@@ -83,30 +83,5 @@ $(document).ready(function () {
 
     }
 
-    // function apiCall() {
-    //     var lat = $('#address-lat').val();
-    //     var lon = $('#address-long').val();
-    //     var rad = $('#radius').val();
-
-    //     $.ajax({
-    //         url: 'http://127.0.0.1:8000/api/filter',
-    //         method: 'get',
-    //         data: {
-    //             'latitude': lat,
-    //             'longitude': lon,
-    //             'radius': rad
-    //         },
-    //         success: function (data) {
-    //             var results = data.results;
-    //             for (var i = 0; i < results.length; i++) {
-    //                 console.log(results[i]);
-
-    //             }
-
-    //         },
-    //         error: function (request, state, errors) {}
-    //     });
-
-    // }
 
 });

@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('main')
-<div class="main container-fluid">
+<div class="main">
 
     <div class="search_box">
     <input id="address" type="text" class="address-input" name="" placeholder="Cerca Indirizzo">
@@ -66,7 +66,7 @@
                         <li class="extras">extras:
                             @{{extras}}
                         </li>
-                        <li><a href="http://127.0.0.1:8000/admin/houses/@{{id}}">Mostra appartamento</a></li>
+                        <li><a href="http://127.0.0.1:8000/show/@{{id}}">Mostra appartamento</a></li>
                     </ul>
                 </div>
             </div>

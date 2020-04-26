@@ -136,6 +136,12 @@
 .main_show h2 {
   text-align: center;
   color: coral;
+  margin-bottom: 35px;
+}
+
+.main_show h4 {
+  font-weight: 600;
+  color: lightslategray;
 }
 
 /*!
@@ -11022,6 +11028,7 @@ a.text-dark:focus {
 
 #map {
   height: 500px;
-  width: 500px;
+  width: 100%;
+  margin-bottom: 15px;
 }
 

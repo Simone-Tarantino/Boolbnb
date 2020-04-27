@@ -51,12 +51,38 @@ class ApiController extends Controller
             $houseLon = $house->longitude;
             $houseExtra = $house->extras;
 
+<<<<<<< Updated upstream
             $result = distanceResults($houseLat, $houseLon, $dataLat, $dataLon, 'k');
             if ($result <= $dataDistance) {
                 $filterHouse[] = $house;
             }
         }
         $houses = $filterHouse;
+=======
+
+    }
+
+
+    function getHouseForExtra() {
+        $extra = Extra::all();
+        $house= House::all();
+        $published = 1;
+        $results = DB::table('extra_house')
+                ->join('houses', 'extra_house.house_id', '=', 'houses.id')
+                ->where(‘status’, '=', $published)
+                ->whereIn('extra_id', $extra)
+                // ->whereIn(‘house_id’, $house)
+                // ->groupBy(‘id’)
+                ->get();
+
+        $results =Service::whereHas('categories', function($query) {
+        $query->where('categories.category_id', 1);
+        })->get();
+
+        
+        return json_encode($results);
+    }
+>>>>>>> Stashed changes
 
         return json_encode($houses);
     }   

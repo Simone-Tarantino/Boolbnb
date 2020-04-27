@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -42443,10 +42443,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/map.js":
-/*!*****************************!*\
-  !*** ./resources/js/map.js ***!
-  \*****************************/
+/***/ "./resources/js/filter.js":
+/*!********************************!*\
+  !*** ./resources/js/filter.js ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -42457,49 +42457,47 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
 $(document).ready(function () {
-  // Definisco una variabile con le cordinate di longitudine e latitudine dell'appartamento
-  var lat = $("div.coord-lat").html();
-  var lon = $("div.coord-lon").html();
-  var address = $("li.address").html();
-  var cordinateAppartamento = {
-    'lat': lat,
-    'lon': lon
-  };
-  var map = tt.map({
-    container: "map",
-    key: "jmSHc4P5sMLTeiGeWWoRL81YcCxYxqGp",
-    style: "tomtom://vector/1/basic-main",
-    center: cordinateAppartamento,
-    zoom: 15
-  }); //Aggiungo un punto d'interesse all'interno della mappa
+  $(document).on('click', '#filter-button', function () {
+    $('.house').removeClass('d-none');
+    var extras = [];
+    $.each($("input[name='extra']:checked"), function () {
+      extras.push($(this).val());
+    });
+    console.log('Extra checkbox', extras);
+    var extraCheckString = extras.toString();
+    extraCheckString = extraCheckString.replace(',', ' ');
+    console.log(extraCheckString);
+    $.each($('.house'), function () {
+      var extrasHouseString = $(this).find('.extras').html();
+      extrasHouseString = extrasHouseString.trim();
+      extrasHouseString = extrasHouseString.replace(/ /g, '');
+      extrasHouseString = extrasHouseString.replace(/\n/g, " ");
+      console.log(extrasHouseString); // var houseExtrasArray = extrasString.split(' ');
 
-  var marker = new tt.Marker().setLngLat(cordinateAppartamento).addTo(map); //Aggiungo un pop up all'interno della mappa
+      var result = extrasHouseString.includes(extraCheckString);
+      console.log(result);
 
-  var popupOffsets = {
-    top: [0, 0],
-    bottom: [0, -70],
-    "bottom-right": [0, -70],
-    "bottom-left": [0, -70],
-    left: [25, -35],
-    right: [-25, -35]
-  }; //Aggiungo le informazioni del nostro appartamento
-
-  var popup = new tt.Popup({
-    offset: popupOffsets
-  }).setHTML(address);
-  marker.setPopup(popup).togglePopup();
+      if (result == false) {
+        $(this).addClass('d-none');
+      }
+    });
+  });
+  $(document).on('click', '#remove-filters', function () {
+    $('.house').removeClass('d-none');
+    $('.checkbox-filter').prop('checked', false);
+  });
 });
 
 /***/ }),
 
-/***/ 1:
-/*!***********************************!*\
-  !*** multi ./resources/js/map.js ***!
-  \***********************************/
+/***/ 3:
+/*!**************************************!*\
+  !*** multi ./resources/js/filter.js ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Stikiman\Desktop\Web Development\Boolean\Esercizi\boolbnb\resources\js\map.js */"./resources/js/map.js");
+module.exports = __webpack_require__(/*! C:\Users\Stikiman\Desktop\Web Development\Boolean\Esercizi\boolbnb\resources\js\filter.js */"./resources/js/filter.js");
 
 
 /***/ })

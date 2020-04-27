@@ -20,9 +20,12 @@
 
     {{-- filtra risultati jquery --}}
     <div class="filters">
-        <input type="number" name="bed" id="" placeholder="Numero di letti">
-        <input type="number" name="bathroom" id="" placeholder="Numero di bagni">
-        <input type="number" name="room_number" id="" placeholder="Numero di stanze">
+        <label for="beds">Letti</label>
+        <input type="number" name="beds" id="beds" placeholder="Numero di letti">
+        <label for="bathroom">Bagni</label>
+        <input type="number" name="bathroom" id="bathrooms" placeholder="Numero di bagni">
+        <label for="room_number">Stanze</label>
+        <input type="number" name="room_number" id="room_number" placeholder="Numero di stanze">
         <label for="checkbox">WiFi</label>
         <input type="checkbox"  class="checkbox-filter" name="extra" value="WiFi" id="">
         <label for="checkbox">Posto Macchina</label>
@@ -78,12 +81,12 @@
         <div class="entry-result">
             <ul class="house">
                 <li>@{{address}}</li>
-                <li>@{{bathroom}}</li>
-                <li>@{{bed}}</li>
+                <li class="bathroom">@{{bathroom}}</li>
+                <li class="bed">@{{bed}}</li>
                 <li>@{{img_path}}</li>
                 <li>@{{id}}</li>
                 <li>@{{mq}}</li>
-                <li>@{{room_number}}</li>
+                <li class="room_number">@{{room_number}}</li>
                 <li class="extras">
                     @{{extras}}
                 </li>

@@ -42552,7 +42552,6 @@ $(document).ready(function () {
       },
       success: function success(data) {
         var results = JSON.parse(data);
-        console.log(results);
 
         for (var i = 0; i < results.length; i++) {
           var context = {
@@ -42567,7 +42566,7 @@ $(document).ready(function () {
 
           for (var x = 0; x < results[i].extras.length; x++) {
             if (context.hasOwnProperty('extras')) context.extras += results[i].extras[x].name + ' ';else {
-              context.extras = results[i].extras[x].name + ', ';
+              context.extras = results[i].extras[x].name + ' ';
             }
           }
 
@@ -42589,7 +42588,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/teo/Desktop/mamp_pubblic/boolbnb/resources/js/search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! C:\Users\Stikiman\Desktop\Web Development\Boolean\Esercizi\boolbnb\resources\js\search.js */"./resources/js/search.js");
 
 
 /***/ })

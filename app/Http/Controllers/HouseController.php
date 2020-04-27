@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\House;
 use App\Extra;
 use Illuminate\Http\Request;
@@ -48,9 +49,8 @@ class HouseController extends Controller
             } else {
                 return $miles;
             }
-        
-        };       
-    
+        };
+
 
         $houses = House::where('status', 1)->get();
 
@@ -62,15 +62,16 @@ class HouseController extends Controller
         foreach ($houses as $key => $house) {
             $houseLat = $house->latitude;
             $houseLon = $house->longitude;
-        
+
             $result = distanceResults($houseLat, $houseLon, $dataLat, $dataLon, 'k');
             if ($result <= 20) {
                 $filterHouse[] = $house;
             }
         }
+        // if (count($filterHouse) <= 0) {
+        //     return redirect()->back()->withErrors(['Nessun appartamento trovato', 'The Message']);
+        // } 
         $houses = $filterHouse;
         return view('search', compact('houses'));
     }
-    
-
 }

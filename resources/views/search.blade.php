@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}
 
 @section('main')
 <div class="main">
@@ -45,21 +45,21 @@
     <div class="house-results">
         @foreach ($houses as $house)
         <ul class='house'>
-        <li>{{$house->address}}</li>
-        <li>{{$house->distance}}</li>
-        <li class="bed">{{$house->bed}}</li>
-        <li class="bathroom">{{$house->bathroom}}</li>
-        <li>{{$house->img_path}}</li>
-        <li>{{$house->id}}</li>
-        <li>{{$house->mq}}</li>
-        <li class="room_number">{{$house->room_number}}</li>
-        <div class="extras">
-            @foreach ($house->extras as $extra)
-                {{$extra->name}}
-            @endforeach
-        </div>
-                  <li><a href="{{route('house.show', $house->id)}}">Mostra appartamento</a></li>
-                  </ul>
+            <li>{{$house->address}}</li>
+            <li>{{$house->distance}}</li>
+            <li class="bed">{{$house->bed}}</li>
+            <li class="bathroom">{{$house->bathroom}}</li>
+            <li>{{$house->img_path}}</li>
+            <li>{{$house->id}}</li>
+            <li>{{$house->mq}}</li>
+            <li class="room_number">{{$house->room_number}}</li>
+            <div class="extras">
+                @foreach ($house->extras as $extra)
+                    {{$extra->name}}
+                @endforeach
+            </div>
+            <li><a href="{{route('house.show', $house->id)}}">Mostra appartamento</a></li>
+        </ul>
         @endforeach
     </div>
 

@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}
 @section('main')
 <div class="main">
     <div class="container main_admin_index">

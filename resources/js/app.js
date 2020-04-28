@@ -29,6 +29,9 @@ $(document).ready(function () {
         $('#address').val(address);
         $('#address-lat').val(lat);
         $('#address-long').val(long);
+        $('#address-up').val(address);
+        $('#address-lat-up').val(lat);
+        $('#address-long-up').val(long);
 
         clearResults();
 

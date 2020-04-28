@@ -1,5 +1,7 @@
-You received a message from : {{ $email }}
+Hai ricevuto un messaggio per il tuo appartamento! 
+
+Messaggio ricevuto da : {{ $email }}
 
 <p>
-Message: {{ $user_message }}
+{{ $user_message }}
 </p>

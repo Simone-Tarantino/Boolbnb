@@ -1,11 +1,13 @@
 @extends('layouts.layout')
-@extends('layouts.app')
+
+{{-- @extends('layouts.app') --}}
+
 @section('main')
-{{-- @if($errors->any())
-        <div class="alert alert-danger">
-        <h4>{{$errors->first()}}</h4>
-    </div>
-    @endif --}}
+    @if($errors->any())
+            <div class="alert alert-danger">
+            <h4>{{$errors->first()}}</h4>
+        </div>
+    @endif
 <div class="main_home">
     <div class="jumbo">
         <div class="title">

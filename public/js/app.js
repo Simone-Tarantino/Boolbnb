@@ -42435,6 +42435,9 @@ $(document).ready(function () {
     $('#address').val(address);
     $('#address-lat').val(lat);
     $('#address-long').val(_long);
+    $('#address-up').val(address);
+    $('#address-lat-up').val(lat);
+    $('#address-long-up').val(_long);
     clearResults();
   }); // $(document).on('click', '#search', function () {
   //     apiCall();

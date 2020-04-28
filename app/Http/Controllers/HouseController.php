@@ -53,7 +53,8 @@ class HouseController extends Controller
 
 
         $houses = House::where('status', 1)->get();
-
+        $extras = Extra::all();
+        
         $data = $request->all();
         $dataLat = floatval($data['latitude']);
         $dataLon = floatval($data['longitude']);
@@ -72,6 +73,6 @@ class HouseController extends Controller
         //     return redirect()->back()->withErrors(['Nessun appartamento trovato', 'The Message']);
         // } 
         $houses = $filterHouse;
-        return view('search', compact('houses'));
+        return view('search', compact('houses', 'extras'));
     }
 }

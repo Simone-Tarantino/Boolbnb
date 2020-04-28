@@ -42569,10 +42569,10 @@ $(document).ready(function () {
               context.extras = results[i].extras[x].name + ' ';
             }
           }
-
-          var html = template(context);
-          $(".house-results").append(html);
         }
+
+        var html = template(context);
+        $(".house-results").append(html);
       },
       error: function error(request, state, errors) {}
     });
@@ -42588,7 +42588,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Stikiman\Desktop\Web Development\Boolean\Esercizi\boolbnb\resources\js\search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! /Users/teo/Desktop/mamp_pubblic/boolbnb/resources/js/search.js */"./resources/js/search.js");
 
 
 /***/ })

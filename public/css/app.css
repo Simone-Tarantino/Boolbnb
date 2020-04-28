@@ -40,6 +40,10 @@
   margin-left: 3em;
 }
 
+.hidden {
+  display: none;
+}
+
 .main_home {
   width: 100 .main_home;
   margin: 0 auto;

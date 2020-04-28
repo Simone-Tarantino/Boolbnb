@@ -3,7 +3,7 @@
 @section('main')
 <div class="container main_show">
     <div class="row">
-        <img class="col-sm-7 offset-sm-5 img_show" src="{{$house->img_path}}" alt="">
+        <img class="col-sm-7 offset-sm-5 img_show" src="{{asset('storage/' . $house->img)}}" alt="">
     </div>
     <h2>{{$house->address}}</h2>
     <ul class="list-inline">
@@ -43,6 +43,7 @@
         </div>
         @endsection
 
+{{-- FOOTER --}}
 @section('footer')
     <div class="footer">
         <div class="container footer_top">
@@ -100,6 +101,8 @@
     </div>
 @endsection
 
+
+{{-- SCRIPT --}}
 @section('scripts') 
     <script src="{{asset('js/map.js')}}"></script>
 @endsection

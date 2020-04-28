@@ -9,8 +9,9 @@
         <div class="row"> 
             @foreach ($houses as $house)
             @if (Auth::id()==$house->user_id)
-            <div class="card box">
-                <img src="{{$house->img_path}}" class="card-img-top img" alt="...">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card box">
+                <img src="{{asset('storage/' . $house->img)}}" class="card-img-top img" alt="...">
                 <div class="card-body">
                     <h4 class="card-text">APPARTAMENTO</h4>
                     <p class="card-text">{{$house->address}}</p>
@@ -19,6 +20,8 @@
                     @else
                     <p class="card-text">Non Pubblicato</p>
                     @endif
+                    <div class='coord-lat d-none' value="{{$house->latitude}}">{{$house->latitude}}</div>
+                    <div class='coord-lon d-none' value="{{$house->longitude}}">{{$house->longitude}}</div>
                 </div>
                 <div class="btn_zone">
                     <a class="btn btn-primary btn_look" href="{{route('admin.houses.show', $house)}}" role="button">Mostra</a>    
@@ -29,12 +32,15 @@
                     </form>
                 </div>
             </div>
+            </div>
             @endif
             @endforeach    
         </div>
     </div>
 </div>
 @endsection
+
+{{-- FOOTER --}}
 @section('footer')
     <div class="footer">
         <div class="container footer_top">

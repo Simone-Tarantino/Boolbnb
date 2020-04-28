@@ -49,7 +49,7 @@
         <li>{{$house->distance}}</li>
         <li class="bed">{{$house->bed}}</li>
         <li class="bathroom">{{$house->bathroom}}</li>
-        <li>{{$house->img_path}}</li>
+        <li>{{{asset('storage/' . $house->img)}}}</li>
         <li>{{$house->id}}</li>
         <li>{{$house->mq}}</li>
         <li class="room_number">{{$house->room_number}}</li>
@@ -80,6 +80,7 @@
     <script id="search-template" type="text/x-handlebars-template">
         <div class="entry-result">
             <ul class="house">
+                <li>{{asset('storage/' . $house->img)}}</li>
                 <li>@{{address}}</li>
                 <li class="bathroom">@{{bathroom}}</li>
                 <li class="bed">@{{bed}}</li>

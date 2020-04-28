@@ -49,6 +49,9 @@ $(document).ready(function () {
         latLonSearch(latitude, longitude, distance);
     });
 
+   
+    
+
 
     // funzione pulizia valore input lat long per nuova ricerca
 
@@ -135,14 +138,15 @@ $(document).ready(function () {
                             context.extras = results[i].extras[x].name + ' ';
                         }                
                     }
+                }    
+                
+                
                     var html = template(context);
                     $(".house-results").append(html);
-                }
             },
             error: function (request, state, errors) {}
         });
     }
 
-    
 
 });

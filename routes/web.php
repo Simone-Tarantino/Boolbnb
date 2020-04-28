@@ -35,6 +35,7 @@ Route::post('contact-us', ['as' => 'contactus.store', 'uses' => 'ContactUSContro
 // Rotta pagamenti
 
 
+
 // Rotte auth
 
 Auth::routes();
@@ -50,5 +51,6 @@ Route::name('admin.')
     Route::get('home', 'HomeController@index');
     Route::get('messages', 'MessageController@index')->name('messages');
     Route::get('/payment/process', 'PaymentController@process')->name('payment.process');
+    Route::get('/payment/make', 'PaymentController@make')->name('payment.make');
     });
 

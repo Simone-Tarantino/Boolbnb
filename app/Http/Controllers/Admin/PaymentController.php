@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Braintree\Transaction;
+use App\Sponsor;
 
 class PaymentController extends Controller
 {
@@ -23,5 +24,9 @@ class PaymentController extends Controller
         ]);
 
         return response()->json($status);
+    }
+
+    public function make() {
+        return view('admin.payments.payment');
     }
 }

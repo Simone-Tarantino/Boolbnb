@@ -22,12 +22,12 @@
         min="1" max="10" placeholder="Inserisci numero di letti"></li>
         <li><input type="number" id="bathroom" name="bathroom"
         min="1" max="5" placeholder="Inserisci numero di bagni"></li>
+        <li><input type="text" name="description" id=""></li>
         <li><input type="number" id="mq" name="mq" step="any" min="50" max="900" placeholder="Inserisci il n. di mq"></li>
         {{-- Input ricerca indirizzo API tomtom per ricavare lat/long --}}
         <li><input type="text" class="address-input" name="" placeholder="Cerca Indirizzo"></li>
         <button class="search" type="submit">Cerca</button>
         <div class="results">
-
         </div>
 
         <li><input id="address" type="text" name="address"  value="" readonly placeholder="Indirizzo"></li>

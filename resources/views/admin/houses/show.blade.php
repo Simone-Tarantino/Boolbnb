@@ -20,7 +20,7 @@
         @endif
     </ul>
     <h4>DESCRIZIONE</h4>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere iste minima ullam, iusto praesentium natus magnam distinctio fugit est eligendi provident, quis dolorum velit magni. Harum facere odio sit ipsa.</p>
+    <p>{{$house->description}}</p>
 
 
 </div>

@@ -7,12 +7,14 @@
             <li>Numero letti:{{$house->bed}}</li>
             <li>Numero bagni:{{$house->bathroom}}</li>
             <li>Metri Quadri Appartamento: {{$house->mq}}</li>
+            <li>Descrizione: {{$house->description}}</li>
             <li class="address">Indirizzo: {{$house->address}}</li>
             <li>Foto: {{$house->img_path}}</li>
             <li>Caricato il: {{$house->created_at}}</li>
             <li>Modificato il: {{$house->updated_at}}</li>
             <div class='coord-lat' value="{{$house->latitude}}">{{$house->latitude}}</div>
             <div class='coord-lon' value="{{$house->longitude}}">{{$house->longitude}}</div>
+            
         </ul>
         <ul>
         <li><h3>Servizi extra</h3></li>

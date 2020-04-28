@@ -16,6 +16,7 @@ class HouseController extends Controller
         'room_number' => 'required|numeric',
         'bed' => 'required|numeric',
         'bathroom' => 'required|numeric',
+        'description' => 'required|string',
         'mq' => 'required|numeric',
         'address' => 'required|string',
         'img_path' => 'image|nullable',
@@ -42,9 +43,7 @@ class HouseController extends Controller
     {
         $extras = Extra::all();
 
-        // $data = [
-        //     'extras' => $extras
-        // ];
+        
         return view('admin.houses.create', compact('extras'));
     }
 

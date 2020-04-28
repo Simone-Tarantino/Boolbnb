@@ -11,6 +11,7 @@ class House extends Model
         'room_number',
         'bed',
         'bathroom',
+        'description',
         'mq',
         'address',
         'img_path',

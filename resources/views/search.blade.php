@@ -28,8 +28,8 @@
         <input type="number" name="room_number" id="room_number" placeholder="Numero di stanze">
         <label for="checkbox">WiFi</label>
         <input type="checkbox"  class="checkbox-filter" name="extra" value="WiFi" id="">
-        <label for="checkbox">Posto Macchina</label>
-        <input type="checkbox" class="checkbox-filter" name="extra" value="PostoMacchina" id="">
+        <label for="checkbox">Parcheggio</label>
+        <input type="checkbox" class="checkbox-filter" name="extra" value="Parcheggio" id="">
         <label for="checkbox">Piscina</label>
         <input type="checkbox" class="checkbox-filter" name="extra" value="Piscina" id="">
         <label for="checkbox">Portineria</label>

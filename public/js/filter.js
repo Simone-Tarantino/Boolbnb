@@ -42480,13 +42480,12 @@ $(document).ready(function () {
       extras.push($(this).val());
     });
     var extraCheckString = extras.toString();
-    extraCheckString = extraCheckString.replace(',', ' ');
+    extraCheckString = extraCheckString.replace(',', '');
     $.each($('.house'), function () {
       var extrasHouseString = $(this).find('.extras').html();
       extrasHouseString = extrasHouseString.trim();
-      extrasHouseString = extrasHouseString.replace(/ /g, '');
       extrasHouseString = extrasHouseString.replace(/\n/g, " ");
-      console.log(extrasHouseString);
+      extrasHouseString = extrasHouseString.replace(/ /g, '');
       var result = extrasHouseString.includes(extraCheckString);
 
       if (result == false) {

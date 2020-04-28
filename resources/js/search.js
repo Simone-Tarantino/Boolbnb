@@ -118,7 +118,6 @@ $(document).ready(function () {
             },
             success: function (data) {
                 var results = JSON.parse(data);
-                console.log(results);
                 for (var i = 0; i < results.length; i++) {
                     var context = {
                         address: results[i].address,
@@ -133,7 +132,7 @@ $(document).ready(function () {
                         if (context.hasOwnProperty('extras'))
                             context.extras += results[i].extras[x].name + ' ';
                         else {
-                            context.extras = results[i].extras[x].name + ', ';
+                            context.extras = results[i].extras[x].name + ' ';
                         }                
                     }
                     var html = template(context);

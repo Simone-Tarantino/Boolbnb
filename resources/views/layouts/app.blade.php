@@ -1,4 +1,4 @@
-<!doctype html>
+{{-- <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -50,12 +50,15 @@
                                 <a class="nav-link" href="{{ route('admin.houses.create') }}">{{ __('Nuovo appartamento') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.houses.index') }}">{{ __('Appartamenti') }}</a>
+                                <a class="nav-link" href="{{ route('admin.houses.index') }}">{{ __('I tuoi Appartamenti') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.messages') }}">{{ __('I tuoi Messaggi') }}</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{-- Condizione ternaria login nome o email --}}
-                                    {{ (empty(Auth::user()->name)) ? (Auth::user()->email) : (Auth::user()->name)  }} <span class="caret"></span>
+                                    {{-- {{ (empty(Auth::user()->name)) ? (Auth::user()->email) : (Auth::user()->name)  }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -81,4 +84,4 @@
         
     </div>
 </body>
-</html>
+</html> --}}

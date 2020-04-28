@@ -35,10 +35,10 @@ class ContactUSController extends Controller
             ),
             function ($message) {
                 $message->from('from@example.com');
-                $message->to('questamailnonmiserveaniente@gmail.com', 'Admin')->subject('Cloudways Feedback');
+                $message->to('prova@prova.it', 'Admin')->subject('Hai un messaggio per il tuo appartamento!');
             }
         );
 
-        return back()->with('success', 'Thanks for contacting us!');
+        return back()->with('success', 'Il tuo messaggio è stato inviato correttamente!');
     }
 }

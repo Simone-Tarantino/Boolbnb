@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}
 @section('main')
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -21,16 +21,20 @@
             <li><input type="number" id="bathroom" name="bathroom"
             min="1" max="5" value="{{(!empty($house)) ?$house->bathroom : ''}}" placeholder="Inserisci numero di bagni"></li>
             <li><input type="number" id="mq" name="mq" step="any" min="50" max="900" value="{{(!empty($house)) ?$house->mq : ''}}" placeholder="Inserisci il n. di mq"></li>
+<<<<<<< HEAD
             <li><input type="text"  name="description" value="{{(!empty($house)) ?$house->description : ''}}" placeholder="Descrizione"></li>
             <li><input type="text" class="address-input" name="address" value="{{(!empty($house)) ?$house->address : ''}}" placeholder="Cerca l'indirizzo"></li>
+=======
+            <li><input type="text" class="address-input" name="address" placeholder="Cerca l'indirizzo"></li>
+>>>>>>> master
             <button class="search" type="submit">Cerca</button>
         <div class="results">
 
         </div>
 
-        <li><input id="address" type="text" class='indirizzo' name="address" id="address" value="" readonly placeholder="Indirizzo"></li>
-        <li><input id="address-lat" type="text"  name="latitude" id="" value="" readonly placeholder="latitudine"></li>
-        <li><input id="address-long" type="text" name="longitude" id="" value="" readonly placeholder="longitudine"></li>
+        <li><input id="address-up" type="text" class='indirizzo' name="address" id="address" value="{{(!empty($house)) ?$house->address : ''}}" readonly placeholder="Indirizzo"></li>
+        <li><input id="address-lat-up" type="text"  name="latitude" id="" value="{{(!empty($house)) ? $house->latitude : ''}}" readonly placeholder="latitudine"></li>
+        <li><input id="address-long-up" type="text" name="longitude" id="" value="{{(!empty($house)) ? $house->longitude : ''}}" readonly placeholder="longitudine"></li>
             <li><input type="file" name="img_path" accept="image/*" value="{{(!empty($house)) ?$house->img_path : ''}}">
             <li><select name="status" value="{{(!empty($house)) ?$house->status : ''}}">
                 <option value="0">Non pubblicato</option>

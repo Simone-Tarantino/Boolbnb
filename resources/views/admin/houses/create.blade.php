@@ -1,7 +1,7 @@
 {{-- @dd($extras); --}}
 
 @extends('layouts.layout')
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}
 
 @section('main')
 @if ($errors->any())

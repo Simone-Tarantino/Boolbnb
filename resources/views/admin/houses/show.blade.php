@@ -1,11 +1,11 @@
 @extends('layouts.layout')
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}
 @section('main')
 <div class="container main_show">
     <div class="row">
         <img class="col-sm-7 offset-sm-5 img_show" src="{{$house->img_path}}" alt="">
     </div>
-    <h2>{{$house->address}}</h2>
+    <h2 class="address-map">{{$house->address}}</h2>
     <ul class="list-inline">
         <li class="list-inline-item">{{$house->bed}} letti</li>
         <li class="list-inline-item">{{$house->room_number}} camere</li>

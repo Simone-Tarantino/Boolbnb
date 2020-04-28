@@ -42460,7 +42460,7 @@ $(document).ready(function () {
   // Definisco una variabile con le cordinate di longitudine e latitudine dell'appartamento
   var lat = $("div.coord-lat").html();
   var lon = $("div.coord-lon").html();
-  var address = $("li.address").html();
+  var address = $(".address-map").html();
   var cordinateAppartamento = {
     'lat': lat,
     'lon': lon
@@ -42488,6 +42488,7 @@ $(document).ready(function () {
     offset: popupOffsets
   }).setHTML(address);
   marker.setPopup(popup).togglePopup();
+  console.log(address);
 });
 
 /***/ }),

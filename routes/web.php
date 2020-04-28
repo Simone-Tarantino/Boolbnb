@@ -48,3 +48,8 @@ Route::name('admin.')
         Route::get('messages', 'MessageController@index')->name('messages');
     });
 
+
+//Rotta pagamento
+
+Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
+

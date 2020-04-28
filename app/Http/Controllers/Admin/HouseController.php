@@ -5,6 +5,7 @@ use App\House;
 use App\Extra;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
@@ -89,8 +90,8 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
+        $data = House::all();
         $extras = Extra::all();
-        // dd(($house->extras->contains($extra->id)) );
         if (empty($house) || $house->user_id != Auth::user()->id) {
             abort('404');
         }
@@ -129,11 +130,16 @@ class HouseController extends Controller
      */
     public function update(Request $request, House $house)
     {
-        
+        $house = House::all();
         $data = $request->all();
         $request->validate($this->validationHouse);
         $house->update($data);
         $updated = $house->update($data);
+        $path = Storage::disk('public')->put('houses', $house->img_path);
+
+       
+        
+        
         if (!$updated) {
             return redirect()->back();
         }
@@ -141,7 +147,7 @@ class HouseController extends Controller
         if(!empty($extras)) {
             $house->extras()->sync($extras);
         }
-
+        
         return redirect()->route('admin.houses.show', $house);
     }
 

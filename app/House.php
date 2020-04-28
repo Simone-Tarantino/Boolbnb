@@ -29,8 +29,12 @@ class House extends Model
     {
         return $this->belongsToMany('App\Extra');
     }
- public function messages()
+    public function messages()
     {
         return $this->hasMany('App\Message');
+    }
+    public function sponsors()
+    {
+        return $this->belongsToMany('App\Sponsor')->withTimestamps();
     }
 }

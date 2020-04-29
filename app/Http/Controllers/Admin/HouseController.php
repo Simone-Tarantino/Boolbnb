@@ -158,7 +158,10 @@ class HouseController extends Controller
     public function destroy(House $house)
     {
 
+<<<<<<< HEAD
         
+=======
+>>>>>>> master
         if (empty($house) || $house->user_id != Auth::id()) {
             abort('404');
         }

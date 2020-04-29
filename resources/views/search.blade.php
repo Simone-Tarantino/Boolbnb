@@ -47,6 +47,7 @@
         <ul class='house'>
             <li>{{$house->address}}</li>
             <li>{{$house->distance}}</li>
+            <li>{{$house->description}}</li>
             <li class="bed">{{$house->bed}}</li>
             <li class="bathroom">{{$house->bathroom}}</li>
             <li>{{$house->img_path}}</li>

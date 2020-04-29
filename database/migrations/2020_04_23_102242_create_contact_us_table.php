@@ -20,7 +20,7 @@ class CreateContactUsTable extends Migration
 
             $table->foreign('house_id')
                 ->references('id')
-                ->on('houses');
+                ->on('houses')->onDelete('cascade')->onUpdate('cascade');
             $table->string('email');
             $table->text('message');
             $table->timestamps();

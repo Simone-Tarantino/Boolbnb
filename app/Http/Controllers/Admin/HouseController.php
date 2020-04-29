@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 use App\House;
 use App\Extra;
+use App\ContactUS;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-
 use Illuminate\Http\Request;
 
 class HouseController extends Controller
@@ -89,8 +89,8 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
+        $data = House::all();
         $extras = Extra::all();
-        // dd(($house->extras->contains($extra->id)) );
         if (empty($house) || $house->user_id != Auth::user()->id) {
             abort('404');
         }
@@ -134,6 +134,11 @@ class HouseController extends Controller
         $request->validate($this->validationHouse);
         $house->update($data);
         $updated = $house->update($data);
+        
+
+       
+        
+        
         if (!$updated) {
             return redirect()->back();
         }
@@ -141,7 +146,7 @@ class HouseController extends Controller
         if(!empty($extras)) {
             $house->extras()->sync($extras);
         }
-
+        
         return redirect()->route('admin.houses.show', $house);
     }
 
@@ -153,10 +158,11 @@ class HouseController extends Controller
      */
     public function destroy(House $house)
     {
+
         if (empty($house) || $house->user_id != Auth::id()) {
             abort('404');
         }
-
+        
         $house->extras()->detach();
         $house->delete();
         return redirect()->route('admin.houses.index');

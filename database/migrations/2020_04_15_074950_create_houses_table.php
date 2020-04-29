@@ -25,7 +25,7 @@ class CreateHousesTable extends Migration
             $table->integer('bathroom');
             $table->double('mq', 5, 2);
             $table->string('address', 255);
-            $table->string('img_path');
+            $table->text('img_path');
             $table->boolean('status');
             $table->timestamps();
         });

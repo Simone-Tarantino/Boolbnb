@@ -16,11 +16,11 @@ class CreateContactUsTable extends Migration
     {
         Schema::create('contactus', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('house_id');
+            $table->unsignedBigInteger('house_id')->onDelete('cascade')->onUpdate('cascade');
 
             $table->foreign('house_id')
                 ->references('id')
-                ->on('houses');
+                ->on('houses')->onDelete('cascade')->onUpdate('cascade');
             $table->string('email');
             $table->text('message');
             $table->timestamps();

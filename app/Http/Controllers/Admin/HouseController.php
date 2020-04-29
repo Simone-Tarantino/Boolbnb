@@ -159,11 +159,10 @@ class HouseController extends Controller
     public function destroy(House $house)
     {
 
-        $mex = ContactUS::all();
         if (empty($house) || $house->user_id != Auth::id()) {
             abort('404');
         }
-        $house->contactus()->delete();
+        
         $house->extras()->detach();
         $house->delete();
         return redirect()->route('admin.houses.index');

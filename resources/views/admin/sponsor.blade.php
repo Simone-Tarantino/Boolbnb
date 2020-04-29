@@ -9,11 +9,11 @@
         @method("POST")
         <select name="payment" id="">
 
-            <option  value="2">Standard 2.99</option>
+            <option  value="1">Standard 2.99</option>
 
-            <option  value="3">Plus 5.99</option>
+            <option  value="2">Plus 5.99</option>
 
-            <option  value="4">Premium 9.99</option>
+            <option  value="3">Premium 9.99</option>
         </select>
 
         <input type="hidden" name="id" value = "{{$house->id}}">

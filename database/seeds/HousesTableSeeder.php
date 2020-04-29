@@ -26,6 +26,7 @@ class HousesTableSeeder extends Seeder
             $newHouse->longitude = $faker->longitude($min = -180, $max = 180);
             $newHouse->img_path = 'https://picsum.photos/200';
             $newHouse->status = rand(0, 1);
+            $newHouse->description = 'Descrizione';
             $newHouse->save();                             
         }
     }

@@ -16,8 +16,11 @@ class CreateHouseSponsorTable extends Migration
         Schema::create('house_sponsor', function (Blueprint $table) {
             
 
-            $table->unsignedBigInteger('sponsor_id'); $table->foreign('sponsor_id')->references('id')->on('sponsors'); 
-            $table->unsignedBigInteger('house_id'); $table->foreign('house_id')->references('id')->on('houses');
+            $table->unsignedBigInteger('sponsor_id'); 
+            $table->foreign('sponsor_id')->references('id')->on('sponsors'); 
+            $table->unsignedBigInteger('house_id'); 
+            $table->foreign('house_id')->references('id')->on('houses');
+            $table->timestamps();
         });
     }
 

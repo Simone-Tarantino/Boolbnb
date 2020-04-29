@@ -33,6 +33,11 @@
             @endif
         </ul>
         <ul>
+            @if($house->user_id == Auth::user()->id)
+            <a href="{{route('admin.sponsor',$house->id)}}">Sponsorizza l'appartamento</a>
+            @endif
+        </ul>
+        <ul>
         <li><h3>Servizi extra</h3></li>
         @foreach ($house->extras as $extra)
         <li>{{$extra->name}}</li>

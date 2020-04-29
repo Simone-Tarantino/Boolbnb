@@ -161,4 +161,24 @@ class HouseController extends Controller
         $house->delete();
         return redirect()->route('admin.houses.index');
     }
+
+
+    ///Prova Pagamento
+    public function showSponsor($id){
+        $house = House::where("id",$id)->first();
+
+        return view("admin.sponsor",compact("house"));
+    }
+
+    public function pay(Request $request){
+        $house = house::where("id", $request->id)->first();
+        $house->sponsors()->attach($request->payment);
+        return redirect()->route("admin.houses.index");
+    }
+
+
+
+
+
+
 }

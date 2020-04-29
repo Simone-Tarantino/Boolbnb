@@ -50,7 +50,10 @@ Route::name('admin.')
     Route::resource('houses', 'HouseController');
     Route::get('home', 'HomeController@index');
     Route::get('messages', 'MessageController@index')->name('messages');
-    Route::get('/payment/process', 'PaymentController@process')->name('payment.process');
-    Route::get('/payment/make', 'PaymentController@make')->name('payment.make');
+    Route::get("sponsor/houses/{house}", "HouseController@showSponsor")->name("sponsor");
+    Route::post("sponsor/houses/pay", "HouseController@pay")->name("pay");
     });
+
+Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
+
 

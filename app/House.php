@@ -35,6 +35,6 @@ class House extends Model
     }
     public function sponsors()
     {
-        return $this->belongsToMany('App\Sponsor')->withTimestamps();
+        return $this->belongsToMany('App\Sponsor');
     }
 }

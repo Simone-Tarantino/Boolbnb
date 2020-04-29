@@ -17,9 +17,9 @@ class CreateHouseSponsorTable extends Migration
             
 
             $table->unsignedBigInteger('sponsor_id'); 
-            $table->foreign('sponsor_id')->references('id')->on('sponsors'); 
+            $table->foreign('sponsor_id')->references('id')->on('sponsors')->onDelete('cascade')->onUpdate('cascade'); 
             $table->unsignedBigInteger('house_id'); 
-            $table->foreign('house_id')->references('id')->on('houses');
+            $table->foreign('house_id')->references('id')->on('houses')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

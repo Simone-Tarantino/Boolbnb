@@ -10,7 +10,7 @@
             @foreach ($houses as $house)
             @if (Auth::id()==$house->user_id)
             <div class="card box">
-                <img src="{{('storage/ '. $house->img_path)}}" class="card-img-top img" alt="...">
+                <img src="{{asset('storage/'.$house->img_path)}}" class="card-img-top img" alt="...">
                 <div class="card-body">
                     <h4 class="card-text">APPARTAMENTO</h4>
                     <p class="card-text">{{$house->address}}</p>

@@ -21,12 +21,8 @@
             <li><input type="number" id="bathroom" name="bathroom"
             min="1" max="5" value="{{(!empty($house)) ?$house->bathroom : ''}}" placeholder="Inserisci numero di bagni"></li>
             <li><input type="number" id="mq" name="mq" step="any" min="50" max="900" value="{{(!empty($house)) ?$house->mq : ''}}" placeholder="Inserisci il n. di mq"></li>
-<<<<<<< HEAD
             <li><input type="text"  name="description" value="{{(!empty($house)) ?$house->description : ''}}" placeholder="Descrizione"></li>
             <li><input type="text" class="address-input" name="address" value="{{(!empty($house)) ?$house->address : ''}}" placeholder="Cerca l'indirizzo"></li>
-=======
-            <li><input type="text" class="address-input" name="address" placeholder="Cerca l'indirizzo"></li>
->>>>>>> master
             <button class="search" type="submit">Cerca</button>
         <div class="results">
 

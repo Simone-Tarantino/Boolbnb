@@ -22,6 +22,7 @@ class HousesTableSeeder extends Seeder
             $newHouse->bathroom = $faker->numberBetween($min = 1, $max = 5);
             $newHouse->mq = $faker->randomFloat($nbMaxDecimals = 2, $min = 50, $max = 900);
             $newHouse->address = $faker->address();
+            $newHouse->description = $faker->realText($maxNbChars = 200, $indexSize = 2);
             $newHouse->latitude = $faker->latitude($min = -90, $max = 90);
             $newHouse->longitude = $faker->longitude($min = -180, $max = 180);
             $newHouse->img_path = 'https://picsum.photos/200';

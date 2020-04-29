@@ -32,6 +32,10 @@ Route::get('show/{house}', 'HouseController@show')->name('house.show');
 Route::get('contact-us/{house}', 'ContactUSController@contactUS')->name('contactus');
 Route::post('contact-us', ['as' => 'contactus.store', 'uses' => 'ContactUSController@contactUSPost']);
 
+// Rotta pagamenti
+
+
+
 // Rotte auth
 
 Auth::routes();
@@ -39,12 +43,17 @@ Auth::routes();
 // Rotte crud admin
 
 Route::name('admin.')
-    ->prefix('admin')
-    ->namespace('Admin')
-    ->middleware('auth')
-    ->group(function () {
-        Route::resource('houses', 'HouseController');
-        Route::get('home', 'HomeController@index');
-        Route::get('messages', 'MessageController@index')->name('messages');
+->prefix('admin')
+->namespace('Admin')
+->middleware('auth')
+->group(function () {
+    Route::resource('houses', 'HouseController');
+    Route::get('home', 'HomeController@index');
+    Route::get('messages', 'MessageController@index')->name('messages');
+    Route::get("sponsor/houses/{house}", "HouseController@showSponsor")->name("sponsor");
+    Route::post("sponsor/houses/pay", "HouseController@pay")->name("pay");
     });
+
+Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
+
 

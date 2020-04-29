@@ -4,15 +4,58 @@ namespace App\Http\Controllers;
 
 use App\House;
 use App\Extra;
+use App\Sponsor;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class HouseController extends Controller
 {
+    // public function index()
+    // {
+    //     $houses = House::all();
+    //     return view('welcome', compact('houses'));
+    // }
+
     public function index()
     {
-        $houses = House::all();
-        return view('search', compact('houses'));
+
+          $houses = new House;
+         
+          $houses = $houses->where('status', '1');
+          $houses = $houses->whereHas('sponsors');
+          $houses = $houses->get();
+       
+  
+        //   foreach ($houses as $house) {
+            
+        //         foreach ($house->sponsors as $sponsor) {
+                
+                    
+        //             $expiring_date = $sponsors->pivot->created_at->addHours($sponsors->duration);
+        //             $now = Carbon::now();
+
+        //             $active = false;
+        //             if($now < $expiring_date) {
+        //                 $active = true;
+        //                 // @dd($active);
+        //             }
+        //         }
+        //         if($active == false) {
+        //             $houses->forget($house->id);
+        //         }
+        //     }
+
+        //     $housePromo = $houses;
+           
+
+
+
+        // $houses = House::take(4)->whereDoesntHave('sponsors')->get();
+
+        return view('welcome');
+        // return view('/', compact('houses', 'housePromo'));
     }
 
     public function show(House $house)

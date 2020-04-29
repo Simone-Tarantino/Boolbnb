@@ -15,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 // Rotta homepage
 
-Route::get('/', function () {
-    return view('welcome');
- });
+// Route::get('/', function () {
+//  return view('welcome');
+//  });
+Route::get('/', 'HouseController@index')->name('house.index');
 
 // Rotta pagina search
 
@@ -52,7 +53,7 @@ Route::name('admin.')
     Route::get('messages', 'MessageController@index')->name('messages');
     Route::get("sponsor/houses/{house}", "HouseController@showSponsor")->name("sponsor");
     Route::post("sponsor/houses/pay", "HouseController@pay")->name("pay");
-    });
+});
 
 Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
 

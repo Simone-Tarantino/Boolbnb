@@ -3,7 +3,7 @@
 @section('main')
 <div class="container main_show">
     <div class="row">
-        <img class="col-sm-7 offset-sm-5 img_show" src="{{asset('storage/' . $house->img_path)}}" alt="">
+        <img class="col-sm-7 offset-sm-5 img_show" src="{{asset('storage/'.$house->img_path)}}" alt="">
     </div>
     <h2 class="address-map">{{$house->address}}</h2>
     <ul class="list-inline">

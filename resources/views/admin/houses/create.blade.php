@@ -37,7 +37,7 @@
 
         {{-- /// --}}
 
-        <li><input type="file" name="img_path" accept="image/*">
+        <li><input type="file" name="img_path" accept="image/*"></li>
         <li><select name="status">
             <option value="0">Non pubblicato</option>
             <option value="1">Pubblicato</option>
@@ -70,7 +70,7 @@
 
 @endsection
 
- @section('scripts')
+@section('scripts')
             
             <script src="{{asset('js/app.js')}}"></script>
-        @endsection
+@endsection

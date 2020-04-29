@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin;
 use App\House;
 use App\Extra;
+use App\ContactUS;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Support\Facades\Storage;
-
 use Illuminate\Http\Request;
 
 class HouseController extends Controller
@@ -130,12 +129,12 @@ class HouseController extends Controller
      */
     public function update(Request $request, House $house)
     {
-        $house = House::all();
+        
         $data = $request->all();
         $request->validate($this->validationHouse);
         $house->update($data);
         $updated = $house->update($data);
-        $path = Storage::disk('public')->put('houses', $house->img_path);
+        
 
        
         
@@ -159,10 +158,12 @@ class HouseController extends Controller
      */
     public function destroy(House $house)
     {
+
+        $mex = ContactUS::all();
         if (empty($house) || $house->user_id != Auth::id()) {
             abort('404');
         }
-
+        $house->contactus()->delete();
         $house->extras()->detach();
         $house->delete();
         return redirect()->route('admin.houses.index');

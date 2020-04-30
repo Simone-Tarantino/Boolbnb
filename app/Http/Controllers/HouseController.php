@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Storage;
 
 class HouseController extends Controller
 {
+    // METODO NOSTRO :(
+
     // public function index()
     // {
     //     $houses = House::all();

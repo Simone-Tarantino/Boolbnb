@@ -180,7 +180,8 @@ class HouseController extends Controller
     }
 
     public function pay(Request $request){
-        $house = house::where("id", $request->id)->first();
+        $house = House::where("id", $request->id)->first();
+        $house->sponsors()->detach();
         $house->sponsors()->attach($request->payment);
         return redirect()->route("admin.houses.index");
     }

@@ -3,6 +3,7 @@
 {{-- @extends('layouts.app') --}}
 
 @section('main')
+{{-- @dd($housesPromo); --}}
     @if($errors->any())
             <div class="alert alert-danger">
             <h4>{{$errors->first()}}</h4>
@@ -18,7 +19,30 @@
         </div>
  
     </div>
-    
+    </div>
+    <div class="container promoted_houses mt-5">
+        <h3>Appartamenti in evidenza</h3>
+        @foreach ($sponsoredHouses as $promo)
+    <img src="{{asset('storage/'.$promo->img_path)}}" alt="foto appartamento">
+            <ul>
+                
+                <li>{{$promo->address}}</li>   
+                <li>{{$promo->description}}</li>   
+                <li>{{$promo->bed}}</li>   
+                <li>{{$promo->room_number}}</li>   
+                <li>{{$promo->bathroom}}</li>   
+                <li>{{$promo->mq}}</li>   
+                <li><h5>Extra</h5>
+                    <ul>
+                        @foreach ($promo->extras as $extra)</li>  
+                      
+                        <li>{{$extra->name}}</li>
+                        @endforeach
+                    </ul>
+            <li><p class="card-text">PROMOZIONE FINO AL:{{$promo->sponsors[0]->pivot->created_at->addHour($promo->sponsors[0]->duration)}}</p></li>
+            </ul>
+        @endforeach
+    </div>
     <div class="search_box">
         <input id="address" type="text" class="address-input" name="" placeholder="Cerca Indirizzo">
         {{-- <button class="search" type="submit">Cerca</button> --}}
@@ -52,7 +76,7 @@
             </div>
         </script>
 @endsection
+
 @section('scripts')
-            
-            <script src="{{asset('js/app.js')}}"></script>
-        @endsection
+<script src="{{asset('js/app.js')}}"></script>
+@endsection

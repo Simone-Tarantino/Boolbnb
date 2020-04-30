@@ -50,7 +50,7 @@ class ApiController extends Controller
             $houseLat = $house->latitude;
             $houseLon = $house->longitude;
             $houseExtra = $house->extras;
-
+            
             $result = distanceResults($houseLat, $houseLon, $dataLat, $dataLon, 'k');
             if ($result <= $dataDistance) {
                 $filterHouse[] = $house;

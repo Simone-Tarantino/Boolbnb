@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Storage;
 
 class HouseController extends Controller
 {
+    // METODO NOSTRO :(
+
     // public function index()
     // {
     //     $houses = House::all();
@@ -20,42 +22,22 @@ class HouseController extends Controller
 
     public function index()
     {
+        $houses = House::all();
+        $sponsoredHouses = [];
 
-          $houses = new House;
-         
-          $houses = $houses->where('status', '1');
-          $houses = $houses->whereHas('sponsors');
-          $houses = $houses->get();
-       
-  
-        //   foreach ($houses as $house) {
-            
-        //         foreach ($house->sponsors as $sponsor) {
+        foreach ($houses as $house) {
+            foreach ($house->sponsors as $sponsor) {
                 
-                    
-        //             $expiring_date = $sponsors->pivot->created_at->addHours($sponsors->duration);
-        //             $now = Carbon::now();
+                $now = Carbon::now();
 
-        //             $active = false;
-        //             if($now < $expiring_date) {
-        //                 $active = true;
-        //                 // @dd($active);
-        //             }
-        //         }
-        //         if($active == false) {
-        //             $houses->forget($house->id);
-        //         }
-        //     }
-
-        //     $housePromo = $houses;
-           
-
-
-
-        // $houses = House::take(4)->whereDoesntHave('sponsors')->get();
-
-        return view('welcome');
-        // return view('/', compact('houses', 'housePromo'));
+                $expiring_date = $sponsor->pivot->created_at->addHours($sponsor->duration);
+                
+                if ($now < $expiring_date && !in_array($house, $sponsoredHouses)) {
+                    $sponsoredHouses[] = $house;       
+                }
+            }
+        }
+        return view('welcome', compact('sponsoredHouses'));
     }
 
     public function show(House $house)

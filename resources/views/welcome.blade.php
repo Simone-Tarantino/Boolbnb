@@ -20,32 +20,8 @@
  
     </div>
     </div>
-    <div class="container promoted_houses mt-5">
-        <h3>Appartamenti in evidenza</h3>
-        @foreach ($sponsoredHouses as $promo)
-    <img src="{{asset('storage/'.$promo->img_path)}}" alt="foto appartamento">
-            <ul>
-                
-                <li>{{$promo->address}}</li>   
-                <li>{{$promo->description}}</li>   
-                <li>{{$promo->bed}}</li>   
-                <li>{{$promo->room_number}}</li>   
-                <li>{{$promo->bathroom}}</li>   
-                <li>{{$promo->mq}}</li>   
-                <li><h5>Extra</h5>
-                    <ul>
-                        @foreach ($promo->extras as $extra)</li>  
-                      
-                        <li>{{$extra->name}}</li>
-                        @endforeach
-                    </ul>
-            <li><p class="card-text">PROMOZIONE FINO AL:{{$promo->sponsors[0]->pivot->created_at->addHour($promo->sponsors[0]->duration)}}</p></li>
-            </ul>
-        @endforeach
-    </div>
     <div class="search_box">
         <input id="address" type="text" class="address-input" name="" placeholder="Cerca Indirizzo">
-        {{-- <button class="search" type="submit">Cerca</button> --}}
         <div class="results">
             
         </div>
@@ -59,22 +35,45 @@
         </form>
         
     </div>
-
-
-
+    
+    
+    
 </div>
 
-        <script id="entry-template" type="text/x-handlebars-template">
-            <div class="entry-result">
-                <div class="indirizzo">
-                    <p>@{{address}}</p>
-                    <ul class="coord">
-                        <input class="lat d-none" type="text" value="@{{latitude}}" name="" id="" readonly>
-                        <input class="long d-none" type="text" value="@{{longitude}}" name="" id="" readonly>
-                    </ul>
-                </div>
-            </div>
-        </script>
+<script id="entry-template" type="text/x-handlebars-template">
+    <div class="entry-result">
+        <div class="indirizzo">
+            <p>@{{address}}</p>
+            <ul class="coord">
+                <input class="lat d-none" type="text" value="@{{latitude}}" name="" id="" readonly>
+                <input class="long d-none" type="text" value="@{{longitude}}" name="" id="" readonly>
+            </ul>
+        </div>
+    </div>
+</script>
+<div class="container promoted_houses mt-5">
+    <h3>Appartamenti in evidenza</h3>
+    @foreach ($sponsoredHouses as $promo)
+<img src="{{asset('storage/'.$promo->img_path)}}" alt="foto appartamento">
+        <ul>
+            
+            <li>{{$promo->address}}</li>   
+            <li>{{$promo->description}}</li>   
+            <li>{{$promo->bed}}</li>   
+            <li>{{$promo->room_number}}</li>   
+            <li>{{$promo->bathroom}}</li>   
+            <li>{{$promo->mq}}</li>   
+            <li><h5>Extra</h5>
+                <ul>
+                    @foreach ($promo->extras as $extra)</li>  
+                  
+                    <li>{{$extra->name}}</li>
+                    @endforeach
+                </ul>
+        <li><p class="card-text">PROMOZIONE FINO AL:{{$promo->sponsors[0]->pivot->created_at->addHour($promo->sponsors[0]->duration)}}</p></li>
+        </ul>
+    @endforeach
+</div>
 @endsection
 
 @section('scripts')

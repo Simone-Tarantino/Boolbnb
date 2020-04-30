@@ -42,6 +42,28 @@
 
     {{-- risultati dalla home da cancellare quando si fa chiamata api --}}
 
+    <div class="house-results-promo">
+        @foreach ($sponsoredHouses as $housePromo)
+        <ul class='house-promo'>
+            <li>{{$housePromo->address}}</li>
+            <li>{{$housePromo->distance}}</li>
+            <li>{{$housePromo->description}}</li>
+            <li class="bed-promo">{{$housePromo->bed}}</li>
+            <li class="bathroom-promo">{{$housePromo->bathroom}}</li>
+            <li>{{$housePromo->img_path}}</li>
+            <li>{{$housePromo->id}}</li>
+            <li>{{$housePromo->mq}}</li>
+            <li class="room_number-promo">{{$housePromo->room_number}}</li>
+            <div class="extras-promo">
+                @foreach ($housePromo->extras as $extra)
+                    {{$extra->name}}
+                @endforeach
+            </div>
+            <li><a href="{{route('house.show', $housePromo->id)}}">Mostra appartamento</a></li>
+        </ul>
+        @endforeach
+    </div>
+
     <div class="house-results">
         @foreach ($houses as $house)
         <ul class='house'>

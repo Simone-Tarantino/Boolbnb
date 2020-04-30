@@ -22,7 +22,7 @@ class HouseController extends Controller
 
     public function index()
     {
-        $houses = House::all();
+        $houses = House::where('status', 1)->get();
         $sponsoredHouses = [];
 
         foreach ($houses as $house) {
@@ -79,6 +79,20 @@ class HouseController extends Controller
 
         $houses = House::where('status', 1)->get();
         $filterHouse = [];
+        $sponsoredHouses = [];
+
+        foreach ($houses as $house) {
+            foreach ($house->sponsors as $sponsor) {
+
+                $now = Carbon::now();
+
+                $expiring_date = $sponsor->pivot->created_at->addHours($sponsor->duration);
+
+                if ($now < $expiring_date && !in_array($house, $sponsoredHouses)) {
+                    $sponsoredHouses[] = $house;
+                }
+            }
+        }
         
         $data = $request->all();
         $dataLat = floatval($data['latitude']);
@@ -99,6 +113,11 @@ class HouseController extends Controller
         } 
 
         $houses = $filterHouse;
-        return view('search', compact('houses'));
+        $data = [
+            'houses' => $houses,
+            'sponsoredHouses' => $sponsoredHouses
+        ];
+        
+        return view('search', $data);
     }
 }

@@ -67,8 +67,8 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
-    // 'timezone' => 'Europe/Rome',
+    // 'timezone' => 'UTC',
+    'timezone' => 'Europe/Rome',
 
     /*
     |--------------------------------------------------------------------------

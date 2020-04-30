@@ -14,10 +14,6 @@
         <div class="title">
             <h1>Benvenuto Scegli <br> Il Tuo Prossimo <br> Soggiorno</h1>
         </div>
-        <div class="img">
-            <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
-        </div>
- 
     </div>
     </div>
     <div class="search_box">

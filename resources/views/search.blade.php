@@ -50,7 +50,7 @@
             <li>{{$housePromo->description}}</li>
             <li class="bed-promo">{{$housePromo->bed}}</li>
             <li class="bathroom-promo">{{$housePromo->bathroom}}</li>
-            <li>{{$housePromo->img_path}}</li>
+            <li><img src="{{asset('storage/'.$housePromo->img_path)}}" alt=""></li>
             <li>{{$housePromo->id}}</li>
             <li>{{$housePromo->mq}}</li>
             <li class="room_number-promo">{{$housePromo->room_number}}</li>

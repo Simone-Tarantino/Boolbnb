@@ -24,7 +24,6 @@ class HouseController extends Controller
     {
         $houses = House::where('status', 1)->get();
         $sponsoredHouses = [];
-
         foreach ($houses as $house) {
             foreach ($house->sponsors as $sponsor) {
                 
@@ -79,15 +78,11 @@ class HouseController extends Controller
 
         $houses = House::where('status', 1)->get();
         $filterHouse = [];
-        $sponsoredHouses = [];
-
+         $sponsoredHouses = [];
         foreach ($houses as $house) {
             foreach ($house->sponsors as $sponsor) {
-
                 $now = Carbon::now();
-
                 $expiring_date = $sponsor->pivot->created_at->addHours($sponsor->duration);
-
                 if ($now < $expiring_date && !in_array($house, $sponsoredHouses)) {
                     $sponsoredHouses[] = $house;
                 }
@@ -117,7 +112,6 @@ class HouseController extends Controller
             'houses' => $houses,
             'sponsoredHouses' => $sponsoredHouses
         ];
-        
         return view('search', $data);
     }
 }

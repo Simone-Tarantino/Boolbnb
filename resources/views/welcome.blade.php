@@ -75,6 +75,21 @@
                 </div>
             </div>
         </script>
+        <div class="sponsored_houses">
+            @foreach ($sponsoredHouses as $houseSponsored)
+                <div class="card box">
+                        <img src="{{asset('storage/'.$houseSponsored->img_path)}}" class="card-img-top img" alt="...">
+                        <div class="card-body">
+                            <h4 class="card-text">APPARTAMENTO SPONSORIZZATO</h4>
+                            <p class="card-text">{{$houseSponsored->address}}</p>
+                            <p class="card-text">{{$houseSponsored->sponsors[0]->pivot->created_at->addHour($houseSponsored->sponsors[0]->duration)}}</p>
+                        </div>
+                        <div class="btn_zone">
+                            <a class="btn btn-primary btn_look" href="{{route('admin.houses.show', $houseSponsored)}}" role="button">Mostra</a>    
+                        </div>
+                    </div>
+            @endforeach
+        </div>
 @endsection
 
 @section('scripts')

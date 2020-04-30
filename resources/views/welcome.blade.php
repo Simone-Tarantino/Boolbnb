@@ -92,6 +92,10 @@
         </div>
 @endsection
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 @section('scripts')
 <script src="{{asset('js/app.js')}}"></script>
 @endsection

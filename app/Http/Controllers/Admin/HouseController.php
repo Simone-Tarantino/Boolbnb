@@ -145,11 +145,12 @@ class HouseController extends Controller
     {
         
         $data = $request->all();
+        
+        $data['img_path'] = Storage::disk('public')->put('images', $data['img_path']);
+        
         $request->validate($this->validationHouse);
         $house->update($data);
         $updated = $house->update($data);
-       
-        
         
         if (!$updated) {
             return redirect()->back();

@@ -183,6 +183,21 @@
   color: white;
 }
 
+.searchHouses .primary {
+  color: #e41b5e;
+}
+
+.searchHouses .btn.btn-send {
+  padding: 10px 20px;
+  color: white;
+  font-weight: bold;
+  background-color: #fe5b60;
+}
+
+.searchHouses .btn.btn-send:hover {
+  color: white;
+}
+
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

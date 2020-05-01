@@ -12,16 +12,14 @@
 
 {!! Form::open(['route'=>'contactus.store']) !!}
 
-{{-- <input type="text" name="house_id" id="" value="{{$house->address}}"> --}}
+<input class="d-none" type="text" name="house_id" id="" value="{{$house->id}}">
 <div class="form-group">
   {!! Form::label('Appartamento:') !!}
   <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$house->address}}">
 </div>
 <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-{{-- {!! Form::label('La tua Email:') !!}
-{!! Form::text('email', old('email'), ['class'=>'form-control', 'placeholder'=>'Inserisci la tua Email'] ) !!} --}}
 <label for="userEmail">La tua Email:</label>
-<input type="email" class="form-control" id="userEmail" placeholder="Inserisci la tua Email" value="{{((Auth::check())) ? (Auth::user()->email) : ''}}">
+<input name="email" type="email" class="form-control" id="userEmail" placeholder="Inserisci la tua Email" value="{{((Auth::check())) ? (Auth::user()->email) : ''}}">
 <span class="text-danger">{{ $errors->first('email') }}</span>
 </div>
 

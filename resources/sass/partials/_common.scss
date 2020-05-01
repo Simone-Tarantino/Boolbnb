@@ -29,3 +29,17 @@
 .footer_bottom_right i{
   margin-left: 3em;
 }
+
+
+
+// MEDIA-QUERY
+
+@media screen and (max-width:766px){
+  .footer_bottom_right{
+  justify-content: center;
+}
+  .footer_bottom_right i{
+  margin-left: 0;
+  margin: 1.5rem
+}
+}

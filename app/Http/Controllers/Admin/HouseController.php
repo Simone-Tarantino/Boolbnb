@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\House;
 use App\Extra;
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -30,7 +31,21 @@ class HouseController extends Controller
     public function index()
     {
         $houses = House::all();
-        return view('admin.houses.index', compact('houses'));
+        $housesPromo = House::where('status', 1)->get();
+        $sponsoredHouses = [];
+        foreach ($houses as $house) {
+            foreach ($house->sponsors as $sponsor) {
+                
+                $now = Carbon::now();
+
+                $expiring_date = $sponsor->pivot->created_at->addHours($sponsor->duration);
+                
+                if ($now < $expiring_date && !in_array($house, $sponsoredHouses)) {
+                    $sponsoredHouses[] = $house;       
+                }
+            }
+        }
+        return view('admin.houses.index', compact('houses','sponsoredHouses'));
     }
 
     /**
@@ -133,8 +148,6 @@ class HouseController extends Controller
         $request->validate($this->validationHouse);
         $house->update($data);
         $updated = $house->update($data);
-        
-
        
         
         

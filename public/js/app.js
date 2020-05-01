@@ -42412,20 +42412,39 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
 $(document).ready(function () {
+  $('.results').hide();
   $('.address-input').val('');
   $('#address').val('');
   $('#address-lat').val('');
   $('#address-long').val('');
+  disappear();
+  $("a").on('click', function (event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function () {
+        window.location.hash = hash;
+      });
+    }
+  });
+  $(document).on('click', 'body', function () {
+    $('.results').hide();
+  });
   $('.address-input').on('keyup', function () {
     clearResults();
 
     if ($('.address-input').val().length >= 4) {
       search();
+      $('.results').show();
+    } else {
+      $('.results').hide();
     }
   });
   $(document).on('click', '.entry-result', function () {
-    clearInput();
-    $(this).find('.indirizzo').toggleClass("active"); // $(this).find('.coord').val();
+    clearInput(); // $(this).find('.indirizzo').toggleClass("active");
+    // $(this).find('.coord').val();
 
     var address = $(this).find('p').html();
     var lat = $(this).find('.lat').val();
@@ -42438,6 +42457,7 @@ $(document).ready(function () {
     $('#address-up').val(address);
     $('#address-lat-up').val(lat);
     $('#address-long-up').val(_long);
+    $('.results').hide();
     clearResults();
   }); // $(document).on('click', '#search', function () {
   //     apiCall();
@@ -42462,13 +42482,12 @@ $(document).ready(function () {
     if (query.length >= 4) {}
 
     $.ajax({
-      url: 'https://api.tomtom.com/search/2/geocode/' + query + '.json?typeahead=true&key=jmSHc4P5sMLTeiGeWWoRL81YcCxYxqGp',
+      url: 'https://api.tomtom.com/search/2/geocode/' + query + '.json?typeahead=true&limit=3&key=jmSHc4P5sMLTeiGeWWoRL81YcCxYxqGp',
       method: 'GET',
       success: function success(data) {
         var results = data.results;
 
         for (var i = 0; i < data.results.length; i++) {
-          console.log(data.results[i]);
           var context = {
             address: results[i].address.freeformAddress,
             latitude: results[i].position.lat,
@@ -42481,6 +42500,16 @@ $(document).ready(function () {
       error: function error(request, state, errors) {}
     });
   }
+
+  function disappear() {
+    setTimeout(fade_out, 3000);
+
+    function fade_out() {
+      $("#noResults").fadeOut().empty();
+    }
+  }
+
+  ;
 });
 
 /***/ }),
@@ -42548,8 +42577,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/teo/Desktop/mamp_pubblic/boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/teo/Desktop/mamp_pubblic/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Stikiman\Desktop\Web Development\Boolean\Esercizi\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Stikiman\Desktop\Web Development\Boolean\Esercizi\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

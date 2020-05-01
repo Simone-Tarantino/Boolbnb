@@ -1,26 +1,30 @@
-.main_admin_index{
-  .title{
-    width: 20%;
-    margin: 50px 0;
-    h2{
-      font-size: 3em;
-      color: $color-primary;
+.main_admin_index {
+    .title {
+        width: 20%;
+        // margin: 50px 0;
+
+        h2 {
+            font-size: 3em;
+            color: $color-primary;
+        }
     }
-  }
-  .box{
-    margin: 0 0 30px 30px;
-    .btn_zone{
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      .btn_look{
-        margin: 0 20px;
-        // padding: 8px 15px;
-        // background-color: lightskyblue;
-        // border-radius: 3px;
-        // text-align: center;
-        // color: white;
-      }
+
+    .box {
+        margin: 0 0 30px 30px;
+
+        .btn_zone {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+
+            .btn_look {
+                margin: 0 20px;
+                // padding: 8px 15px;
+                // background-color: lightskyblue;
+                // border-radius: 3px;
+                // text-align: center;
+                // color: white;
+            }
+        }
     }
-  }
 }

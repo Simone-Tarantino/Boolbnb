@@ -22,9 +22,9 @@ class HouseController extends Controller
 
     public function index()
     {
-        $houses = House::where('status', 1)->get();
+        $randomHouses = House::inRandomOrder()->limit(3)->where('status', 1)->get();
         $sponsoredHouses = [];
-        foreach ($houses as $house) {
+        foreach ($randomHouses as $house) {
             foreach ($house->sponsors as $sponsor) {
                 
                 $now = Carbon::now();
@@ -36,7 +36,28 @@ class HouseController extends Controller
                 }
             }
         }
-        return view('welcome', compact('sponsoredHouses'));
+
+        $allHouses = House::where('status', 1)->get();
+        $allSponsoredHouses = [];
+        foreach ($allHouses as $house) {
+            foreach ($house->sponsors as $sponsor) {
+
+                $now = Carbon::now();
+
+                $expiring_date = $sponsor->pivot->created_at->addHours($sponsor->duration);
+
+                if ($now < $expiring_date && !in_array($house, $allSponsoredHouses)) {
+                    $allSponsoredHouses[] = $house;
+                }
+            }
+        }
+
+        $data = [
+            'allSponsoredHouses' => $allSponsoredHouses,
+            'sponsoredHouses' => $sponsoredHouses,
+        ];
+
+        return view('welcome', $data);
     }
 
     public function show(House $house)

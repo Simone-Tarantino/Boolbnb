@@ -1,0 +1,22 @@
+.main_admin_create{
+    .slogan {
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+     h2 {
+        font-size: 3em;
+        font-weight: bold;
+        text-align: center;
+        color: $color_primary;
+     }
+    }
+
+    span {
+        color: $grey;
+        font-size: 1.5em;
+        font-weight: bold;
+        
+    }
+
+}

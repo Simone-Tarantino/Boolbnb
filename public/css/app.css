@@ -41,7 +41,7 @@
 }
 
 .main_home {
-  width: 100;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -126,6 +126,25 @@
 
 .main_admin_index .box .btn_zone .btn_look {
   margin: 0 20px;
+}
+
+.main_admin_create .slogan {
+  width: 100%;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.main_admin_create .slogan h2 {
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
+  color: #e41b5e;
+}
+
+.main_admin_create span {
+  color: #555b6e;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .main_show .img_show {

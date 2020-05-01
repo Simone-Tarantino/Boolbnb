@@ -173,6 +173,60 @@
   color: lightslategray;
 }
 
+.inbox_messages .title {
+  color: #e41b5e;
+}
+
+.inbox_messages .card-header a {
+  color: #0d92d4;
+}
+
+.inbox_messages .card-header a:hover {
+  color: #e41b5e;
+}
+
+.inbox_messages .sender {
+  color: #e41b5e;
+}
+
+.inbox_messages .date {
+  text-decoration: underline;
+}
+
+.contact_us .form-group {
+  font-weight: bold;
+}
+
+.contact_us .primary {
+  color: #e41b5e;
+}
+
+.contact_us .btn.btn-send {
+  padding: 10px 20px;
+  color: white;
+  font-weight: bold;
+  background-color: #fe5b60;
+}
+
+.contact_us .btn.btn-send:hover {
+  color: white;
+}
+
+.searchHouses .primary {
+  color: #e41b5e;
+}
+
+.searchHouses .btn.btn-send {
+  padding: 10px 20px;
+  color: white;
+  font-weight: bold;
+  background-color: #fe5b60;
+}
+
+.searchHouses .btn.btn-send:hover {
+  color: white;
+}
+
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

@@ -26,7 +26,12 @@
                         <p class="card-text">Pubblicato</p>
                         @else
                         <p class="card-text">Non Pubblicato</p>
-                        @endif  
+                        @endif
+                        @foreach ($sponsoredHouses as $item)
+                    @if ($house->id == $item->id)
+                         <p class="card-text">PROMOZIONE FINO AL: {{$item->sponsors[0]->pivot->created_at->addHour($item->sponsors[0]->duration)}}</p>  
+                    @endif
+                    @endforeach 
                     </div>
                     <div class="btn_zone">
                         <a class="btn btn-primary btn_look" href="{{route('admin.houses.show', $house)}}" role="button">Mostra</a>    

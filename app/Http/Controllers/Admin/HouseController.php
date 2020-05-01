@@ -37,9 +37,14 @@ class HouseController extends Controller
             foreach ($house->sponsors as $sponsor) {
                 
                 $now = Carbon::now();
+                
 
                 $expiring_date = $sponsor->pivot->created_at->addHours($sponsor->duration);
-                
+                // $someTime = Carbon::createFromFormat('H:i:s', '18:15:10');
+                // // add time
+                // $someTime1 = $someTime->addHours(10)->addMinutes(15)->addSeconds(20)->toTimeString();
+                    // get hours different
+                    //dd($someTime->diffInHours($someTime1));
                 if ($now < $expiring_date && !in_array($house, $sponsoredHouses)) {
                     $sponsoredHouses[] = $house;       
                 }
@@ -103,13 +108,13 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
-        $data = House::all();
+        $data = House::limit(4)->get();
         $extras = Extra::all();
         if (empty($house) || $house->user_id != Auth::user()->id) {
             abort('404');
         }
         
-        return view('admin.houses.show', compact('house'));
+        return view('admin.houses.show', compact('data', 'house'));
     }
 
     /**

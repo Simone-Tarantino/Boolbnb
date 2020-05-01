@@ -50,6 +50,20 @@
   margin-top: 56px;
   width: 100%;
   text-align: center;
+@media screen and (max-width: 766px) {
+  .footer_bottom_right {
+    justify-content: center;
+  }
+
+  .footer_bottom_right i {
+    margin-left: 0;
+    margin: 1.5rem;
+  }
+}
+
+.main_home {
+  width: 100%;
+  margin: 0 auto;
 }
 
 .container section {
@@ -230,11 +244,34 @@
 
 .main_admin_index .title h2 {
   font-size: 3em;
+  margin: 50px 0;
   color: #e41b5e;
 }
 
 .main_admin_index .box {
-  margin: 0 0 30px 30px;
+  margin-bottom: 3rem;
+}
+
+.main_admin_index .box .card_box {
+  position: relative;
+  box-shadow: 0px 0px 12px -5px #5c5b5c;
+  height: 100%;
+}
+
+.main_admin_index .box .card_box .sponsored {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  height: 2rem;
+  line-height: 2rem;
+  padding: 0 1rem;
+  border-radius: 0.4rem;
+  background-color: #fe5b60;
+  color: white;
+}
+
+.main_admin_index .box .card_box .card_text {
+  margin: 0 0 0.6rem;
 }
 
 .main_admin_index .box .btn_zone {
@@ -261,6 +298,60 @@
 .main_show h4 {
   font-weight: 600;
   color: lightslategray;
+}
+
+.inbox_messages .title {
+  color: #e41b5e;
+}
+
+.inbox_messages .card-header a {
+  color: #0d92d4;
+}
+
+.inbox_messages .card-header a:hover {
+  color: #e41b5e;
+}
+
+.inbox_messages .sender {
+  color: #e41b5e;
+}
+
+.inbox_messages .date {
+  text-decoration: underline;
+}
+
+.contact_us .form-group {
+  font-weight: bold;
+}
+
+.contact_us .primary {
+  color: #e41b5e;
+}
+
+.contact_us .btn.btn-send {
+  padding: 10px 20px;
+  color: white;
+  font-weight: bold;
+  background-color: #fe5b60;
+}
+
+.contact_us .btn.btn-send:hover {
+  color: white;
+}
+
+.searchHouses .primary {
+  color: #e41b5e;
+}
+
+.searchHouses .btn.btn-send {
+  padding: 10px 20px;
+  color: white;
+  font-weight: bold;
+  background-color: #fe5b60;
+}
+
+.searchHouses .btn.btn-send:hover {
+  color: white;
 }
 
 /*!
@@ -335,7 +426,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background-color: #fff;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -775,7 +866,7 @@ mark,
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #f8fafc;
+  background-color: #fff;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
@@ -4528,15 +4619,15 @@ input[type=button].btn-block {
 }
 
 .custom-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range::-moz-focus-outer {
@@ -4742,8 +4833,8 @@ input[type=button].btn-block {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #f8fafc;
-  border-color: #dee2e6 #dee2e6 #f8fafc;
+  background-color: #fff;
+  border-color: #dee2e6 #dee2e6 #fff;
 }
 
 .nav-tabs .dropdown-menu {

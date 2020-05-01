@@ -1,30 +1,38 @@
-.main_admin_index {
-    .title {
-        width: 20%;
-        // margin: 50px 0;
-
-        h2 {
-            font-size: 3em;
-            color: $color-primary;
-        }
+.main_admin_index{
+  .title{
+    width: 20%;
+    margin: 50px 0;
+    color: $color-primary;
+  }
+  .box{
+    margin-bottom: 3rem;
+    .card_box{
+      position: relative;
+      box-shadow: 0px 0px 12px -5px rgba(92,91,92,1);
+      height: 100%;
+      .sponsored{
+        position: absolute;
+        top: .5rem;
+        right: .5rem;
+        height: 2rem;
+        line-height: 2rem;
+        padding: 0 1rem;
+        border-radius: .4rem;
+        background-color: $color-logo;
+        color: white;
+      }
+      .card_text{
+        margin: 0 0 .6rem;
+      }
     }
-
-    .box {
-        margin: 0 0 30px 30px;
-
-        .btn_zone {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-
-            .btn_look {
-                margin: 0 20px;
-                // padding: 8px 15px;
-                // background-color: lightskyblue;
-                // border-radius: 3px;
-                // text-align: center;
-                // color: white;
-            }
-        }
+    
+    .btn_zone{
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      .btn_look{
+        margin: 0 20px;
+      }
     }
 }
+

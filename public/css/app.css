@@ -7,14 +7,12 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: white;
+}
 
 .navbar {
   z-index: 3;
-}
-
-.main {
-
-  background-color: white;
 }
 
 .active_search {
@@ -277,8 +275,18 @@
   }
 }
 
+
+.main_admin_index {
+  padding-top: 100px;
+}
+
 .main_admin_index .title {
   width: 20%;
+  padding: 1.5rem 0;
+
+.main_admin_index .title {
+  width: 20%;
+
   color: #e41b5e;
 }
 
@@ -338,7 +346,6 @@
   color: lightslategray;
 }
 
-
 .main_show .list_extra {
   list-style: none;
 }
@@ -358,7 +365,7 @@
 }
 
 .main_show .card_container {
-  padding: 50px 120px;
+  padding: 100px 120px;
 }
 
 .main_show .card_container h3 {
@@ -391,6 +398,7 @@
   .main_show .card_container {
     display: none;
   }
+}
 
 .inbox_messages .title {
   color: #e41b5e;
@@ -444,6 +452,7 @@
 
 .searchHouses .btn.btn-send:hover {
   color: white;
+}
 
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)

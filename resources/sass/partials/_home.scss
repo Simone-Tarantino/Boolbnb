@@ -1,3 +1,4 @@
+// BARRA NO RISULTATI
 #noResults {
     display: inline-block;
     position: absolute;
@@ -5,20 +6,43 @@
     width: 100%;
     text-align: center;
 }
+
+// CONTAINER MAIN
 .container {
     section {
         position: relative;
         width: 100%;
         height: 100vh;
         display: flex;
-        justify-content: center;
-        // // align-items: center;
+        justify-content: center;   
+        h1 {
+            color: $color_primary;
+            border-right: solid 3px rgba(95, 95, 95, 0.75);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typewriter 3s steps(44) 1s 1 normal both,
+                blinkTextCursor 700ms steps(44) infinite normal;
+        }
+        @keyframes typewriter {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 19.5em;
+            }
+        }
+        @keyframes blinkTextCursor {
+            from {
+                border-right-color: rgba(87, 87, 87, 0.75);
+            }
+            to {
+                border-right-color: transparent;
+            }
+        }
         .down {
-            // display: flex;
-            // justify-content: center;
-            // align-items: center;
             position: absolute;
-            bottom: 50px;
+            bottom: 30px;
             color: black;
             letter-spacing: .1em;
             text-decoration: none;
@@ -28,23 +52,9 @@
                 animation: bounce 2s infinite;
             }
         }
-        a:hover {
-            opacity: .5;
-        }
-        } 
-    #search-section {
-        a {
-            span {
-                position: absolute;
-                top: 0;
-                left: 50%;
-                width: 24px;
-                height: 24px;
-                margin-left: -12px;
-                border-left: 1px solid #fff;
-                border-bottom: 1px solid #fff;
-                box-sizing: border-box;
-            }
+        .down:hover {
+            color: $color_primary;
+            opacity: .8;
         }
         .search-container {
             position: absolute;
@@ -52,9 +62,6 @@
             margin-top: 140px;
             left: 50%;
             transform: translate(-50%, 0);
-            border: 3px solid $color_primary;
-            padding: 20px;
-            border-radius: 10px;
             .search_box {
                 display: flex;
                 border: 1px solid white;
@@ -65,12 +72,14 @@
                 align-items: center;
                 justify-content: center;
                 background-color: white;
+
                 input {
                     border: 1px solid white;
                     border-radius: 10px;
                     height: 60px;
                     width: 90%;
                 }
+
                 .btn_search {
                     display: inline-block;
                     background-color: $color_primary;
@@ -80,25 +89,25 @@
                     margin-right: 5px;
                     border-radius: 8px;
                     border: 1px solid $color_primary;
-                    .btn_search:hover {
-                        background-color: hsl(340, 82%, 29%);
-                    }
                 }
+
                 .results.container {
                     z-index: 2;
                     position: absolute;
                     padding: 10px 28px;
                     display: inline-block;
                     background-color: white;
-                    top: 120px;
+                    top: 112px;
                     border-radius: 25px;
                     -webkit-box-shadow: 0px 5px 7px 0px rgba(222, 222, 222, 1);
+
                     .entry_result {
                         border: 1px solid lightgrey;
                     }
                 }
             }
         }
+
         .sponsored-preview {
             display: flex;
             justify-content: center;
@@ -112,20 +121,23 @@
                 .sponsored-houses {
                     padding-top: 10px;
                     display: flex;
-                    justify-content: space-around;        
+                    justify-content: space-around;
                 }
             }
         }
-    }
-
+    } 
 
     // SEZIONE SPONSORIZZATA CON TUTTI GLI ANNUNCI
     #sponsored-section {
-        // align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         .sponsored-houses {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
         a.up {
             position: absolute;
@@ -140,7 +152,8 @@
             }
         }
         a.up:hover {
-            opacity: .5;
+            color: $color_primary;
+            opacity: .8;
         }
     }
 }

@@ -4,22 +4,11 @@ namespace App\Http\Controllers;
 
 use App\House;
 use App\Extra;
-use App\Sponsor;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 
 class HouseController extends Controller
 {
-    // METODO NOSTRO :(
-
-    // public function index()
-    // {
-    //     $houses = House::all();
-    //     return view('welcome', compact('houses'));
-    // }
-
     public function index()
     {
         $randomHouses = House::inRandomOrder()->limit(3)->where('status', 1)->get();
@@ -36,28 +25,7 @@ class HouseController extends Controller
                 }
             }
         }
-
-        $allHouses = House::where('status', 1)->get();
-        $allSponsoredHouses = [];
-        foreach ($allHouses as $house) {
-            foreach ($house->sponsors as $sponsor) {
-
-                $now = Carbon::now();
-
-                $expiring_date = $sponsor->pivot->created_at->addHours($sponsor->duration);
-
-                if ($now < $expiring_date && !in_array($house, $allSponsoredHouses)) {
-                    $allSponsoredHouses[] = $house;
-                }
-            }
-        }
-
-        $data = [
-            'allSponsoredHouses' => $allSponsoredHouses,
-            'sponsoredHouses' => $sponsoredHouses,
-        ];
-
-        return view('welcome', $data);
+        return view('welcome', compact('sponsoredHouses'));
     }
 
     public function show(House $house)
@@ -75,18 +43,12 @@ class HouseController extends Controller
 
         function distanceResults($lat1, $lon1, $latitude, $longitude, $unit)
         {
-            //longitudine e latitudine in radianti
-            //angolo ϑ con l'asse x in un piano-xy in coordinate (longitudine e latitudine)
             $theta = $lon1 - $longitude;
-            //function Korn Shell che prevede serie di operatori matematici e trigonometrici
             $dist = sin(deg2rad($lat1)) * sin(deg2rad($latitude)) +  cos(deg2rad($lat1)) * cos(deg2rad($latitude)) * cos(deg2rad($theta));
-            //calcolo della distanza
             $dist = acos($dist);
             $dist = rad2deg($dist);
-            //conversione distanza da radianti in miglia
             $miles = $dist * 60 * 1.1515;
             $unit = strtoupper($unit);
-            //cambio unità di misura
             if ($unit == "K") {
                 return ($miles * 1.609344);
             } else if ($unit == "N") {
@@ -124,11 +86,15 @@ class HouseController extends Controller
                 $filterHouse[] = $house;
             }
         }
-        if (count($filterHouse) <= 0) {
-            return redirect()->back()->withErrors(['Nessun appartamento trovato', 'The Message']);
-        } 
-
         $houses = $filterHouse;
+        if (count($filterHouse) <= 0) {
+            $data = [
+                'houses' => $houses,
+                'sponsoredHouses' => $sponsoredHouses
+            ];
+            return view('search', $data)->withErrors(['Nessun appartamento trovato nel raggio di 20km', 'The Message']);;
+            // return redirect()->back()->withErrors(['Nessun appartamento trovato', 'The Message']);
+        } 
         $data = [
             'houses' => $houses,
             'sponsoredHouses' => $sponsoredHouses

@@ -27,10 +27,10 @@
                 <div class='coord-lon d-none' value="{{$house->longitude}}">{{$house->longitude}}</div>
 
                 @if($house->user_id == Auth::user()->id)
-                <a class="btn btn-primary btn_show" href="{{route('admin.houses.edit', $house)}}">Modifica dati</a>
+                <a class="btn btn_show" href="{{route('admin.houses.edit', $house)}}">Modifica dati</a>
                 @endif
                 @if($house->user_id == Auth::user()->id)
-                <a class="btn btn-primary btn_show" href="{{route('admin.sponsor',$house->id)}}">Sponsorizza</a>
+                <a class="btn btn_show" href="{{route('admin.sponsor',$house->id)}}">Sponsorizza</a>
                 @endif
 
                 <ul class="list_extra">
@@ -57,7 +57,7 @@
                         @endif  
                     </div>
                     <div class="btn_zone">
-                        <a class="btn btn-primary btn_look" href="{{route('admin.houses.show', $item)}}" role="button">Mostra</a>
+                        <a class="btn btn_look" href="{{route('admin.houses.show', $item)}}" role="button">Mostra</a>
                     </div>
                 </div>
                 @endif

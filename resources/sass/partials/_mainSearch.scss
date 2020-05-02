@@ -1,3 +1,11 @@
+#noResults {
+    display: inline-block;
+    position: absolute;
+    margin-top: 56px;
+    width: 100%;
+    text-align: center;
+}
+
 .searchHouses {
     .primary {
         color: $color_primary;

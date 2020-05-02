@@ -1,11 +1,4 @@
 // BARRA NO RISULTATI
-#noResults {
-    display: inline-block;
-    position: absolute;
-    margin-top: 56px;
-    width: 100%;
-    text-align: center;
-}
 
 // CONTAINER MAIN
 .container {
@@ -39,22 +32,6 @@
             to {
                 border-right-color: transparent;
             }
-        }
-        .down {
-            position: absolute;
-            bottom: 30px;
-            color: black;
-            letter-spacing: .1em;
-            text-decoration: none;
-            transition: opacity .3s;
-            font-size: 1.3em;
-            i.bounce {
-                animation: bounce 2s infinite;
-            }
-        }
-        .down:hover {
-            color: $color_primary;
-            opacity: .8;
         }
         .search-container {
             position: absolute;
@@ -139,33 +116,5 @@
             align-items: center;
             flex-wrap: wrap;
         }
-        a.up {
-            position: absolute;
-            bottom: 50px;
-            color: black;
-            letter-spacing: .1em;
-            text-decoration: none;
-            transition: opacity .3s;
-            font-size: 1.3em;
-            i.bounce {
-                animation: bounce 2s infinite;
-            }
-        }
-        a.up:hover {
-            color: $color_primary;
-            opacity: .8;
-        }
     }
-}
-@keyframes bounce {
-    0%,20%,50%,80%,100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-30px);
-    }
-    60% {
-        transform: translateY(-15px);
-    }
-
 }

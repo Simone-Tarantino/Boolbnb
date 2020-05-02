@@ -7,13 +7,11 @@
   box-sizing: border-box;
 }
 
-
 .navbar {
   z-index: 3;
 }
 
 .main {
-
   background-color: white;
 }
 
@@ -55,14 +53,6 @@
     margin-left: 0;
     margin: 1.5rem;
   }
-}
-
-#noResults {
-  display: inline-block;
-  position: absolute;
-  margin-top: 56px;
-  width: 100%;
-  text-align: center;
 }
 
 .container section {
@@ -120,26 +110,6 @@
   to {
     border-right-color: transparent;
   }
-}
-
-.container section .down {
-  position: absolute;
-  bottom: 30px;
-  color: black;
-  letter-spacing: 0.1em;
-  text-decoration: none;
-  transition: opacity 0.3s;
-  font-size: 1.3em;
-}
-
-.container section .down i.bounce {
-  -webkit-animation: bounce 2s infinite;
-          animation: bounce 2s infinite;
-}
-
-.container section .down:hover {
-  color: #e41b5e;
-  opacity: 0.8;
 }
 
 .container section .search-container {
@@ -229,54 +199,6 @@
   flex-wrap: wrap;
 }
 
-.container #sponsored-section a.up {
-  position: absolute;
-  bottom: 50px;
-  color: black;
-  letter-spacing: 0.1em;
-  text-decoration: none;
-  transition: opacity 0.3s;
-  font-size: 1.3em;
-}
-
-.container #sponsored-section a.up i.bounce {
-  -webkit-animation: bounce 2s infinite;
-          animation: bounce 2s infinite;
-}
-
-.container #sponsored-section a.up:hover {
-  color: #e41b5e;
-  opacity: 0.8;
-}
-
-@-webkit-keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-
-  40% {
-    transform: translateY(-30px);
-  }
-
-  60% {
-    transform: translateY(-15px);
-  }
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-
-  40% {
-    transform: translateY(-30px);
-  }
-
-  60% {
-    transform: translateY(-15px);
-  }
-}
-
 .main_admin_index .title {
   width: 20%;
   color: #e41b5e;
@@ -338,7 +260,6 @@
   color: lightslategray;
 }
 
-
 .main_show .list_extra {
   list-style: none;
 }
@@ -391,6 +312,7 @@
   .main_show .card_container {
     display: none;
   }
+}
 
 .inbox_messages .title {
   color: #e41b5e;
@@ -431,6 +353,14 @@
   color: white;
 }
 
+#noResults {
+  display: inline-block;
+  position: absolute;
+  margin-top: 56px;
+  width: 100%;
+  text-align: center;
+}
+
 .searchHouses .primary {
   color: #e41b5e;
 }
@@ -444,6 +374,7 @@
 
 .searchHouses .btn.btn-send:hover {
   color: white;
+}
 
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)

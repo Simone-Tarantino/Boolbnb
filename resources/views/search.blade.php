@@ -65,7 +65,7 @@
       
  
 
-<div class="row">
+{{-- <div class="row">
     @foreach ($sponsoredHouses as $housePromo)
      <div class="col-lg-4 col-sm-6 col-xs-12">
     
@@ -87,9 +87,9 @@
             
         </div>
         @endforeach
-</div>
+</div> --}}
     
-        <div class="house-results">
+        {{-- <div class="house-results">
             @foreach ($houses as $house)
             <ul class='house'>
                 <li>{{$house->address}}</li>
@@ -109,7 +109,7 @@
                 <li><a href="{{route('house.show', $house->id)}}">Mostra appartamento</a></li>
             </ul>
             @endforeach
-        </div>
+        </div> --}}
     
     
     

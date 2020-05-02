@@ -1,4 +1,4 @@
-.main_admin_index{
+.main_admin_index {
     padding-top: 100px;
 
     .title {
@@ -9,78 +9,81 @@
 
         color: $color-primary;
     }
-    
-    .btn_zone{
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      .btn_look{
-       margin: 10px;
-      padding: 10px 20px;
-      font-weight: bold;
-      color: white;
-      background-color: $color-logo;
-      border: 0;
-      &:active,
-      &:hover,
-      &:focus {
-        color: white;
-        background-color: $color_primary;
-        outline: $color_primary;
-      }
-      }
-      .btn_danger{
-      margin: 10px;
-      padding: 7px 20px;
-      font-weight: bold;
-      color: $color_primary;
-      background-color: white;
-      border: 3px solid $color_primary;
-      &:active,
-      &:hover,
-      &:focus {
-        color: white;
-        background-color: $color_primary;
-        outline: $color_primary;
-      }
-      }
-    }
-  }
-}
 
-    .box {
-        margin-bottom: 3rem;
+    .btn_zone {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
 
-        .card_box {
-            position: relative;
-            box-shadow: 0px 0px 12px -5px rgba(92, 91, 92, 1);
-            height: 100%;
+        .btn_look {
+            margin: 10px;
+            padding: 10px 20px;
+            font-weight: bold;
+            color: white;
+            background-color: $color-logo;
+            border: 0;
 
-            .sponsored {
-                position: absolute;
-                top: .5rem;
-                right: .5rem;
-                height: 2rem;
-                line-height: 2rem;
-                padding: 0 1rem;
-                border-radius: .4rem;
-                background-color: $color-logo;
+            &:active,
+            &:hover,
+            &:focus {
                 color: white;
-            }
-
-            .card_text {
-                margin: 0 0 .6rem;
+                background-color: $color_primary;
+                outline: $color_primary;
             }
         }
 
-        .btn_zone {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
+        .btn_danger {
+            margin: 10px;
+            padding: 7px 20px;
+            font-weight: bold;
+            color: $color_primary;
+            background-color: white;
+            border: 3px solid $color_primary;
 
-            .btn_look {
-                margin: 0 20px;
+            &:active,
+            &:hover,
+            &:focus {
+                color: white;
+                background-color: $color_primary;
+                outline: $color_primary;
             }
+        }
+    }
+}
+
+
+.box {
+    margin-bottom: 3rem;
+
+    .card_box {
+        position: relative;
+        box-shadow: 0px 0px 12px -5px rgba(92, 91, 92, 1);
+        height: 100%;
+
+        .sponsored {
+            position: absolute;
+            top: .5rem;
+            right: .5rem;
+            height: 2rem;
+            line-height: 2rem;
+            padding: 0 1rem;
+            border-radius: .4rem;
+            background-color: $color-logo;
+            color: white;
+        }
+
+        .card_text {
+            margin: 0 0 .6rem;
+        }
+    }
+
+    .btn_zone {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .btn_look {
+            margin: 0 20px;
         }
     }
 }

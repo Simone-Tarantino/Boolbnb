@@ -12,7 +12,13 @@ body {
 }
 
 .navbar {
+  top: 0;
   z-index: 3;
+}
+
+.main {
+  padding-top: 100px;
+  min-height: 520px;
 }
 
 .active_search {
@@ -275,18 +281,9 @@ body {
   }
 }
 
-
-.main_admin_index {
-  padding-top: 100px;
-}
-
 .main_admin_index .title {
   width: 20%;
   padding: 1.5rem 0;
-
-.main_admin_index .title {
-  width: 20%;
-
   color: #e41b5e;
 }
 
@@ -378,12 +375,18 @@ body {
 
 .main_show .card_container .btn_look {
   margin: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
   background-color: #fe5b60;
   border: none;
 }
 
-.main_show .card_container .btn_look:hover,
-.main_show .card_container .btn_look:focus {
+.main_show .card_container .btn_look:active {
+  background-color: #e41b5e;
+  outline: none;
+}
+
+.main_show .card_container .btn_look:hover {
   background-color: #e41b5e;
   outline: none;
 }

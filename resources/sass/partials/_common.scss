@@ -6,12 +6,16 @@
 
 
 body{
-
   background-color: white;
 }
 
 .navbar {
+    top: 0;
     z-index: 3;
+}
+.main{
+  padding-top: 100px;
+  min-height: 520px;
 }
 .active_search {
   background-color: lightgrey;

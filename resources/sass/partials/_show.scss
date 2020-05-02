@@ -40,12 +40,17 @@
     }
     .btn_look{
       margin: 10px;
+      padding: 10px 20px;
+      font-weight: bold;
       background-color: $color-logo;
       border: none;
+      &:active {
+        background-color: $color_primary;
+        outline: none;
+      }
   
     }
-    .btn_look:hover,
-    .btn_look:focus {
+    .btn_look:hover {
         background-color: $color_primary;
         outline: none;
     } 

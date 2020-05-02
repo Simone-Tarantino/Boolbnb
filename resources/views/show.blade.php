@@ -3,18 +3,14 @@
 {{-- @extends('layouts.app') --}}
 
 @section('main')
-    <h2>Numero appartamento {{$house->id}}, pubblicato da {{$house->user_id}}</h2>
+<h2>Numero appartamento {{$house->id}}, pubblicato da {{$house->user_id}}</h2>
         <ul>
             <li>Numero stanze:{{$house->room_number}}</li>
             <li>Numero letti:{{$house->bed}}</li>
             <li>Numero bagni:{{$house->bathroom}}</li>
             <li>Metri Quadri Appartamento: {{$house->mq}}</li>
             <li>Descrizione: {{$house->description}}</li>
-<<<<<<< HEAD
             <li class="address">Indirizzo: {{$house->address}}</li>
-=======
-            <li class="address-map">Indirizzo: {{$house->address}}</li>
->>>>>>> master
             <li>Foto: {{$house->img_path}}</li>
             <li>Caricato il: {{$house->created_at}}</li>
             <li>Modificato il: {{$house->updated_at}}</li>
@@ -36,8 +32,8 @@
         
         {{-- MAPPA --}}
         <div id="map"></div>
-        </div>
-        @endsection
+
+@endsection
 
         @section('scripts')
             <script src="{{asset('js/map.js')}}"></script>

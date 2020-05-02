@@ -42462,7 +42462,8 @@ $(document).ready(function () {
   $('#address').val('');
   $('#address-lat').val('');
   $('#address-long').val('');
-  $('#distance').val('20'); // Digitando l'indirizzo vengono fuori risultati suggerimento indirizzo
+  $('#distance').val('20');
+  disappear(); // Digitando l'indirizzo vengono fuori risultati suggerimento indirizzo
 
   $('.address-input').on('keyup', function () {
     clearResults();
@@ -42518,7 +42519,7 @@ $(document).ready(function () {
 
     if (query.length >= 4) {
       $.ajax({
-        url: 'https://api.tomtom.com/search/2/geocode/' + query + '.json?typeahead=true&key=jmSHc4P5sMLTeiGeWWoRL81YcCxYxqGp',
+        url: 'https://api.tomtom.com/search/2/geocode/' + query + '.json?typeahead=true&limit=3&key=jmSHc4P5sMLTeiGeWWoRL81YcCxYxqGp',
         method: 'GET',
         success: function success(data) {
           var results = data.results;
@@ -42577,6 +42578,16 @@ $(document).ready(function () {
       error: function error(request, state, errors) {}
     });
   }
+
+  function disappear() {
+    setTimeout(fade_out, 3000);
+
+    function fade_out() {
+      $("#noResults").fadeOut().empty();
+    }
+  }
+
+  ;
 });
 
 /***/ }),

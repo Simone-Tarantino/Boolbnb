@@ -3,16 +3,25 @@ const $ = require("jquery");
 const Handlebars = require("handlebars");
 
 $(document).ready(function () {
+    $('.results').hide();
     $('.address-input').val('');
     $('#address').val('');
     $('#address-lat').val('');
     $('#address-long').val('');
+    disappear();
+
+    $(document).on('click', 'body', function () {
+        $('.results').hide();
+    });
 
 
     $('.address-input').on('keyup', function () {
         clearResults();
         if ($('.address-input').val().length >= 4) {
             search();
+            $('.results').show();
+        } else {
+            $('.results').hide(); 
         }
     });
 
@@ -20,7 +29,7 @@ $(document).ready(function () {
     $(document).on('click', '.entry-result', function () {
         clearInput();
 
-        $(this).find('.indirizzo').toggleClass("active");
+        // $(this).find('.indirizzo').toggleClass("active");
         // $(this).find('.coord').val();
         var address = $(this).find('p').html();
         var lat = $(this).find('.lat').val();
@@ -33,15 +42,11 @@ $(document).ready(function () {
         $('#address-lat-up').val(lat);
         $('#address-long-up').val(long);
 
+        $('.results').hide();
         clearResults();
 
     });
-
-    // $(document).on('click', '#search', function () {
-    //     apiCall();
-    // });
-
-
+    
     function clearInput() {
         // $('.address-input').val('');
         // $('#address').val('');
@@ -65,12 +70,11 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            url: 'https://api.tomtom.com/search/2/geocode/' + query + '.json?typeahead=true&key=jmSHc4P5sMLTeiGeWWoRL81YcCxYxqGp',
+            url: 'https://api.tomtom.com/search/2/geocode/' + query + '.json?typeahead=true&limit=3&key=jmSHc4P5sMLTeiGeWWoRL81YcCxYxqGp',
             method: 'GET',
             success: function (data) {
                 var results = data.results;
                 for (var i = 0; i < data.results.length; i++) {
-                    console.log(data.results[i]);
                     var context = {
                         address: results[i].address.freeformAddress,
                         latitude: results[i].position.lat,
@@ -81,10 +85,17 @@ $(document).ready(function () {
                 }
 
             },
-            error: function (request, state, errors) {}
+            error: function (request, state, errors) {
+            }
         });
 
     }
 
+    function disappear() {
+        setTimeout(fade_out, 3000);
 
+        function fade_out() {
+            $("#noResults").fadeOut().empty();
+        }
+    };
 });

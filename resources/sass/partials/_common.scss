@@ -3,8 +3,15 @@
   margin: 0;
   box-sizing: border-box;
 }
-.main{
+
+
+body{
+
   background-color: white;
+}
+
+.navbar {
+    z-index: 3;
 }
 .active_search {
   background-color: lightgrey;
@@ -28,4 +35,18 @@
 }
 .footer_bottom_right i{
   margin-left: 3em;
+}
+
+
+
+// MEDIA-QUERY
+
+@media screen and (max-width:766px){
+    .footer_bottom_right{
+    justify-content: center;
+  }
+    .footer_bottom_right i{
+    margin-left: 0;
+    margin: 1.5rem
+  }
 }

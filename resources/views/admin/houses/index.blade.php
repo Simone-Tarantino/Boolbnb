@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-{{-- @extends('layouts.app') --}}
+{{-- @dd($sponsoredHouses) --}}
 @section('main')
 <div class="main">
     <div class="container main_admin_index">
@@ -9,88 +9,47 @@
         <div class="row"> 
             @foreach ($houses as $house)
             @if (Auth::id()==$house->user_id)
-            <div class="card box">
-                <img src="{{asset('storage/'.$house->img_path)}}" class="card-img-top img" alt="...">
-                <div class="card-body">
-                    <h4 class="card-text">APPARTAMENTO</h4>
-                    <p class="card-text">{{$house->address}}</p>
-                    @if ($house->status == 1)
-                    <p class="card-text">Pubblicato</p>
-                    @else
-                    <p class="card-text">Non Pubblicato</p>
+            <div class="col-xs-12 col-sm-6 col-lg-4 box">
+                <div class="card card_box">
+                    @foreach ($sponsoredHouses as $item)
+                    @if ($house->id == $item->id)
+                        <div class="sponsored">
+                            <p>Sponsored</p>
+                        </div>
                     @endif
+                    @endforeach 
+                    <img src="{{asset('storage/'.$house->img_path)}}" class="card-img-top img" alt="...">
+                    <div class="card-body">
+                        <h4 class="card-text">APPARTAMENTO</h4>
+                        <p class="card-text card_text">{{$house->address}}</p>
+                        @if ($house->status == 1)
+                        <p class="card-text">Pubblicato</p>
+                        @else
+                        <p class="card-text">Non Pubblicato</p>
+                        @endif
+                        @foreach ($sponsoredHouses as $item)
+                    @if ($house->id == $item->id)
+                         <p class="card-text">PROMOZIONE FINO AL: {{$item->sponsors[0]->pivot->created_at->addHour($item->sponsors[0]->duration)}}</p>  
+                    @endif
+                    @endforeach 
+                    </div>
+                    <div class="btn_zone">
+                        <a class="btn btn-primary btn_look" href="{{route('admin.houses.show', $house)}}" role="button">Mostra</a>    
+                        <form action="{{route('admin.houses.destroy', $house->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit">Cancella</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="btn_zone">
-                    <a class="btn btn-primary btn_look" href="{{route('admin.houses.show', $house)}}" role="button">Mostra</a>    
-                    <form action="{{route('admin.houses.destroy', $house->id)}}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger" type="submit">Cancella</button>
-                    </form>
-                </div>
-            </div>
+            </div>   
             @endif
-            @endforeach    
+            @endforeach 
         </div>
     </div>
 </div>
 @endsection
-@section('footer')
-    <div class="footer">
-        <div class="container footer_top">
-            <div class="row">
-                <div class="col-md-3">
-                    <ul class="list-unstyled">
-                        <li><h5>INFORMAZIONI</h5></li>
-                        <li>Diversità e appartenenza</li>
-                        <li>Boolbnb Citizen</li>
-                        <li>Accessibilità</li>
-                        <li>Newsroom</li>
-                        <li>Affidabilità e Sicurezza</li>
-                    </ul>                  
-                </div>
-                <div class="col-md-3">
-                    <ul class="list-unstyled">
-                        <li><h5>COMMUNITY</h5></li>
-                        <li>Boolbnb Magazine</li>
-                        <li>Opportunità di Lavoro</li>
-                        <li>Boolbnb for Work</li>
-                        <li>Invita degli amici</li>
-                    </ul>                  
-                </div>
-                <div class="col-md-3">
-                    <ul class="list-unstyled">
-                        <li><h5>OSPITA</h5></li>
-                        <li>Diventa Host</li>
-                        <li>Proponi un' esperienza</li>
-                        <li>Olimpiadi</li>
-                        <li>Affittare Responsabilmente</li>
-                        <li>Centro Risorse</li>
-                    </ul>                  
-                </div>
-                <div class="col-md-3">
-                    <ul class="list-unstyled">
-                        <li><h5>ASSISTENZA</h5></li>
-                        <li>Centro Assistenza</li>
-                        <li>Servizio di assistenza di quartiere</li>    
-                    </ul>                  
-                </div>
-            </div>
-        </div>
-            <div class="container footer_bottom">
-                <div class="row">
-                    <div class="col-md-7">
-                        <p>© 2020 Boolbnb, Inc. All rights reserved  ·  Privacy  ·  Termini  ·  Mappa del sito  ·  Dettagli dell'azienda</p>
-                    </div>
-                    <div class="col-md-5 footer_bottom_right">
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-facebook-f"></i>
-                    </div>
-                </div>
-            </div>
-    </div>
-@endsection
+
 
 
 {{-- SCRIPT --}}

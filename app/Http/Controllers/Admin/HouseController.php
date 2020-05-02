@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\House;
 use App\Extra;
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -30,7 +31,26 @@ class HouseController extends Controller
     public function index()
     {
         $houses = House::all();
-        return view('admin.houses.index', compact('houses'));
+        $housesPromo = House::where('status', 1)->get();
+        $sponsoredHouses = [];
+        foreach ($houses as $house) {
+            foreach ($house->sponsors as $sponsor) {
+                
+                $now = Carbon::now();
+                
+
+                $expiring_date = $sponsor->pivot->created_at->addHours($sponsor->duration);
+                // $someTime = Carbon::createFromFormat('H:i:s', '18:15:10');
+                // // add time
+                // $someTime1 = $someTime->addHours(10)->addMinutes(15)->addSeconds(20)->toTimeString();
+                    // get hours different
+                    //dd($someTime->diffInHours($someTime1));
+                if ($now < $expiring_date && !in_array($house, $sponsoredHouses)) {
+                    $sponsoredHouses[] = $house;       
+                }
+            }
+        }
+        return view('admin.houses.index', compact('houses','sponsoredHouses'));
     }
 
     /**
@@ -88,13 +108,13 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
-        $data = House::all();
+        $data = House::limit(2)->get();
         $extras = Extra::all();
         if (empty($house) || $house->user_id != Auth::user()->id) {
             abort('404');
         }
         
-        return view('admin.houses.show', compact('house'));
+        return view('admin.houses.show', compact('data', 'house'));
     }
 
     /**
@@ -130,13 +150,12 @@ class HouseController extends Controller
     {
         
         $data = $request->all();
+        
+        $data['img_path'] = Storage::disk('public')->put('images', $data['img_path']);
+        
         $request->validate($this->validationHouse);
         $house->update($data);
         $updated = $house->update($data);
-        
-
-       
-        
         
         if (!$updated) {
             return redirect()->back();

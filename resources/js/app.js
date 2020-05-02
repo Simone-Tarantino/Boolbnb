@@ -21,7 +21,7 @@ $(document).ready(function () {
             search();
             $('.results').show();
         } else {
-            $('.results').hide(); 
+            $('.results').hide();
         }
     });
 

@@ -25,6 +25,8 @@
                  {{-- MAPPA --}}
                 <div id="map"></div>
             </div>{{--  /col --}} 
+
+
             <div class="col-md-6 calendar-container">
                 <div class="calendar">
                 <div class="calendar__picture">

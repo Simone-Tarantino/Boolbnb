@@ -4,14 +4,14 @@
   box-sizing: border-box;
 }
 
+
 body{
-}
-.navbar {
-    z-index: 3;
-}
-.main{
 
   background-color: white;
+}
+
+.navbar {
+    z-index: 3;
 }
 .active_search {
   background-color: lightgrey;
@@ -42,11 +42,11 @@ body{
 // MEDIA-QUERY
 
 @media screen and (max-width:766px){
-  .footer_bottom_right{
-  justify-content: center;
-}
-  .footer_bottom_right i{
-  margin-left: 0;
-  margin: 1.5rem
-}
+    .footer_bottom_right{
+    justify-content: center;
+  }
+    .footer_bottom_right i{
+    margin-left: 0;
+    margin: 1.5rem
+  }
 }

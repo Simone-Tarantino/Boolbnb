@@ -108,7 +108,7 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
-        $data = House::limit(4)->get();
+        $data = House::limit(2)->get();
         $extras = Extra::all();
         if (empty($house) || $house->user_id != Auth::user()->id) {
             abort('404');

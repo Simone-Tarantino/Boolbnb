@@ -22,14 +22,22 @@
     }
   }
   .btn_show{
-      margin: 0 10px 10px 0;
+      margin: 10px;
+      padding: 10px 20px;
+      font-weight: bold;
+      color: white;
       background-color: $color-logo;
-      border: none;
+      border: 0;
+      &:active,
+      &:hover,
+      &:focus {
+        color: white;
+        background-color: $color_primary;
+        outline: $color_primary;
+      }
   
     }
-    .btn_show:hover{
-        background-color: $color_primary;
-    } 
+    
   .card_container{
     padding: 100px 120px;
     h3{
@@ -42,18 +50,18 @@
       margin: 10px;
       padding: 10px 20px;
       font-weight: bold;
+      color: white;
       background-color: $color-logo;
-      border: none;
-      &:active {
+      border: 0;
+      &:active,
+      &:hover,
+      &:focus {
         background-color: $color_primary;
-        outline: none;
+        outline: $color_primary;
+        border: 0;
       }
   
     }
-    .btn_look:hover {
-        background-color: $color_primary;
-        outline: none;
-    } 
   } 
 
   .calendar {

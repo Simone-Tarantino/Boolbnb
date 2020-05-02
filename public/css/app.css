@@ -320,7 +320,37 @@ body {
 }
 
 .main_admin_index .box .btn_zone .btn_look {
-  margin: 0 20px;
+  margin: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: white;
+  background-color: #fe5b60;
+  border: 0;
+}
+
+.main_admin_index .box .btn_zone .btn_look:active,
+.main_admin_index .box .btn_zone .btn_look:hover,
+.main_admin_index .box .btn_zone .btn_look:focus {
+  color: white;
+  background-color: #e41b5e;
+  outline: #e41b5e;
+}
+
+.main_admin_index .box .btn_zone .btn_danger {
+  margin: 10px;
+  padding: 7px 20px;
+  font-weight: bold;
+  color: #e41b5e;
+  background-color: white;
+  border: 3px solid #e41b5e;
+}
+
+.main_admin_index .box .btn_zone .btn_danger:active,
+.main_admin_index .box .btn_zone .btn_danger:hover,
+.main_admin_index .box .btn_zone .btn_danger:focus {
+  color: white;
+  background-color: #e41b5e;
+  outline: #e41b5e;
 }
 
 .main_show .img_show {
@@ -352,13 +382,20 @@ body {
 }
 
 .main_show .btn_show {
-  margin: 0 10px 10px 0;
+  margin: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: white;
   background-color: #fe5b60;
-  border: none;
+  border: 0;
 }
 
-.main_show .btn_show:hover {
+.main_show .btn_show:active,
+.main_show .btn_show:hover,
+.main_show .btn_show:focus {
+  color: white;
   background-color: #e41b5e;
+  outline: #e41b5e;
 }
 
 .main_show .card_container {
@@ -377,18 +414,17 @@ body {
   margin: 10px;
   padding: 10px 20px;
   font-weight: bold;
+  color: white;
   background-color: #fe5b60;
-  border: none;
+  border: 0;
 }
 
-.main_show .card_container .btn_look:active {
+.main_show .card_container .btn_look:active,
+.main_show .card_container .btn_look:hover,
+.main_show .card_container .btn_look:focus {
   background-color: #e41b5e;
-  outline: none;
-}
-
-.main_show .card_container .btn_look:hover {
-  background-color: #e41b5e;
-  outline: none;
+  outline: #e41b5e;
+  border: 0;
 }
 
 .main_show .calendar {

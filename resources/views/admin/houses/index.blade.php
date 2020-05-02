@@ -34,11 +34,11 @@
                     @endforeach 
                     </div>
                     <div class="btn_zone">
-                        <a class="btn btn-primary btn_look" href="{{route('admin.houses.show', $house)}}" role="button">Mostra</a>    
+                        <a class="btn btn_look" href="{{route('admin.houses.show', $house)}}" role="button">Mostra</a>    
                         <form action="{{route('admin.houses.destroy', $house->id)}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-danger" type="submit">Cancella</button>
+                        <button class="btn btn_danger" type="submit">Cancella</button>
                         </form>
                     </div>
                 </div>

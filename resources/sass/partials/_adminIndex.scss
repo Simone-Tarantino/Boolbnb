@@ -1,32 +1,13 @@
 .main_admin_index{
-  .title{
-    width: 20%;
+    padding-top: 100px;
 
-    padding: 1.5rem 0;
+    .title {
+        width: 20%;
+
+        padding: 1.5rem 0;
 
 
-    color: $color-primary;
-  }
-  .box{
-    margin-bottom: 3rem;
-    .card_box{
-      position: relative;
-      box-shadow: 0px 0px 12px -5px rgba(92,91,92,1);
-      height: 100%;
-      .sponsored{
-        position: absolute;
-        top: .5rem;
-        right: .5rem;
-        height: 2rem;
-        line-height: 2rem;
-        padding: 0 1rem;
-        border-radius: .4rem;
-        background-color: $color-logo;
-        color: white;
-      }
-      .card_text{
-        margin: 0 0 .6rem;
-      }
+        color: $color-primary;
     }
     
     .btn_zone{
@@ -67,4 +48,39 @@
   }
 }
 
+    .box {
+        margin-bottom: 3rem;
 
+        .card_box {
+            position: relative;
+            box-shadow: 0px 0px 12px -5px rgba(92, 91, 92, 1);
+            height: 100%;
+
+            .sponsored {
+                position: absolute;
+                top: .5rem;
+                right: .5rem;
+                height: 2rem;
+                line-height: 2rem;
+                padding: 0 1rem;
+                border-radius: .4rem;
+                background-color: $color-logo;
+                color: white;
+            }
+
+            .card_text {
+                margin: 0 0 .6rem;
+            }
+        }
+
+        .btn_zone {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+
+            .btn_look {
+                margin: 0 20px;
+            }
+        }
+    }
+}

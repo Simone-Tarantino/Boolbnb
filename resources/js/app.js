@@ -8,7 +8,7 @@ $(document).ready(function () {
     $('#address').val('');
     $('#address-lat').val('');
     $('#address-long').val('');
-    disappear();
+    
 
     $(document).on('click', 'body', function () {
         $('.results').hide();
@@ -91,11 +91,4 @@ $(document).ready(function () {
 
     }
 
-    function disappear() {
-        setTimeout(fade_out, 3000);
-
-        function fade_out() {
-            $("#noResults").fadeOut().empty();
-        }
-    };
 });

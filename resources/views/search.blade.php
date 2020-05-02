@@ -60,7 +60,7 @@
                     <p class="card-text card_text">Camere: {{$housePromo->room_number}}</p>
                     <p class="card-text card_text">N° Bagni: {{$housePromo->bathroom}}</p>
                     <p class="card-text card_text">Posti letto: {{$housePromo->bed}}</p>
-                    <a href="#" class="btn btn-send">Vedi Appartamento</a>
+                    <a href="{{route('house.show', $housePromo->id)}}" class="btn btn-send">Vedi Appartamento</a>
                 </div>
             </div>
             {{-- </div> --}}
@@ -70,7 +70,7 @@
 </div>
   
     
-        {{-- <div class="house-results">
+        <div class="house-results">
             @foreach ($houses as $house)
             <ul class='house'>
                 <li>{{$house->address}}</li>
@@ -90,7 +90,7 @@
                 <li><a href="{{route('house.show', $house->id)}}">Mostra appartamento</a></li>
             </ul>
             @endforeach
-        </div> --}}
+        </div>
     
     
     

@@ -3,15 +3,17 @@
   margin: 0;
   box-sizing: border-box;
 }
-
-
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
 body{
-
+  min-height: 100%;
   background-color: white;
 }
-
 .navbar {
     z-index: 3;
+    top: 0;
 }
 .active_search {
   background-color: lightgrey;
@@ -36,7 +38,6 @@ body{
 .footer_bottom_right i{
   margin-left: 3em;
 }
-
 
 
 // MEDIA-QUERY

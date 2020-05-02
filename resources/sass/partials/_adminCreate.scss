@@ -1,4 +1,12 @@
 .main_admin_create{
+
+    label {
+        font-weight: bold;
+    }
+    .image_container img{
+      height: 450px;
+      margin-top: 50px;
+    }
     .slogan {
     width: 100%;
     margin-top: 100px;
@@ -7,15 +15,20 @@
      h2 {
         font-size: 3em;
         font-weight: bold;
-        text-align: center;
         color: $color_primary;
      }
     }
 
-    span {
-        color: $grey;
-        font-size: 1.5em;
-        font-weight: bold;
+
+    .little_slogan {
+
+        margin-bottom: 20px;
+
+        span {
+            color: $grey;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
         
     }
 

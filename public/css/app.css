@@ -128,6 +128,15 @@
   margin: 0 20px;
 }
 
+.main_admin_create label {
+  font-weight: bold;
+}
+
+.main_admin_create .image_container img {
+  height: 450px;
+  margin-top: 50px;
+}
+
 .main_admin_create .slogan {
   width: 100%;
   margin-top: 100px;
@@ -137,11 +146,14 @@
 .main_admin_create .slogan h2 {
   font-size: 3em;
   font-weight: bold;
-  text-align: center;
   color: #e41b5e;
 }
 
-.main_admin_create span {
+.main_admin_create .little_slogan {
+  margin-bottom: 20px;
+}
+
+.main_admin_create .little_slogan span {
   color: #555b6e;
   font-size: 1.5em;
   font-weight: bold;

@@ -1,0 +1,23 @@
+.inbox_messages {
+    .title {
+        // font-weight: bold;
+        color: $color_primary;
+    }
+
+
+    .card-header a {
+        color: $color_seconary;
+
+        &:hover {
+            color: $color_primary;
+        }
+    }
+
+    .sender {
+        color: $color_primary;
+    }
+
+    .date {
+        text-decoration: underline;
+    }
+}

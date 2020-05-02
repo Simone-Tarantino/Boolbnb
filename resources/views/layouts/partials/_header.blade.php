@@ -1,10 +1,9 @@
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar position-fixed w-100 navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     BoolBnb
-                    {{-- {{ config('app.name', 'Laravel') }} --}}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -21,22 +20,22 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.houses.create') }}">{{ __('Nuovo appartamento') }}</a>
+                                <a class="nav-link" href="{{ route('admin.houses.index') }}">{{ __('I tuoi appartamenti') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.houses.index') }}">{{ __('I tuoi Appartamenti') }}</a>
+                                <a class="nav-link" href="{{ route('admin.houses.create') }}">{{ __('Crea nuovo appartamento') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.messages') }}">{{ __('I tuoi Messaggi') }}</a>
+                                <a class="nav-link" href="{{ route('admin.messages') }}">{{ __('I tuoi messaggi') }}</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

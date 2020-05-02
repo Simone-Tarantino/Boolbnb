@@ -10,7 +10,7 @@
             <li>Numero bagni:{{$house->bathroom}}</li>
             <li>Metri Quadri Appartamento: {{$house->mq}}</li>
             <li>Descrizione: {{$house->description}}</li>
-            <li class="address">Indirizzo: {{$house->address}}</li>
+            <li class="address-map">Indirizzo: {{$house->address}}</li>
             <li>Foto: {{$house->img_path}}</li>
             <li>Caricato il: {{$house->created_at}}</li>
             <li>Modificato il: {{$house->updated_at}}</li>

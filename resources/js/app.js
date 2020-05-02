@@ -10,19 +10,6 @@ $(document).ready(function () {
     $('#address-long').val('');
     disappear();
 
-    
-    $("a").on('click', function (event) {
-        if (this.hash !== "") {
-            event.preventDefault();
-            var hash = this.hash;
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top
-            }, 800, function () {
-                window.location.hash = hash;
-            });
-        }
-    });
-
     $(document).on('click', 'body', function () {
         $('.results').hide();
     });
@@ -59,12 +46,7 @@ $(document).ready(function () {
         clearResults();
 
     });
-
-    // $(document).on('click', '#search', function () {
-    //     apiCall();
-    // });
-
-
+    
     function clearInput() {
         // $('.address-input').val('');
         // $('#address').val('');

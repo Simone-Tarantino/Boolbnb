@@ -2,6 +2,11 @@
 {{-- @extends('layouts.app') --}}
 
 @section('main')
+@if($errors->any())
+    <div id ="noResults" class="alert alert-danger">
+        <h4>{{$errors->first()}}</h4>
+    </div>
+@endif
 <div class="container searchHouses">
 {{-- @dd($houses); --}}
     <div class="main">

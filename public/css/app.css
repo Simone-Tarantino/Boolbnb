@@ -7,14 +7,12 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: white;
+}
 
 .navbar {
   z-index: 3;
-}
-
-.main {
-
-  background-color: white;
 }
 
 .active_search {
@@ -46,12 +44,6 @@
   margin-left: 3em;
 }
 
-#noResults {
-  display: inline-block;
-  position: absolute;
-  margin-top: 56px;
-  width: 100%;
-  text-align: center;
 @media screen and (max-width: 766px) {
   .footer_bottom_right {
     justify-content: center;
@@ -63,9 +55,12 @@
   }
 }
 
-.main_home {
+#noResults {
+  display: inline-block;
+  position: absolute;
+  margin-top: 56px;
   width: 100%;
-  margin: 0 auto;
+  text-align: center;
 }
 
 .container section {
@@ -240,13 +235,13 @@
   }
 }
 
-.main_admin_index .title {
-  width: 20%;
+.main_admin_index {
+  padding-top: 100px;
 }
 
-.main_admin_index .title h2 {
-  font-size: 3em;
-  margin: 50px 0;
+.main_admin_index .title {
+  width: 20%;
+  padding: 1.5rem 0;
   color: #e41b5e;
 }
 
@@ -306,7 +301,6 @@
   color: lightslategray;
 }
 
-
 .main_show .list_extra {
   list-style: none;
 }
@@ -326,7 +320,7 @@
 }
 
 .main_show .card_container {
-  padding: 50px 120px;
+  padding: 100px 120px;
 }
 
 .main_show .card_container h3 {
@@ -359,6 +353,7 @@
   .main_show .card_container {
     display: none;
   }
+}
 
 .inbox_messages .title {
   color: #e41b5e;
@@ -412,6 +407,7 @@
 
 .searchHouses .btn.btn-send:hover {
   color: white;
+}
 
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)

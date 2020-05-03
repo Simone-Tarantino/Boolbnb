@@ -11,7 +11,7 @@ class HouseController extends Controller
 {
     public function index()
     {
-        $randomHouses = House::inRandomOrder()->take(3)->where('status', 1)->whereHas('sponsors')->get();
+        $randomHouses = House::inRandomOrder()->where('status', 1)->whereHas('sponsors')->get();
         $sponsoredHouses = [];
         foreach ($randomHouses as $house) {
             foreach ($house->sponsors as $sponsor) {
@@ -20,7 +20,7 @@ class HouseController extends Controller
 
                 $expiring_date = $sponsor->pivot->created_at->addHours($sponsor->duration);
                 
-                if ($now < $expiring_date && !in_array($house, $sponsoredHouses)) {
+                if ($now < $expiring_date && !in_array($house, $sponsoredHouses) && count($sponsoredHouses) < 3) {
                     $sponsoredHouses[] = $house;       
                 }
             }

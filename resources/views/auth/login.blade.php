@@ -4,11 +4,11 @@
 <main>
 
 
-<div class="container main">
+<div class="container main login">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Accesso') }}</div>
+                <div class="card-header"><i class="fas fa-key"></i> Accesso</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

@@ -4,7 +4,7 @@
 <div class="main">
     <div class="container main_admin_index">
         <div class="title">
-        <h2>Ciao {{(empty(Auth::user()->name)) ? (Auth::user()->email) : (Auth::user()->name)}} Bentornato </h2>
+        <h1>Ciao {{(empty(Auth::user()->name)) ? (Auth::user()->email) : (Auth::user()->name)}} Bentornato </h1>
         </div>
         <div class="row"> 
             @foreach ($houses as $house)

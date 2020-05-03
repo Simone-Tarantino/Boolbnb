@@ -6,77 +6,61 @@
 <div class="main_show">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-md-6">
+            <div class="col-xs-12 col-md-7">
                 <img class="img_show" src="{{asset('storage/'.$house->img_path)}}" alt="">
                 <h2 class="address-map">{{$house->address}}</h2>
-                <ul class="list-inline extra">
-                    <li class="list-inline-item">{{$house->mq}} mq</li>
-                    <li class="list-inline-item">{{$house->room_number}} camere</li>
-                    <li class="list-inline-item">{{$house->bed}} posti letti</li>
-                    <li class="list-inline-item">{{$house->bathroom}} bagni</li>
-                </ul>
+                @if (!empty($house->user->name))
+                    <p class="host_name">Host: {{$house->user->name}}</p>
+                @else  
+                    <p class="host_name">Host: {{$house->user->email}}</p>
+                @endif
                 <h4>DESCRIZIONE</h4>
                 <p>{{$house->description}}</p>
                 <div class='coord-lat d-none' value="{{$house->latitude}}">{{$house->latitude}}</div>
                 <div class='coord-lon d-none' value="{{$house->longitude}}">{{$house->longitude}}</div>
 
                 {{-- CONTATTA --}}
-                <a class="btn btn-primary btn_show" href="{{route('contactus', $house)}}">Contatta l' Host</a>
+                <a class="btn btn-primary btn_show" href="{{route('contactus', $house)}}">Contatta l'Host</a>
                  {{-- MAPPA --}}
-                <div id="map"></div>
             </div>{{--  /col --}} 
-
-
-            <div class="col-md-6 calendar-container">
-                <div class="calendar">
-                <div class="calendar__picture">
-                    <h2>5, Tuesday</h2>
-                    <h3>May</h3>
+            <div class="col-xs-12 col-md-5">
+                <div class="service_container">
+                <div class="container">
+                    <div class="row">
+                    <div class="col-xs-12 col-md-12 card_box">
+                        <div class="card_title">Tipo di Alloggio</div>
+                        <ul class="list_box">
+                            <li class="list_service"><i class="fas fa-home"></i><span>{{$house->mq}} mq</span></li>
+                            <li class="list_service"><i class="fas fa-door-open"></i>{{$house->room_number}} camere</li>
+                            <li class="list_service"><i class="fas fa-bed"></i>{{$house->bed}} letti</li>
+                            <li class="list_service"><i class="fas fa-toilet"></i>{{$house->bathroom}} bagni</li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-md-12 card_box">
+                        <div class="card_title">Servizi</div>
+                        <ul class="list_box">
+                            @foreach ($house->extras as $extra)
+                                @if ($extra->name == 'WiFi')
+                                    <li class="list_service"><i class="fas fa-wifi"></i>{{$extra->name}}</li>
+                                    @elseif($extra->name == 'Parcheggio')
+                                        <li class="list_service"><i class="fas fa-parking"></i>{{$extra->name}}</li>      
+                                    @elseif($extra->name == 'Piscina')
+                                        <li class="list_service"><i class="fas fa-swimmer"></i>{{$extra->name}}</li>      
+                                    @elseif($extra->name == 'Portineria')
+                                        <li class="list_service"><i class="fas fa-concierge-bell"></i>{{$extra->name}}</li>      
+                                    @elseif($extra->name == 'Sauna')
+                                        <li class="list_service"><i class="fas fa-hot-tub"></i>{{$extra->name}}</li>      
+                                @endif  
+                            @endforeach
+                        </ul>
+                    </div>
+                    </div>
                 </div>
-                <div class="calendar__date">
-                    <div class="calendar__day">M</div>
-                    <div class="calendar__day">T</div>
-                    <div class="calendar__day">W</div>
-                    <div class="calendar__day">T</div>
-                    <div class="calendar__day">F</div>
-                    <div class="calendar__day">S</div>
-                    <div class="calendar__day">S</div>
-                    <div class="calendar__number"></div>
-                    <div class="calendar__number"></div>
-                    <div class="calendar__number"></div>
-                    <div class="calendar__number">1</div>
-                    <div class="calendar__number">2</div>
-                    <div class="calendar__number">3</div>
-                    <div class="calendar__number">4</div>
-                    <div class="calendar__number calendar__number--current">5</div>
-                    <div class="calendar__number">6</div>
-                    <div class="calendar__number">7</div>
-                    <div class="calendar__number">8</div>
-                    <div class="calendar__number">9</div>
-                    <div class="calendar__number">10</div>
-                    <div class="calendar__number">11</div>
-                    <div class="calendar__number">12</div>
-                    <div class="calendar__number">13</div>
-                    <div class="calendar__number">14</div>
-                    <div class="calendar__number">15</div>
-                    <div class="calendar__number">16</div>
-                    <div class="calendar__number">17</div>
-                    <div class="calendar__number">18</div>
-                    <div class="calendar__number">19</div>
-                    <div class="calendar__number">20</div>
-                    <div class="calendar__number">21</div>
-                    <div class="calendar__number">22</div>
-                    <div class="calendar__number">23</div>
-                    <div class="calendar__number">24</div>
-                    <div class="calendar__number">25</div>
-                    <div class="calendar__number">26</div>
-                    <div class="calendar__number">27</div>
-                    <div class="calendar__number">28</div>
-                    <div class="calendar__number">29</div>
-                    <div class="calendar__number">30</div>
-                </div>
-                </div>
-            </div> 
+                </div>     
+            </div> {{--  /col --}}
+            <div class="col-md-12 col-lg-6">
+                <div id="map"></div>
+            </div>
         </div>{{--  /row --}} 
     </div>{{--  /container --}}
 </div>{{--  /main --}}

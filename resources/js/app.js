@@ -8,7 +8,7 @@ $(document).ready(function () {
     $('#address').val('');
     $('#address-lat').val('');
     $('#address-long').val('');
-    disappear();
+    
 
     $(document).on('click', 'body', function () {
         $('.results').hide();
@@ -21,7 +21,7 @@ $(document).ready(function () {
             search();
             $('.results').show();
         } else {
-            $('.results').hide(); 
+            $('.results').hide();
         }
     });
 
@@ -29,8 +29,6 @@ $(document).ready(function () {
     $(document).on('click', '.entry-result', function () {
         clearInput();
 
-        // $(this).find('.indirizzo').toggleClass("active");
-        // $(this).find('.coord').val();
         var address = $(this).find('p').html();
         var lat = $(this).find('.lat').val();
         var long = $(this).find('.long').val();
@@ -48,8 +46,6 @@ $(document).ready(function () {
     });
     
     function clearInput() {
-        // $('.address-input').val('');
-        // $('#address').val('');
         $('#address-lat').val('');
         $('#address-long').val('');
     }
@@ -91,11 +87,4 @@ $(document).ready(function () {
 
     }
 
-    function disappear() {
-        setTimeout(fade_out, 3000);
-
-        function fade_out() {
-            $("#noResults").fadeOut().empty();
-        }
-    };
 });

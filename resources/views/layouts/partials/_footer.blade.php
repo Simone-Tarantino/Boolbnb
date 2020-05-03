@@ -1,4 +1,5 @@
 {{-- FOOTER --}}
+<footer>
     <div class="footer">
         <div class="container footer_top">
             <div class="row">
@@ -40,18 +41,19 @@
                 </div>
             </div>
         </div>
-            <div class="container footer_bottom">
-                <div class="row">
-                    <div class="col-xs-12 col-md-8">
-                        <p>© 2020 Boolbnb, Inc. All rights reserved  ·  Privacy  ·  Termini  ·  Mappa del sito  ·  Dettagli dell'azienda</p>
-                    </div>
-                    <div class="col-xs-12 col-md-4 footer_bottom_right">
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-facebook-f"></i>
-                    </div>
+        <div class="container footer_bottom">
+            <div class="row">
+                <div class="col-xs-12 col-md-8">
+                    <p>© 2020 Boolbnb, Inc. All rights reserved  ·  Privacy  ·  Termini  ·  Mappa del sito  ·  Dettagli dell'azienda</p>
+                </div>
+                <div class="col-xs-12 col-md-4 footer_bottom_right">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-facebook-f"></i>
                 </div>
             </div>
+        </div>
     </div>
+</footer>
 </body>
 </html>

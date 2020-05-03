@@ -8,10 +8,7 @@
     }
 
     .btn.btn-send {
-        padding: 10px 20px;
-        color: white;
-        font-weight: bold;
-        background-color: $color-logo;
+        @include buttonPrimary;
 
         &:hover {
             color: white;

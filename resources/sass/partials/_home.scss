@@ -1,67 +1,37 @@
-// BARRA NO RISULTATI
-#noResults {
-    display: inline-block;
-    position: absolute;
-    margin-top: 56px;
-    width: 100%;
-    text-align: center;
-}
-
-// CONTAINER MAIN
-.container {
-    section {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;   
-        h1 {
-            color: $color_primary;
-            border-right: solid 3px rgba(95, 95, 95, 0.75);
-            white-space: nowrap;
-            overflow: hidden;
-            animation: typewriter 3s steps(44) 1s 1 normal both,
-                blinkTextCursor 700ms steps(44) infinite normal;
-        }
-        @keyframes typewriter {
-            from {
-                width: 0;
-            }
-
-            to {
-                width: 19.5em;
-            }
-        }
-        @keyframes blinkTextCursor {
-            from {
-                border-right-color: rgba(87, 87, 87, 0.75);
-            }
-            to {
-                border-right-color: transparent;
-            }
-        }
-        .down {
-            position: absolute;
-            bottom: 30px;
-            color: black;
-            letter-spacing: .1em;
-            text-decoration: none;
-            transition: opacity .3s;
-            font-size: 1.3em;
-            i.bounce {
-                animation: bounce 2s infinite;
-            }
-        }
-        .down:hover {
-            color: $color_primary;
-            opacity: .8;
-        }
+main {
+    min-height: calc(100vh - 333px);
+    margin-top: 200px;
+    .container {
         .search-container {
-            position: absolute;
-            width: 100%;
-            margin-top: 140px;
-            left: 50%;
-            transform: translate(-50%, 0);
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            h1 {
+                font-size: 2.3rem;
+                color: $color_primary;
+                border-right: solid 3px rgba(95, 95, 95, 0.75);
+                white-space: nowrap;
+                overflow: hidden;
+                animation: typewriter 3s steps(44) 1s 1 normal both,
+                    blinkTextCursor 700ms steps(44) infinite normal;
+            }
+            @keyframes typewriter {
+                from {
+                    width: 0;
+                }
+
+                to {
+                    width: 19.5em;
+                }
+            }
+            @keyframes blinkTextCursor {
+                from {
+                    border-right-color: rgba(87, 87, 87, 0.75);
+                }
+                to {
+                    border-right-color: transparent;
+                }
+            }
             .search_box {
                 display: flex;
                 border: 1px solid white;
@@ -72,14 +42,14 @@
                 align-items: center;
                 justify-content: center;
                 background-color: white;
-
+                width: 100%;
                 input {
                     border: 1px solid white;
                     border-radius: 10px;
                     height: 60px;
                     width: 90%;
+                    padding: 5px 20px;
                 }
-
                 .btn_search {
                     display: inline-block;
                     background-color: $color_primary;
@@ -89,9 +59,19 @@
                     margin-right: 5px;
                     border-radius: 8px;
                     border: 1px solid $color_primary;
+                    opacity: 0.6;
+                    transition: 0.3s;
+                    display: flex;
+                    align-items: center;
+                    i {
+                        margin-right: 5px;
+                    }
                 }
-
+                .btn_search:hover {
+                    opacity: 1;
+                }
                 .results.container {
+                    margin-top: 201px;
                     z-index: 2;
                     position: absolute;
                     padding: 10px 28px;
@@ -100,72 +80,94 @@
                     top: 112px;
                     border-radius: 25px;
                     -webkit-box-shadow: 0px 5px 7px 0px rgba(222, 222, 222, 1);
-
-                    .entry_result {
-                        border: 1px solid lightgrey;
+                }
+            }
+        }
+        .sponsored-container {
+            margin: 200px 0 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .sponsored-houses {
+                display: flex;
+                .row {
+                    justify-content: center;
+                    .space {
+                        padding: 15px;
+                        .card_box {
+                            position: relative;
+                            box-shadow: 0px 0px 12px -5px rgba(92, 91, 92, 1);
+                            height: 288px;
+                            padding: 10px;
+                            .sponsored {
+                                position: absolute;
+                                top: .5rem;
+                                right: .5rem;
+                                height: 2rem;
+                                line-height: 2rem;
+                                padding: 0 1rem;
+                                border-radius: .4rem;
+                                background-color: $color_primary;
+                                color: white;
+                            }
+                            .card-wrap {
+                                height: 160px;
+                                width: 266px;
+                                .card-img-top {
+                                    height: 100%;
+                                    width: 100%;
+                                }
+                            }
+                            .card-body {
+                                .card-text {
+                                    margin: 0 0 .6rem;
+                                }
+                                a.btn.btn-primary {
+                                    opacity: 0.6;
+                                    transition: 0.3s;
+                                    background-color: $color_primary;
+                                    border: 1px solid $color_primary;
+                                }
+                                a.btn.btn-primary:hover {
+                                    opacity: 1;
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
+    }
+}
 
-        .sponsored-preview {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .sponsored-container {
-                position: absolute;
-                bottom: 110px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 100%;
-                .sponsored-houses {
-                    padding-top: 10px;
-                    display: flex;
-                    justify-content: space-around;
+@media (min-width: 576px) {
+    main {
+        .container {
+            .search-container {
+                h1 {
+                    font-size: 1.7rem;
                 }
             }
         }
-    } 
+    }
+    .card_box {
+        margin: auto;
+    }
+}
 
-    // SEZIONE SPONSORIZZATA CON TUTTI GLI ANNUNCI
-    #sponsored-section {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        .sponsored-houses {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        a.up {
-            position: absolute;
-            bottom: 50px;
-            color: black;
-            letter-spacing: .1em;
-            text-decoration: none;
-            transition: opacity .3s;
-            font-size: 1.3em;
-            i.bounce {
-                animation: bounce 2s infinite;
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    main {
+        .container {
+            .search-container {
+                h1 {
+                    font-size: 2.3rem;
+                }
             }
         }
-        a.up:hover {
-            color: $color_primary;
-            opacity: .8;
-        }
+    }
+    .card_box {
+        margin: auto;
     }
 }
-@keyframes bounce {
-    0%,20%,50%,80%,100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-30px);
-    }
-    60% {
-        transform: translateY(-15px);
-    }
 
-}

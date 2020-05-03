@@ -18,7 +18,7 @@
                     <input id="address-lat" class="d-none" type="text"  name="latitude" id="" value="" readonly placeholder="latitudine">
                     <input id="address-long" class="d-none" type="text" name="longitude" id="" value="" readonly placeholder="longitudine">    
                     {{-- /NASCOSTO --}}
-                    <button class="btn_search" type="submit">Cerca</button>
+                    <button class="btn_search" type="submit"><i class="fas fa-search"></i> Cerca</button>
                 </form>
             </div>
         </div>

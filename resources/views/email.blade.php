@@ -1,4 +1,4 @@
-Hai ricevuto un messaggio per il tuo appartamento! 
+Hai ricevuto un messaggio per il tuo appartamento! <br>
 
 Messaggio ricevuto da : {{ $email }}
 

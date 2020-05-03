@@ -20,22 +20,22 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
+                                <a class="nav-link login" href="{{ route('login') }}">{{ __('Accedi') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+                                    <a class="nav-link register" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.houses.index') }}">{{ __('I tuoi appartamenti') }}</a>
+                                <a class="nav-link" href="{{ route('admin.houses.index') }}"><i class="fas fa-home"></i> I tuoi appartamenti</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.houses.create') }}">{{ __('Crea nuovo appartamento') }}</a>
+                                <a class="nav-link" href="{{ route('admin.houses.create') }}"><i class="fas fa-plus"></i> Nuovo appartamento</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.messages') }}">{{ __('I tuoi messaggi') }}</a>
+                                <a class="nav-link" href="{{ route('admin.messages') }}"><i class="fas fa-envelope-open-text"></i> Messaggi</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

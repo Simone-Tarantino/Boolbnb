@@ -29,8 +29,6 @@ $(document).ready(function () {
     $(document).on('click', '.entry-result', function () {
         clearInput();
 
-        // $(this).find('.indirizzo').toggleClass("active");
-        // $(this).find('.coord').val();
         var address = $(this).find('p').html();
         var lat = $(this).find('.lat').val();
         var long = $(this).find('.long').val();
@@ -48,8 +46,6 @@ $(document).ready(function () {
     });
     
     function clearInput() {
-        // $('.address-input').val('');
-        // $('#address').val('');
         $('#address-lat').val('');
         $('#address-long').val('');
     }

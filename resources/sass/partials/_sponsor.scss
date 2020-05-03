@@ -1,0 +1,43 @@
+
+.payment-container {
+
+    h1 {
+        color: $color_primary;
+        padding: 0 15px 30px 15px;
+    }
+
+    .plan-card-col {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        
+        .card {
+            width: 14rem;
+            border-color: rgb(181,181,181);
+    
+            .card-link {
+              display: flex;
+              width: 100%;
+              justify-content: space-around;
+              padding-bottom: 1rem;
+            }
+    
+       }
+    }
+    
+    #dropin-container {
+        padding: 0 15px;
+    }
+    
+    .button-container-submit {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 15px;
+    
+    
+        .btn.btn-send {
+          @include buttonPrimary;                     
+        }
+    }
+    
+}

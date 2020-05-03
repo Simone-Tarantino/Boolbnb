@@ -11,7 +11,7 @@ class HouseController extends Controller
 {
     public function index()
     {
-        $randomHouses = House::inRandomOrder()->limit(3)->where('status', 1)->get();
+        $randomHouses = House::inRandomOrder()->take(3)->where('status', 1)->whereHas('sponsors')->get();
         $sponsoredHouses = [];
         foreach ($randomHouses as $house) {
             foreach ($house->sponsors as $sponsor) {

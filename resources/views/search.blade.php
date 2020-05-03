@@ -2,6 +2,9 @@
 {{-- @extends('layouts.app') --}}
 
 @section('main')
+<main>
+
+
 @if($errors->any())
     <div id ="noResults" class="alert alert-danger">
         <h4>{{$errors->first()}}</h4>
@@ -144,7 +147,7 @@
         </script>
     </div>
 </div>
-
+</main>
 @endsection
 
 @section('scripts')

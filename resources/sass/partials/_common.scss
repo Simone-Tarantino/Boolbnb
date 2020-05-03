@@ -11,6 +11,10 @@ html {
 body{
   background-color: white;
 }
+main {
+    min-height: calc(100vh - 333px);
+    margin-bottom: 50px;
+}
 .navbar {
     top: 0;
     z-index: 3;
@@ -50,8 +54,6 @@ body{
     background-color: #F7F7F7;
     color: #1E1E1E;
     padding: 60px 0 25px;
-    position: fixed;
-    bottom: 0;
 }
 
 .footer_top {
@@ -79,13 +81,14 @@ body{
     .navbar {
         text-align: right;
         .nav-item {
-            .nav-link {
+            a.nav-link {
                 border: 0;
                 border-radius: 0;
                 opacity: 0.6;
                 transition: 0.3;
                 margin: 0;
                 color: darkgrey;
+                font-size: 1.2rem;
             }
             .nav-link:hover
                 {

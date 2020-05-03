@@ -1,5 +1,6 @@
 main {
-    margin-top: 150px;
+    min-height: calc(100vh - 333px);
+    margin-top: 200px;
     .container {
         .search-container {
             display: flex;
@@ -70,7 +71,7 @@ main {
                     opacity: 1;
                 }
                 .results.container {
-                    margin-top: 155px;
+                    margin-top: 201px;
                     z-index: 2;
                     position: absolute;
                     padding: 10px 28px;
@@ -120,6 +121,15 @@ main {
                             .card-body {
                                 .card-text {
                                     margin: 0 0 .6rem;
+                                }
+                                a.btn.btn-primary {
+                                    opacity: 0.6;
+                                    transition: 0.3s;
+                                    background-color: $color_primary;
+                                    border: 1px solid $color_primary;
+                                }
+                                a.btn.btn-primary:hover {
+                                    opacity: 1;
                                 }
                             }
                         }

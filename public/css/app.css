@@ -10893,6 +10893,11 @@ body {
   background-color: white;
 }
 
+main {
+  min-height: calc(100vh - 333px);
+  margin-bottom: 50px;
+}
+
 .navbar {
   top: 0;
   z-index: 3;
@@ -10936,8 +10941,6 @@ body {
   background-color: #F7F7F7;
   color: #1E1E1E;
   padding: 60px 0 25px;
-  position: fixed;
-  bottom: 0;
 }
 
 .footer_top {
@@ -10963,13 +10966,14 @@ body {
     text-align: right;
   }
 
-  .navbar .nav-item .nav-link {
+  .navbar .nav-item a.nav-link {
     border: 0;
     border-radius: 0;
     opacity: 0.6;
     transition: 0.3;
     margin: 0;
     color: darkgrey;
+    font-size: 1.2rem;
   }
 
   .navbar .nav-item .nav-link:hover {
@@ -11009,7 +11013,8 @@ body {
 }
 
 main {
-  margin-top: 150px;
+  min-height: calc(100vh - 333px);
+  margin-top: 200px;
 }
 
 main .container .search-container {
@@ -11113,7 +11118,7 @@ main .container .search-container .search_box .btn_search:hover {
 }
 
 main .container .search-container .search_box .results.container {
-  margin-top: 155px;
+  margin-top: 201px;
   z-index: 2;
   position: absolute;
   padding: 10px 28px;
@@ -11174,6 +11179,17 @@ main .container .sponsored-container .sponsored-houses .row .space .card_box .ca
 
 main .container .sponsored-container .sponsored-houses .row .space .card_box .card-body .card-text {
   margin: 0 0 0.6rem;
+}
+
+main .container .sponsored-container .sponsored-houses .row .space .card_box .card-body a.btn.btn-primary {
+  opacity: 0.6;
+  transition: 0.3s;
+  background-color: #e41b5e;
+  border: 1px solid #e41b5e;
+}
+
+main .container .sponsored-container .sponsored-houses .row .space .card_box .card-body a.btn.btn-primary:hover {
+  opacity: 1;
 }
 
 @media (min-width: 576px) {

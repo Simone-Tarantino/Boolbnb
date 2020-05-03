@@ -24,11 +24,11 @@
         </div>
         {{-- APPARTAMENTI SPONSORIZZATI --}}
         <div class="sponsored-container ">
-            <h3>Alcune delle nostre mete preferite:</h3>
+            <h3><i class="fas fa-star"></i> Alcune delle nostre mete preferite:</h3>
             <div class="sponsored-houses">
                 <div class="row">
                     @foreach ($sponsoredHouses as $promo)
-                        <div class="col-xs-12 col-md-6 col-lg-4 space">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 space">
                             <div class=" card card_box" style="width: 18rem;">
                                 <div class="sponsored">
                                     Sponsored

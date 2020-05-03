@@ -6,9 +6,14 @@
 <div class="main_show">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-md-6">
+            <div class="col-xs-12 col-md-7">
                 <img class="img_show" src="{{asset('storage/'.$house->img_path)}}" alt="">
                 <h2 class="address-map">{{$house->address}}</h2>
+                @if (!empty($house->user->name))
+                    <p class="host_name">Host: {{$house->user->name}}</p>
+                @else  
+                    <p class="host_name">Host: {{$house->user->email}}</p>
+                @endif
                 <h4>DESCRIZIONE</h4>
                 <p>{{$house->description}}</p>
                 <div class='coord-lat d-none' value="{{$house->latitude}}">{{$house->latitude}}</div>
@@ -17,11 +22,8 @@
                 {{-- CONTATTA --}}
                 <a class="btn btn-primary btn_show" href="{{route('contactus', $house)}}">Contatta l'Host</a>
                  {{-- MAPPA --}}
-                <div id="map"></div>
             </div>{{--  /col --}} 
-
-
-            <div class="col-xs-12 col-md-6">
+            <div class="col-xs-12 col-md-5">
                 <div class="service_container">
                 <div class="container">
                     <div class="row">
@@ -54,9 +56,11 @@
                     </div>
                     </div>
                 </div>
-                </div>
-                
+                </div>     
             </div> {{--  /col --}}
+            <div class="col-md-12 col-lg-6">
+                <div id="map"></div>
+            </div>
         </div>{{--  /row --}} 
     </div>{{--  /container --}}
 </div>{{--  /main --}}

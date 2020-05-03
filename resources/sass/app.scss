@@ -1,17 +1,27 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
 
 // Variables
+@import "partials/_mixin.scss";
 @import 'partials/_variables.scss';
 @import 'partials/_common.scss';
 @import 'partials/_home.scss';
 @import 'partials/_adminIndex.scss';
+@import 'partials/_adminCreate.scss';
 @import 'partials/_show.scss';
+@import 'partials/_messages.scss';
+@import 'partials/_contactUs.scss';
+@import 'partials/_mainSearch.scss';
+@import 'partials/_login.scss';
+@import 'partials/_redirect.scss';
 
 
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+
+
 
 #map {
     height: 500px;

@@ -1,0 +1,18 @@
+.contact_us {
+    .form-group {
+        font-weight: bold;
+    }
+
+    .primary {
+        color: $color_primary;
+    }
+
+    .btn.btn-send {
+        @include buttonPrimary;
+
+        &:hover {
+            color: white;
+
+        }
+    }
+}

@@ -414,9 +414,14 @@ h6,
   font-size: 1rem;
 }
 
+
+.main_show .card_container .card_box {
+  margin-bottom: 3rem;
+  box-shadow: 0px 0px 12px -5px #5c5b5c;
+
 .lead {
   font-size: 1.25rem;
-  font-weight: 300;
+
 }
 
 .display-1 {
@@ -430,6 +435,38 @@ h6,
   font-weight: 300;
   line-height: 1.2;
 }
+
+.main_show .service_container {
+  width: 300px;
+  margin: 0 auto;
+  padding-top: 6rem;
+}
+
+.main_show .service_container .card_box {
+  margin-bottom: 3rem;
+  padding: 0;
+  box-shadow: 0px 0px 12px -5px #5c5b5c;
+  border-radius: 0.3rem;
+}
+
+.main_show .service_container .card_box .card_title {
+  padding: 1.5rem 1rem;
+  background-color: #fe5b60;
+  color: white;
+  font-weight: bold;
+  border-radius: 0.3rem 0.3rem 0 0;
+}
+
+.main_show .service_container .card_box .list_service {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1rem;
+  border-top: 0.4px solid whitesmoke;
+}
+
+.main_show .service_container .card_box .list_service i {
+  margin-right: 0.6rem;
+  font-size: 1.2rem;
 
 .display-3 {
   font-size: 4.5rem;
@@ -488,6 +525,7 @@ mark,
 .blockquote {
   margin-bottom: 1rem;
   font-size: 1.25rem;
+
 }
 
 .blockquote-footer {

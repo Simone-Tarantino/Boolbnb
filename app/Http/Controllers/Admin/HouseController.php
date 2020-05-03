@@ -40,11 +40,7 @@ class HouseController extends Controller
                 
 
                 $expiring_date = $sponsor->pivot->created_at->addHours($sponsor->duration);
-                // $someTime = Carbon::createFromFormat('H:i:s', '18:15:10');
-                // // add time
-                // $someTime1 = $someTime->addHours(10)->addMinutes(15)->addSeconds(20)->toTimeString();
-                    // get hours different
-                    //dd($someTime->diffInHours($someTime1));
+
                 if ($now < $expiring_date && !in_array($house, $sponsoredHouses)) {
                     $sponsoredHouses[] = $house;       
                 }

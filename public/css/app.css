@@ -199,55 +199,6 @@ body {
   flex-wrap: wrap;
 }
 
-.container #sponsored-section a.up {
-  position: absolute;
-  bottom: 50px;
-  color: black;
-  letter-spacing: 0.1em;
-  text-decoration: none;
-  transition: opacity 0.3s;
-  font-size: 1.3em;
-}
-
-.container #sponsored-section a.up i.bounce {
-  -webkit-animation: bounce 2s infinite;
-          animation: bounce 2s infinite;
-}
-
-.container #sponsored-section a.up:hover {
-  color: #e41b5e;
-  opacity: 0.8;
-}
-
-@-webkit-keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-
-  40% {
-    transform: translateY(-30px);
-  }
-
-  60% {
-    transform: translateY(-15px);
-  }
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-
-  40% {
-    transform: translateY(-30px);
-  }
-
-  60% {
-    transform: translateY(-15px);
-  }
-}
-
-
 .main_admin_index {
   padding-top: 100px;
 }
@@ -255,10 +206,6 @@ body {
 .main_admin_index .title {
   width: 20%;
   padding: 1.5rem 0;
-
-.main_admin_index .title {
-  width: 20%;
-
   color: #e41b5e;
 }
 
@@ -321,11 +268,73 @@ body {
 
 .main_admin_create .little_slogan {
   margin-bottom: 20px;
+  background-color: #e41b5e;
+  text-align: center;
 }
 
 .main_admin_create .little_slogan span {
-  color: #555b6e;
+  color: white;
   font-size: 1.5em;
+  font-weight: bold;
+}
+
+.main_admin_create .card {
+  border: 1px solid #e41b5e;
+  -webkit-box-shadow: 0px 5px 7px 0px #dedede;
+  padding: 10px;
+}
+
+.main_admin_create .card .col-form-label.roger {
+  position: relative;
+}
+
+.main_admin_create .card .address_hidden {
+  margin-top: 10px;
+}
+
+.main_admin_create .card .results.container {
+  top: 350px;
+  left: 125px;
+  z-index: 2;
+  position: absolute;
+  padding: 5px 5px;
+  width: 220px;
+  display: inline-block;
+  background-color: white;
+  border-radius: 25px;
+  -webkit-box-shadow: 0px 5px 7px 0px #dedede;
+}
+
+.main_admin_create .card .results.container .entry_result {
+  border: 1px solid lightgrey;
+}
+
+.main_admin_create .card .extra_input {
+  margin-top: 10px;
+}
+
+.main_admin_create .card .btn_search {
+  display: inline-block;
+  background-color: #e41b5e;
+  padding: 10px 20px;
+  margin-top: 10px;
+  color: white;
+  font-weight: 500;
+  margin-right: 5px;
+  border-radius: 8px;
+  border: 1px solid #e41b5e;
+}
+
+.main_admin_create .card .btn_search .btn_search:hover {
+  background-color: #870d36;
+}
+
+.main_admin_create .box_text {
+  margin-left: 20px;
+  margin-top: 100px;
+}
+
+.main_admin_create .box_text h3 {
   font-weight: bold;
 }
 

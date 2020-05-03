@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="sponsored-preview">
+        {{-- <div class="sponsored-preview">
             <div class="sponsored-container">
                 <h3>Alcune delle nostre mete preferite:</h3>
                 <div class="sponsored-houses">
@@ -44,7 +44,7 @@
                     @endforeach
                 </div>
             </div>
-        </div>
+        </div> --}}
     </section>   
 </div>
 

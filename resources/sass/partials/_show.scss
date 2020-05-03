@@ -3,6 +3,13 @@
     width: 100%;
     margin-bottom: 3rem;
   }
+  .host_name{
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    font-weight: 500;
+    color: lightslategray;
+    border-bottom: 0.4px solid silver;
+  }
   .extra{
     padding-bottom: 1rem;
     border-bottom: 0.2px solid lightslategray;
@@ -48,7 +55,7 @@
       box-shadow: 0px 0px 12px -5px rgba(92,91,92,1);
     }
     .btn_look{
-      margin: 10px;
+      margin: 10px 0s;
       padding: 10px 20px;
       font-weight: bold;
       color: white;
@@ -65,7 +72,7 @@
     }
   } 
   .service_container{
-    width: 300px;
+    width: 250px;
     
     margin: 0 auto;
     padding-top: 6rem;
@@ -96,7 +103,9 @@
     }
   }
   
-
+  #map{
+    width: 100%;
+  }
 
 // MEDIA-QUERY
 

@@ -92,7 +92,7 @@
         @endforeach
 </div>
     
-        {{-- <div class="house-results">
+        <div class="house-results">
             @foreach ($houses as $house)
             <ul class='house'>
                 <li>{{$house->address}}</li>
@@ -112,7 +112,7 @@
                 <li><a href="{{route('house.show', $house->id)}}">Mostra appartamento</a></li>
             </ul>
             @endforeach
-        </div> --}}
+        </div>
     
     
     

@@ -1,0 +1,102 @@
+.main_admin_create{
+
+    label {
+        font-weight: bold;
+    }
+    .image_container img{
+      height: 450px;
+      margin-top: 50px;
+    }
+    .slogan {
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+     h2 {
+        font-size: 3em;
+        font-weight: bold;
+        color: $color_primary;
+     }
+    }
+    
+    .little_slogan {
+
+        margin-bottom: 20px;
+        background-color: $color_primary;
+        text-align: center;
+        
+
+        span {
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        
+    }
+
+    .card {
+        border: 1px solid $color_primary;
+        -webkit-box-shadow: 0px 5px 7px 0px rgba(222, 222, 222, 1);
+        padding: 10px;
+
+
+        
+
+        .col-form-label.roger {
+            position: relative;
+        }
+
+        .address_hidden {
+            margin-top: 10px;
+        }
+
+        .results.container {
+            top: 350px;
+            left: 125px;
+            z-index: 2;
+            position: absolute;
+            padding: 5px 5px;
+            width: 220px;
+
+            display: inline-block;
+            background-color: white;
+            border-radius: 25px;
+            -webkit-box-shadow: 0px 5px 7px 0px rgba(222, 222, 222, 1);
+
+            .entry_result {
+                border: 1px solid lightgrey;
+            }
+        }
+
+        .extra_input {
+            margin-top: 10px;
+        }
+
+        .btn_search {
+            display: inline-block;
+            background-color: $color_primary;
+            padding: 10px 20px;
+            margin-top: 10px;
+            color: white;
+            font-weight: 500;
+            margin-right: 5px;
+            border-radius: 8px;
+            border: 1px solid $color_primary;
+
+            .btn_search:hover {
+                background-color: hsl(340, 82%, 29%);
+            }
+        }
+
+    }
+
+    .box_text{
+     margin-left: 20px;
+     margin-top: 100px;
+
+     h3 {
+         font-weight: bold;
+     }
+    }
+
+}

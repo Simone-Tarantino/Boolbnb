@@ -284,21 +284,17 @@ body {
   padding: 10px;
 }
 
-.main_admin_create .card .col-form-label.roger {
+.main_admin_create .card .results_div {
   position: relative;
 }
 
-.main_admin_create .card .address_hidden {
-  margin-top: 10px;
-}
-
 .main_admin_create .card .results.container {
-  top: 350px;
-  left: 125px;
+  top: 0px;
+  left: 0px;
+  width: 100%;
   z-index: 2;
   position: absolute;
   padding: 5px 5px;
-  width: 220px;
   display: inline-block;
   background-color: white;
   border-radius: 25px;
@@ -309,8 +305,27 @@ body {
   border: 1px solid lightgrey;
 }
 
+.main_admin_create .card .address_hidden {
+  margin-top: 10px;
+}
+
 .main_admin_create .card .extra_input {
   margin-top: 10px;
+  margin-left: 10px;
+}
+
+@media (max-width: 576px) {
+  .main_admin_create .card .extra_input {
+    margin-top: 5px;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main_admin_create .card .extra_input {
+    margin-top: 5px;
+    margin-left: 20px;
+  }
 }
 
 .main_admin_create .card .btn_search {

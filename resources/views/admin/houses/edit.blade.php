@@ -101,7 +101,7 @@
 
 
                 <div class="form-group-inline row">
-                    <label for="address-input" class="col-sm-3 col-form-label">Indirizzo</label>
+                    <label for="address-input" class="col-sm-3 col-md-12 col-lg-3 col-form-label">Indirizzo</label>
                     <div class="col-sm-6 col-md-8 relative_address">
                         <input type="text" class="address-input form-control" name="address" value="{{(!empty($house)) ?$house->address : ''}}" placeholder="Modifica l'indirizzo">
                          <div class="results_div">
@@ -115,7 +115,7 @@
                 </div>
 
                 <div class="form-group row">
-                <label for="address" class="col-sm-3 col-form-label"></label>
+                <label for="address" class="col-sm-3 col-md-12 col-lg-3 col-form-label"></label>
                 <div class="col-sm-6 col-md-8 address_hidden">
                         <input id="address-up" type="text" class='indirizzo form-control' name="address" id="address" value="{{(!empty($house)) ?$house->address : ''}}" readonly placeholder="Indirizzo">
                 </div>
@@ -124,8 +124,8 @@
                 
                 
                 {{-- Risultati delle cordinate nascoste --}}
-                <li><input class="d-none" id="address-lat-up" type="text"  name="latitude" value="{{(!empty($house)) ? $house->latitude : ''}}" readonly placeholder="latitudine"></li>
-                <li><input class="d-none" id="address-long-up" type="text" name="longitude" value="{{(!empty($house)) ? $house->longitude : ''}}" readonly placeholder="longitudine"></li>
+                <li class="d-none"><input id="address-lat-up" type="text"  name="latitude" value="{{(!empty($house)) ? $house->latitude : ''}}" readonly placeholder="latitudine"></li>
+                <li class="d-none"><input id="address-long-up" type="text" name="longitude" value="{{(!empty($house)) ? $house->longitude : ''}}" readonly placeholder="longitudine"></li>
 
 
     
@@ -152,9 +152,9 @@
         {{-- Form status --}}
         <div class="form-group row">
             <label for="status" class="col-sm-3 col-form-label">Status</label>
-            <div class="col-sm-3 col-md-5 col-lg-3">
+            <div class="ol-sm-4 col-md-5 col-lg-4">
                 <select class="custom-select mr-sm-2" id="status" name="status">
-                    <option value="1" selected>Publicato</option>
+                    <option value="1" selected>Pubblicato</option>
                     <option value="0">Non Pubblicato</option>
                 </select>
             </div>

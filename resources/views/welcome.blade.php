@@ -23,7 +23,8 @@
             </div>
         </div>
         {{-- APPARTAMENTI SPONSORIZZATI --}}
-        <div class="sponsored-container ">
+        <div class="sponsored-container">
+            
             <h3><i class="fas fa-star"></i> Alcune delle nostre mete preferite:</h3>
             <div class="sponsored-houses">
                 <div class="row">
@@ -45,6 +46,7 @@
                     @endforeach
                 </div>
             </div>   
+            
         </div> 
     </div>       
 </main>

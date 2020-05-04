@@ -1,11 +1,13 @@
 main {
     min-height: calc(100vh - 333px);
     margin-top: 200px;
+
     .container {
         .search-container {
             display: flex;
-            flex-direction: column; 
+            flex-direction: column;
             align-items: center;
+
             h1 {
                 font-size: 2.3rem;
                 color: $color_primary;
@@ -15,6 +17,7 @@ main {
                 animation: typewriter 3s steps(44) 1s 1 normal both,
                     blinkTextCursor 700ms steps(44) infinite normal;
             }
+
             @keyframes typewriter {
                 from {
                     width: 0;
@@ -24,14 +27,17 @@ main {
                     width: 19.5em;
                 }
             }
+
             @keyframes blinkTextCursor {
                 from {
                     border-right-color: rgba(87, 87, 87, 0.75);
                 }
+
                 to {
                     border-right-color: transparent;
                 }
             }
+
             .search_box {
                 display: flex;
                 border: 1px solid white;
@@ -43,6 +49,7 @@ main {
                 justify-content: center;
                 background-color: white;
                 width: 100%;
+
                 input {
                     border: 1px solid white;
                     border-radius: 10px;
@@ -50,6 +57,7 @@ main {
                     width: 90%;
                     padding: 5px 20px;
                 }
+
                 .btn_search {
                     display: inline-block;
                     background-color: $color_primary;
@@ -63,13 +71,16 @@ main {
                     transition: 0.3s;
                     display: flex;
                     align-items: center;
+
                     i {
                         margin-right: 5px;
                     }
                 }
+
                 .btn_search:hover {
                     opacity: 1;
                 }
+
                 .results.container {
                     margin-top: 201px;
                     z-index: 2;
@@ -83,27 +94,34 @@ main {
                 }
             }
         }
+
         .sponsored-container {
             margin: 200px 0 150px;
             display: flex;
             flex-direction: column;
             align-items: center;
+
             h3 {
                 i {
                     color: gold;
                 }
             }
+
             .sponsored-houses {
                 display: flex;
+
                 .row {
                     justify-content: center;
+
                     .space {
                         padding: 15px;
+
                         .card_box {
                             position: relative;
                             box-shadow: 0px 0px 12px -5px rgba(92, 91, 92, 1);
                             height: 288px;
                             padding: 10px;
+
                             .sponsored {
                                 position: absolute;
                                 top: .5rem;
@@ -115,24 +133,29 @@ main {
                                 background-color: $color_primary;
                                 color: white;
                             }
+
                             .card-wrap {
                                 height: 160px;
                                 width: 266px;
+
                                 .card-img-top {
                                     height: 100%;
                                     width: 100%;
                                 }
                             }
+
                             .card-body {
                                 .card-text {
                                     margin: 0 0 .6rem;
                                 }
+
                                 a.btn.btn-primary {
                                     opacity: 0.6;
                                     transition: 0.3s;
                                     background-color: $color_primary;
                                     border: 1px solid $color_primary;
                                 }
+
                                 a.btn.btn-primary:hover {
                                     opacity: 1;
                                 }
@@ -155,6 +178,7 @@ main {
                     font-size: 1.8rem;
                 }
             }
+
             .card_box {
                 margin: auto;
             }
@@ -169,12 +193,12 @@ main {
             .search-container {
                 h1 {
                     font-size: 1.5rem;
-                }    
+                }
             }
+
             h3 {
                 font-size: 1.3rem;
-            }     
-        }    
-    }    
-}    
-
+            }
+        }
+    }
+}

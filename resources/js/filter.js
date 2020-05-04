@@ -1,12 +1,11 @@
-require('./bootstrap');
 const $ = require("jquery");
 const Handlebars = require("handlebars");
 
 $(document).ready(function () {
     clear();
-   
 
-    $(document).on('click', '#filter-button', function(){
+
+    $(document).on('click', '#filter-button', function () {
         $('.house').show();
 
         var beds = $('#beds').val();
@@ -18,11 +17,11 @@ $(document).ready(function () {
             var houseBed = parseInt($(this).find('.bed').text());
             var houseBathroom = parseInt($(this).find('.bathroom').text());
             var houseRoom = parseInt($(this).find('.room_number').text());
-            if(room_number <= houseRoom && beds <= houseBed && bathrooms <= houseBathroom) {
+            if (room_number <= houseRoom && beds <= houseBed && bathrooms <= houseBathroom) {
                 $(this).show();
             } else {
                 $(this).hide();
-            }          
+            }
         });
 
         // sezione extra
@@ -32,23 +31,23 @@ $(document).ready(function () {
         });
         var extraCheckString = extras.toString()
         extraCheckString = extraCheckString.replace(',', '');
-        $.each($('.house'), function(){
+        $.each($('.house'), function () {
             var extrasHouseString = $(this).find('.extras').html();
-                extrasHouseString = extrasHouseString.trim();
-                extrasHouseString = extrasHouseString.replace(/\n/g, " ");
-                extrasHouseString = extrasHouseString.replace(/ /g, '');
+            extrasHouseString = extrasHouseString.trim();
+            extrasHouseString = extrasHouseString.replace(/\n/g, " ");
+            extrasHouseString = extrasHouseString.replace(/ /g, '');
             var result = extrasHouseString.includes(extraCheckString);
             if (result == false) {
-               $(this).hide();
+                $(this).hide();
             }
         });
     });
-    
-    $(document).on('click', '#remove-filters', function(){
+
+    $(document).on('click', '#remove-filters', function () {
         clear();
     });
 
-    function clear () {
+    function clear() {
         $('.house').show();
         $('.checkbox-filter').prop('checked', false);
         $('#beds').val('');
@@ -57,4 +56,3 @@ $(document).ready(function () {
     }
 
 });
-

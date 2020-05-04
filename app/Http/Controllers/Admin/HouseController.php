@@ -187,7 +187,31 @@ class HouseController extends Controller
     public function showSponsor($id){
         $house = House::where("id",$id)->first();
 
-        return view("admin.sponsor",compact("house"));
+        $sponsors = [
+            [
+                'name'=>'Standard',
+                'id'=>1,
+                'description'=>'Sponsorizza per 1 giorno',
+                'duration'=>24,
+                'price'=>2.99
+            ],
+            [
+                'name'=>'Plus',
+                'id'=>2,
+                'description'=>'Sponsorizza per 3 giorni',
+                'duration'=>72,
+                'price'=>5.99
+            ],
+            [
+                'name'=>'Premium',
+                'id'=>3,
+                'description'=>'Sponsorizza per 6 giorni',
+                'duration'=>144,
+                'price'=>9.99
+            ]
+        ];
+
+        return view("admin.sponsor", ["house"=>$house, "sponsors"=>$sponsors]);
     }
 
     public function pay(Request $request){

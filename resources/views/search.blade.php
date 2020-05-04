@@ -12,13 +12,13 @@
 @endif
 <div class="container">
     <div class="row searchHouses">
-           <h1 class="mt-4 mb-4 primary">Appartamenti</h1>
+           <h1 class="mt-4 mb-4 service">Appartamenti</h1>
                {{-- ricerca indirizzo e raggio --}}
                <div class="search-container _search">
         
                    <div class="search_box">
                        <input id="address" type="text" class="address-input" name="" placeholder="Cerca Indirizzo">
-                       <div class="results container">
+                       <div class="results container" id="results">
                
                        </div>
                        
@@ -32,7 +32,7 @@
          {{-- filtri --}}
          <div class="filters">
             {{-- raggio e opzioni camera --}}
-            <h5>Opzioni</h5>
+            <h5 class="service">Opzioni</h5>
          <div class="wrapper d-flex">
             <div class="option-wrap">
             <label for="distance"><i class="fas fa-map-marker-alt option_icon"></i>Raggio</label>
@@ -59,9 +59,9 @@
         {{-- fine raggio e opzioni camera --}}
         {{-- extras --}}
 <div class="extras-filter">
+    <h5 class="service">Servizi</h5>
 <div class="row">
 <div class="col-xs-12 col-md-8">
-  <h5>Servizi</h5>
     <label for="checkbox"><i class="fas fa-wifi extra_icon"></i>WiFi</label>
     <input type="checkbox"  class="checkbox-filter" name="extra" value="WiFi" id="">
     <label for="checkbox"><i class="fas fa-parking extra_icon"></i>Parcheggio</label>
@@ -82,23 +82,7 @@
    
 </div>
   {{-- fine extras --}}
-         </div>
-             {{-- <div class="search_radius">
-            </div> --}}
-               
-                   {{-- <label for="checkbox">WiFi</label>
-                   <input type="checkbox"  class="checkbox-filter" name="extra" value="WiFi" id="">
-                   <label for="checkbox">Parcheggio</label>
-                   <input type="checkbox" class="checkbox-filter" name="extra" value="Parcheggio" id="">
-                   <label for="checkbox">Piscina</label>
-                   <input type="checkbox" class="checkbox-filter" name="extra" value="Piscina" id="">
-                   <label for="checkbox">Portineria</label>
-                   <input type="checkbox" class="checkbox-filter" name="extra" value="Portineria" id="">
-                   <label for="checkbox">Sauna</label>
-                   <input type="checkbox" class="checkbox-filter" name="extra" value="Sauna" id=""> --}}
-                   
-                
-               
+         </div>      
         </div>
                        {{-- filtra risultati jquery --}}
               
@@ -145,7 +129,7 @@
                     <p class="card-text card_text"><i class="fas fa-bed"></i>Posti letto: {{$house->bed}}</p>
                     <div class="extras">
                     @foreach ($house->extras as $extra)
-                        {{$extra->name}}
+                        <p class="small">{{$extra->name}}</p>
                     @endforeach
                 </div>
                     <a href="{{route('house.show', $house->id)}}" class="btn btn_look">Vedi Appartamento</a>

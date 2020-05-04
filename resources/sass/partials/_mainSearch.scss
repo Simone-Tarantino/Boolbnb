@@ -15,6 +15,10 @@
         align-items: center;
     }
 
+    #results {
+        top: 160px;
+    }
+
     .container-sponsored {
         // background-color: brown;
     }
@@ -66,6 +70,7 @@
     // filtri
     .filters {
         // background-color: cadetblue;
+        margin-top: 15px;
 
         .filter_input {
             // background-color: peru;
@@ -88,14 +93,23 @@
 
     }
 
+    .option-wrap {
+        label {
+            margin-right: 10px;
+        }
+    }
+
     .option_icon {
         color: $color_primary;
         padding-right: 5px;
     }
 
+    .service {
+        color: $color_primary;
+    }
+
     .extras-filter {
         padding: 15px 0 10px 0;
-        border-bottom: 1px solid #F7F7F7;
 
 
         .extra_icon {
@@ -114,7 +128,7 @@
 
     .btn.btn_filters {
         background-color: white;
-        padding: 10px 20px;
+        padding: 5px 10px;
         border: 2px solid $color_primary;
         border-radius: 50px;
         color: $color_primary;
@@ -132,7 +146,15 @@
         }
     }
 
+    @media (min-width: 576px) {
+        .search_box {
+            width: 80%;
+        }
+
+    }
+
     @media screen and (max-width:766px) {
+
         .wrapper {
             flex-direction: column;
         }

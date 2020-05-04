@@ -1,6 +1,7 @@
 
 .payment-container {
 
+
     h1 {
         color: $color-logo;
         padding: 0 15px 30px 15px;
@@ -12,8 +13,13 @@
         flex-direction: row;
         
         .card {
-            width: 14rem;
+            width: 20rem;
             border-color: rgb(181,181,181);
+
+
+            .card-title {
+                font-weight: 500;
+            }
     
             .card-link {
               display: flex;
@@ -31,12 +37,13 @@
     
     .button-container-submit {
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
         padding: 0 15px;
     
     
         .btn.btn-send {
-          @include buttonPrimary;                     
+          @include look; 
+          padding: 10px 20px 10px 20px;                    
         }
     }
     

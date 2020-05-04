@@ -2,7 +2,7 @@
 {{-- @extends('layouts.app') --}}
 
 @section('main')
-<div class="container contact_us">
+<div class="container contact_us main">
 <h1 class="primary mt-4 mb-4">Contatta il proprietario dell'appartamento</h1>
 @if(Session::has('success'))
    <div class="alert alert-success">

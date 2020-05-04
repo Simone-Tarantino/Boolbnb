@@ -200,3 +200,19 @@
     <script src="{{asset('js/search.js')}}"></script>
     <script src="{{asset('js/filter.js')}}"></script>
 @endsection
+
+
+
+
+                    <li>@{{address}}</li>
+                    <li class="bathroom">@{{bathroom}}</li>
+                    <li class="bed">@{{bed}}</li>
+                    <li>@{{img_path}}</li>
+                    <li>@{{id}}</li>
+                    <li>@{{mq}}</li>
+                    <li class="room_number">@{{room_number}}</li>
+                    <li class="extras">
+                        @{{extras}}
+                    </li>
+                    <li><a href="http://127.0.0.1:8000/show/@{{id}}">Mostra appartamento</a></li>
+                    </ul>

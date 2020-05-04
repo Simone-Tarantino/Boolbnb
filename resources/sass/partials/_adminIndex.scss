@@ -8,6 +8,7 @@
 
         color: $color-logo;
     }
+    
 
     .btn_zone {
         display: flex;
@@ -22,7 +23,7 @@
         }
 
         .btn_danger {
-            margin: 10px;
+            // margin: 5%;
             padding: 7px 20px;
             font-weight: bold;
             color: $color-logo;
@@ -72,7 +73,7 @@
         margin-bottom: 20px;
 
         .btn_look {
-            margin: 0 20px;
+            margin: 0 5%;
         }
     }
 }

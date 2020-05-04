@@ -41,14 +41,14 @@
      h2 {
         font-size: 3em;
         font-weight: bold;
-        color: $color_primary;
+        color: $color-logo;
      }
     }
     
     .little_slogan {
 
         margin-bottom: 20px;
-        background-color: $color_primary;
+        background-color: $color-logo;
         text-align: center;
         
 
@@ -118,19 +118,13 @@
         }
 
         .btn_search {
+            @include look;
             display: inline-block;
-            background-color: $color_primary;
             padding: 10px 20px;
             margin-top: 10px;
-            color: white;
-            font-weight: 500;
             margin-right: 5px;
-            border-radius: 8px;
-            border: 1px solid $color_primary;
 
-            .btn_search:hover {
-                background-color: hsl(340, 82%, 29%);
-            }
+            
         }
 
     }

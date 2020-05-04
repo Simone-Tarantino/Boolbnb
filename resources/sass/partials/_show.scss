@@ -31,7 +31,8 @@
   }
   .btn_show{
       @include look;
-      margin: 10px;
+      border: 1px solid $color-logo;
+      margin-bottom: 10px;
       padding: 10px 20px;
       
   
@@ -50,6 +51,7 @@
       @include look;
       margin: 10px 0s;
       padding: 10px 20px;
+      
       
     }
   } 

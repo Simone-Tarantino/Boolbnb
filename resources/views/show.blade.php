@@ -20,7 +20,7 @@
                 <div class='coord-lon d-none' value="{{$house->longitude}}">{{$house->longitude}}</div>
 
                 {{-- CONTATTA --}}
-                <a class="btn btn-primary btn_show" href="{{route('contactus', $house)}}">Contatta l'Host</a>
+                <a class="btn btn_show" href="{{route('contactus', $house)}}">Contatta l'Host</a>
                  {{-- MAPPA --}}
             </div>{{--  /col --}} 
             <div class="col-xs-12 col-md-5">

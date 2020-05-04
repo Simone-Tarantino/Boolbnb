@@ -11299,7 +11299,7 @@ main .container .sponsored-container .sponsored-houses .row .space .card_box .ca
 }
 
 .box .btn_zone .btn_look {
-  margin: 0 20px;
+  margin: 0 5%;
 }
 
 .main_admin_create label {
@@ -11337,7 +11337,7 @@ main .container .sponsored-container .sponsored-houses .row .space .card_box .ca
 
 .main_admin_create .card {
   border: 1px solid #e41b5e;
-  -webkit-box-shadow: 0px 5px 7px 0px #dedede;
+  box-shadow: 0px 5px 7px 0px #dedede;
   padding: 10px;
 }
 
@@ -11355,7 +11355,7 @@ main .container .sponsored-container .sponsored-houses .row .space .card_box .ca
   display: inline-block;
   background-color: white;
   border-radius: 25px;
-  -webkit-box-shadow: 0px 5px 7px 0px #dedede;
+  box-shadow: 0px 5px 7px 0px #dedede;
 }
 
 .main_admin_create .card .results.container .entry_result {

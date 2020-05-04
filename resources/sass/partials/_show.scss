@@ -1,15 +1,123 @@
 .main_show{
   .img_show{
-    margin-top: 35px;
-    margin-bottom: 35px;
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+  .host_name{
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    font-weight: 500;
+    color: lightslategray;
+    border-bottom: 0.4px solid silver;
+  }
+  .extra{
+    padding-bottom: 1rem;
+    border-bottom: 0.2px solid lightslategray;
   }
   h2{
-    text-align: center;
-    color: $color_primary;
+    color: $color_primary ;
     margin-bottom: 35px;
   }
   h4{
     font-weight: 600;
     color: lightslategray;
   }
+  .list_extra{
+    list-style: none;
+    h3{
+      color: $color_primary;
+    }
+  }
+  .btn_show{
+      margin: 10px;
+      padding: 10px 20px;
+      font-weight: bold;
+      color: white;
+      background-color: $color-logo;
+      border: 0;
+      &:active,
+      &:hover,
+      &:focus {
+        color: white;
+        background-color: $color_primary;
+        outline: $color_primary;
+      }
+  
+    }
+    
+  .card_container{
+    padding: 100px 120px;
+    h3{
+      color: $color_primary;
+    }
+    .card_box{
+      margin-bottom: 3rem;
+      box-shadow: 0px 0px 12px -5px rgba(92,91,92,1);
+   
+      .btn_look{
+        margin: 0 0 10px 10px ;
+        padding: 10px 20px;
+        font-weight: bold;
+        color: white;
+        background-color: $color-logo;
+        border: 0;
+        &:active,
+        &:hover,
+        &:focus {
+          background-color: $color_primary;
+          outline: $color_primary;
+          border: 0;
+        }
+    
+      }
+    }
+  } 
+  .service_container{
+    width: 250px;
+    
+    margin: 0 auto;
+    padding-top: 6rem;
+    .card_box{
+      margin-bottom: 3rem;
+      padding: 0;
+      box-shadow: 0px 0px 12px -5px rgba(92,91,92,1);
+      border-radius: 0.3rem;
+      .card_title{
+        padding: 1.5rem 1rem;
+        background-color: $color-logo;
+        color: white;
+        font-weight: bold;
+        border-radius: 0.3rem 0.3rem 0 0;
+      }
+      .list_service{
+        display: flex;
+        align-items: center;
+        padding: 1rem 1rem;
+        border-top: 0.4px solid whitesmoke;
+        i{
+          margin-right: .6rem;
+          font-size: 1.2rem;
+        }
+        
+        
+      }
+    }
+  }
+  
+  #map{
+    width: 100%;
+  }
+
+// MEDIA-QUERY
+
+@media screen and (max-width:996px){
+  .card_container{
+    padding: 30px;
+  } 
 }
+@media screen and (max-width:766px){
+  .card_container{
+    display: none;
+  } 
+}
+} 

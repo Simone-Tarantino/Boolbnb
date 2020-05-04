@@ -1,45 +1,62 @@
 @extends('layouts.layout')
-
-{{-- @extends('layouts.app') --}}
-
 @section('main')
-{{-- @dd($housesPromo); --}}
-    @if($errors->any())
-            <div class="alert alert-danger">
-            <h4>{{$errors->first()}}</h4>
+<main>
+    <div class="container">
+        {{-- SEARCH-BOX --}}
+        <div class="search-container">
+            <h1>Inserisci la tua prossima destinazione:</h1>
+            <div class="search_box">
+                <input id="address" type="text" class="address-input" name="" placeholder="Cerca Indirizzo">
+                {{-- RISULTATI DESTINAZIONE SUGGERITI --}}
+                <div class="results container">
+                                
+                </div>
+                {{-- NASCOSTO --}}
+                <form method="POST" action="{{ route('house.search') }}">
+                    @csrf
+                    @method('POST')
+                    <input id="address-lat" class="d-none" type="text"  name="latitude" id="" value="" readonly placeholder="latitudine">
+                    <input id="address-long" class="d-none" type="text" name="longitude" id="" value="" readonly placeholder="longitudine">    
+                    {{-- /NASCOSTO --}}
+                    <button class="btn_search" type="submit"><i class="fas fa-search"></i> Cerca</button>
+                </form>
+            </div>
         </div>
-    @endif
-<div class="main_home">
-    <div class="jumbo">
-        <div class="title">
-            <h1>Benvenuto Scegli <br> Il Tuo Prossimo <br> Soggiorno</h1>
-        </div>
-    </div>
-    </div>
-    <div class="search_box">
-        <input id="address" type="text" class="address-input" name="" placeholder="Cerca Indirizzo">
-        <div class="results">
-            
-        </div>
-        <form method="POST" action="{{ route('house.search') }}">
-            @csrf
-            @method('POST')
-            <input id="address-lat" class="d-none" type="text"  name="latitude" id="" value="" readonly placeholder="latitudine">
-            <input id="address-long" class="d-none" type="text" name="longitude" id="" value="" readonly placeholder="longitudine">
-            
-            <button class="btn_search" type="submit">Search</button>
-        </form>
-        
-    </div>
-    
-    
-    
-</div>
+        {{-- APPARTAMENTI SPONSORIZZATI --}}
+        <div class="sponsored-container ">
+            <h3><i class="fas fa-star"></i> Alcune delle nostre mete preferite:</h3>
+            <div class="sponsored-houses">
+                <div class="row">
+                    @foreach ($sponsoredHouses as $promo)
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 space">
+                            <div class=" card card_box" style="width: 18rem;">
+                                <div class="sponsored">
+                                    Sponsored
+                                </div>
+                                <div class="card-wrap">
+                                    <img class="card-img-top" src="{{asset('storage/'.$promo->img_path)}}" alt="Card image cap">   
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-text text-truncate">{{$promo->address}}</h5>
+                                    <a href="{{route('house.show', $promo->id)}}" class="btn btn-primary">Visita</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>   
+        </div> 
+    </div>       
+</main>
+@endsection
 
+
+{{-- COLLEGAMENTO SCRIPT --}}
 <script id="entry-template" type="text/x-handlebars-template">
     <div class="entry-result">
         <div class="indirizzo">
             <p>@{{address}}</p>
+            
             <ul class="coord">
                 <input class="lat d-none" type="text" value="@{{latitude}}" name="" id="" readonly>
                 <input class="long d-none" type="text" value="@{{longitude}}" name="" id="" readonly>
@@ -47,31 +64,8 @@
         </div>
     </div>
 </script>
-<div class="container promoted_houses mt-5">
-    <h3>Appartamenti in evidenza</h3>
-    @foreach ($sponsoredHouses as $promo)
-<img src="{{asset('storage/'.$promo->img_path)}}" alt="foto appartamento">
-        <ul>
-            
-            <li>{{$promo->address}}</li>   
-            <li>{{$promo->description}}</li>   
-            <li>{{$promo->bed}}</li>   
-            <li>{{$promo->room_number}}</li>   
-            <li>{{$promo->bathroom}}</li>   
-            <li>{{$promo->mq}}</li>   
-            <li><h5>Extra</h5>
-                <ul>
-                    @foreach ($promo->extras as $extra)</li>  
-                  
-                    <li>{{$extra->name}}</li>
-                    @endforeach
-                </ul>
-        <li><p class="card-text">PROMOZIONE FINO AL:{{$promo->sponsors[0]->pivot->created_at->addHour($promo->sponsors[0]->duration)}}</p></li>
-        </ul>
-    @endforeach
-</div>
-@endsection
 
 @section('scripts')
 <script src="{{asset('js/app.js')}}"></script>
+{{-- HANDLEBARS --}}
 @endsection

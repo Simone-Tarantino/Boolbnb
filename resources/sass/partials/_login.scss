@@ -1,0 +1,24 @@
+main {
+    .container.main.login,
+    .container.main.register {
+        .row {
+            .card {
+                .card-body {
+                    button {
+                        background-color: $color_primary;
+                        border: 1px solid $color_primary;
+                        opacity: 0.6;
+                        transition: 0.3s;
+                    }
+                    button:hover {
+                        opacity: 1;
+                    }
+                    a {
+                        color: $color_primary;
+                    }
+                }
+            }
+        }
+    }
+    
+}

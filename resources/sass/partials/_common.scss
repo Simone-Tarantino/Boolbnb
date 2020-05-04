@@ -20,21 +20,8 @@ main {
     z-index: 3;
     .nav-item {
         .nav-link {
-            border: 2px solid $color_primary;
-            border-radius: 5px;
-            opacity: 0.6;
-            transition: 0.3s;
+            @include look;
             margin: 0 10px;
-            color: $color_primary;
-        }
-        .nav-link:hover {
-            background-color: $color_primary;
-            color: white;
-            opacity: 1;
-        }
-        .nav-link:focus {
-            color: $white;
-            background-color: $color_primary;
         }
         .dropdown-item:active {
             background-color: $color_primary;
@@ -82,18 +69,14 @@ main {
         text-align: right;
         .nav-item {
             a.nav-link {
-                border: 0;
-                border-radius: 0;
-                opacity: 0.6;
-                transition: 0.3;
-                margin: 0;
-                color: darkgrey;
                 font-size: 1.2rem;
+                background-color: white;
+                color:$color-logo;
             }
             .nav-link:hover
                 {
                 background-color: white;
-                color: black;
+                color:$color_primary;
                 opacity: 1;
             }
             .nav-link:active,

@@ -8,7 +8,7 @@ main {
             align-items: center;
             h1 {
                 font-size: 2.3rem;
-                color: $color_primary;
+                color: $color-logo;
                 border-right: solid 3px rgba(95, 95, 95, 0.75);
                 white-space: nowrap;
                 overflow: hidden;
@@ -51,25 +51,18 @@ main {
                     padding: 5px 20px;
                 }
                 .btn_search {
+                    @include look;
                     display: inline-block;
-                    background-color: $color_primary;
                     padding: 10px 20px;
-                    color: white;
-                    font-weight: 500;
                     margin-right: 5px;
-                    border-radius: 8px;
-                    border: 1px solid $color_primary;
-                    opacity: 0.6;
-                    transition: 0.3s;
                     display: flex;
+                    border: 1px solid $color-logo;
                     align-items: center;
                     i {
                         margin-right: 5px;
                     }
                 }
-                .btn_search:hover {
-                    opacity: 1;
-                }
+                
                 .results.container {
                     margin-top: 201px;
                     z-index: 2;
@@ -90,7 +83,7 @@ main {
             align-items: center;
             h3 {
                 i {
-                    color: gold;
+                    color: $color_primary;
                 }
             }
             .sponsored-houses {
@@ -128,13 +121,13 @@ main {
                                     margin: 0 0 .6rem;
                                 }
                                 a.btn.btn-primary {
-                                    opacity: 0.6;
+                                    opacity: 1;
                                     transition: 0.3s;
                                     background-color: $color_primary;
                                     border: 1px solid $color_primary;
                                 }
                                 a.btn.btn-primary:hover {
-                                    opacity: 1;
+                                    opacity: 0.6;
                                 }
                             }
                         }

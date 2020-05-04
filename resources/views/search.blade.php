@@ -34,8 +34,8 @@
             {{-- raggio e opzioni camera --}}
             <h5>Opzioni</h5>
          <div class="wrapper d-flex">
-             <div class="option-wrap">
-                  <label for="distance"><i class="fas fa-map-marker-alt option_icon"></i>Raggio</label>
+            <div class="option-wrap">
+            <label for="distance"><i class="fas fa-map-marker-alt option_icon"></i>Raggio</label>
              <input class="filter_input" type="number" name="distance" id="distance">
              </div>
              <div class="option-wrap">
@@ -49,7 +49,7 @@
              </div>
              <div class="option-wrap">
             <label for="room_number"><i class="fas fa-door-open option_icon"></i>Stanze</label>
-             <input class="filter_input" type="number" name="room_number" id="room_number" placeholder="N° di stanze"> 
+            <input class="filter_input" type="number" name="room_number" id="room_number" placeholder="N° di stanze"> 
              </div>
             
              
@@ -59,7 +59,9 @@
         {{-- fine raggio e opzioni camera --}}
         {{-- extras --}}
 <div class="extras-filter">
-    <h5>Servizi</h5>
+<div class="row">
+<div class="col-xs-12 col-md-8">
+  <h5>Servizi</h5>
     <label for="checkbox"><i class="fas fa-wifi extra_icon"></i>WiFi</label>
     <input type="checkbox"  class="checkbox-filter" name="extra" value="WiFi" id="">
     <label for="checkbox"><i class="fas fa-parking extra_icon"></i>Parcheggio</label>
@@ -69,9 +71,15 @@
     <label for="checkbox"><i class="fas fa-concierge-bell extra_icon"></i>Portineria</label>
     <input type="checkbox" class="checkbox-filter" name="extra" value="Portineria" id="">
     <label for="checkbox"><i class="fas fa-hot-tub extra_icon"></i>Sauna</label>
-    <input type="checkbox" class="checkbox-filter" name="extra" value="Sauna" id="">
+    <input type="checkbox" class="checkbox-filter" name="extra" value="Sauna" id="">     
+</div>
+<div class="col-xs-12 col-md-4 wrap_button">
         <button class="btn btn_filters"type="submit" id="filter-button">Filtra</button>
         <button class="btn btn_filters"type="submit" id="remove-filters">Rimuovi Filtri</button>
+</div>
+</div>
+        
+   
 </div>
   {{-- fine extras --}}
          </div>
@@ -175,8 +183,8 @@
     
         <script id="search-template" type="text/x-handlebars-template">
             <div class="entry-result">
-        <div class="col-lg-4 col-sm-6 col-xs-12">    
-       <div class="house">
+                <div class="house">
+            <div class="col-lg-4 col-sm-6 col-xs-12">    
               
             <div class="card card_box">
                 <div class="img_container">

@@ -16,16 +16,16 @@
     }
 
     .container-sponsored {
-        background-color: brown;
+        // background-color: brown;
     }
 
     .house-results {
-        background-color: blanchedalmond;
+        // background-color: blanchedalmond;
     }
 
     .card_box {
         @include cardBox;
-        width: 250px;
+        // width: 250px;
 
         .img-container {
             img {
@@ -65,7 +65,7 @@
 
     // filtri
     .filters {
-        background-color: cadetblue;
+        // background-color: cadetblue;
 
         .filter_input {
             // background-color: peru;
@@ -106,6 +106,10 @@
         input.checkbox-filter {
             margin: 0 10px 0 5px;
         }
+
+        .wrap_button {
+            margin: auto;
+        }
     }
 
     .btn.btn_filters {
@@ -132,5 +136,12 @@
         .wrapper {
             flex-direction: column;
         }
+
+        .option-wrap {
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
     }
 }

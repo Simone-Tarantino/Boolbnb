@@ -11601,18 +11601,9 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
   align-items: center;
 }
 
-.searchHouses .container-sponsored {
-  background-color: brown;
-}
-
-.searchHouses .house-results {
-  background-color: blanchedalmond;
-}
-
 .searchHouses .card_box {
   position: relative;
   box-shadow: 0px 0px 12px -5px #5c5b5c;
-  width: 250px;
 }
 
 .searchHouses .card_box .img-container img {
@@ -11645,10 +11636,6 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
   color: white;
   background-color: #e41b5e;
   outline: #e41b5e;
-}
-
-.searchHouses .filters {
-  background-color: cadetblue;
 }
 
 .searchHouses .filters .filter_input {
@@ -11686,6 +11673,10 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
   margin: 0 10px 0 5px;
 }
 
+.searchHouses .extras-filter .wrap_button {
+  margin: auto;
+}
+
 .searchHouses .btn.btn_filters {
   background-color: white;
   padding: 10px 20px;
@@ -11708,6 +11699,12 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
 @media screen and (max-width: 766px) {
   .searchHouses .wrapper {
     flex-direction: column;
+  }
+
+  .searchHouses .option-wrap {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
   }
 }
 

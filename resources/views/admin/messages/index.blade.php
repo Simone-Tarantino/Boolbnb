@@ -2,7 +2,6 @@
 
 
 @section('main')
-<main>
   <div class="container inbox_messages">
 <h2 class="mt-4 mb-4 text-center title">I Tuoi Messaggi</h2>
   @foreach ($results as $result)
@@ -19,9 +18,6 @@
 </div>
 @endforeach
 </div>
-
-</main>
-
 
 @endsection
 

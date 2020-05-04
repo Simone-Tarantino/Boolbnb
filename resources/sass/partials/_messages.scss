@@ -1,4 +1,10 @@
 .inbox_messages {
+    
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        margin-top: 90px;
+
     .title {
         // font-weight: bold;
         color: $color-logo;

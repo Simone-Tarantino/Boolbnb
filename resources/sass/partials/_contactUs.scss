@@ -4,15 +4,11 @@
     }
 
     .primary {
-        color: $color_primary;
+        color: $color-logo;
     }
 
     .btn.btn-send {
-        @include buttonPrimary;
-
-        &:hover {
-            color: white;
-
-        }
+        @include look;
+        padding: 10px 20px;
     }
 }

@@ -8,6 +8,11 @@
 
         color: $color-primary;
     }
+    // .card_box{
+    //     .img{
+    //         height: 50%;
+    //     }
+    // } 
 
     .btn_zone {
         display: flex;
@@ -15,7 +20,7 @@
         margin-bottom: 20px;
 
         .btn_look {
-            margin: 10px;
+            // margin: 5%;
             padding: 10px 20px;
             font-weight: bold;
             color: white;
@@ -32,7 +37,7 @@
         }
 
         .btn_danger {
-            margin: 10px;
+            // margin: 5%;
             padding: 7px 20px;
             font-weight: bold;
             color: $color_primary;

@@ -92,9 +92,35 @@
         @endforeach
 </div>
     
-        {{-- <div class="house-results">
+        <div class="house-results">
             @foreach ($houses as $house)
-            <ul class='house'>
+
+            <div class="col-lg-4 col-sm-6 col-xs-12 house">
+    
+            <div class="card card_box">
+                
+                <div class="img_container">
+                    <img src="{{asset('storage/'.$house->img_path)}}" class="card-img-top img" alt="...">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-truncate">{{$house->address}}</h5>
+                    <p class="card-text card_text">{{$house->mq}}</p>
+                    <p class="card-text card_text">Camere: {{$house->room_number}}</p>
+                    <p class="card-text card_text">N° Bagni: {{$house->bathroom}}</p>
+                    <p class="card-text card_text">Posti letto: {{$house->bed}}</p>
+                    <div class="extras">
+                    @foreach ($house->extras as $extra)
+                        {{$extra->name}}
+                    @endforeach
+                </div>
+                    <a href="{{route('house.show', $house->id)}}" class="btn btn-send">Vedi Appartamento</a>
+                </div>
+                
+            </div>
+           
+            
+        </div>
+            {{-- <ul class='house'>
                 <li>{{$house->address}}</li>
                 <li>{{$house->distance}}</li>
                 <li>{{$house->description}}</li>
@@ -110,9 +136,9 @@
                     @endforeach
                 </div>
                 <li><a href="{{route('house.show', $house->id)}}">Mostra appartamento</a></li>
-            </ul>
+            </ul> --}}
             @endforeach
-        </div> --}}
+        </div> 
     
     
     
@@ -130,8 +156,9 @@
     
         <script id="search-template" type="text/x-handlebars-template">
             <div class="entry-result">
-                <ul class="house">
-                    <li>@{{address}}</li>
+                <div class="house">
+                <ul>
+                <li>@{{address}}</li>
                     <li class="bathroom">@{{bathroom}}</li>
                     <li class="bed">@{{bed}}</li>
                     <li>@{{img_path}}</li>
@@ -143,6 +170,7 @@
                     </li>
                     <li><a href="http://127.0.0.1:8000/show/@{{id}}">Mostra appartamento</a></li>
                 </ul>
+                </div>
             </div>
         </script>
     </div>
@@ -155,3 +183,19 @@
     <script src="{{asset('js/search.js')}}"></script>
     <script src="{{asset('js/filter.js')}}"></script>
 @endsection
+
+
+
+
+                    <li>@{{address}}</li>
+                    <li class="bathroom">@{{bathroom}}</li>
+                    <li class="bed">@{{bed}}</li>
+                    <li>@{{img_path}}</li>
+                    <li>@{{id}}</li>
+                    <li>@{{mq}}</li>
+                    <li class="room_number">@{{room_number}}</li>
+                    <li class="extras">
+                        @{{extras}}
+                    </li>
+                    <li><a href="http://127.0.0.1:8000/show/@{{id}}">Mostra appartamento</a></li>
+                    </ul>

@@ -76,11 +76,20 @@ class HouseController extends Controller
 
         $data = $request->all();
         $newHouse = new House;
-        $path = Storage::disk('public')->put('images', $data['img_path']);
+        // $path = Storage::disk('public')->put('images', $data['img_path']);
+
+        if(empty($data['img_path'])) {
+            $data['img_path'] = null;
+        } else {
+            $data['img_path'] = Storage::disk('public')->put('images', $data['img_path']);
+        }
+
+        
+
 
         $newHouse->fill($data);
         $newHouse->user_id = $idUser;
-        $newHouse->img_path = $path;
+        // $newHouse->img_path = $path;
         $saved = $newHouse->save();
         if (!$saved) {
             return redirect()->back();
@@ -146,7 +155,12 @@ class HouseController extends Controller
         
         $data = $request->all();
         
-        $data['img_path'] = Storage::disk('public')->put('images', $data['img_path']);
+        // $data['img_path'] = Storage::disk('public')->put('images', $data['img_path']);
+
+
+        if (!empty($data['img_path'])) {
+            $data['img_path'] = Storage::disk('public')->put('images', $data['img_path']);
+        }
         
         $request->validate($this->validationHouse);
         $house->update($data);

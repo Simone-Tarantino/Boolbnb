@@ -1,4 +1,6 @@
 .main_show{
+  margin-top: 90px;
+  
   .img_show{
     width: 100%;
     margin-bottom: 3rem;
@@ -15,7 +17,7 @@
     border-bottom: 0.2px solid lightslategray;
   }
   h2{
-    color: $color_primary ;
+    color: $color-logo;
     margin-bottom: 35px;
   }
   h4{
@@ -25,50 +27,34 @@
   .list_extra{
     list-style: none;
     h3{
-      color: $color_primary;
+      font-weight: 600;
+      color: lightslategray;
     }
   }
   .btn_show{
-      margin: 10px;
+      @include look;
+      border: 1px solid $color-logo;
+      margin-bottom: 10px;
       padding: 10px 20px;
-      font-weight: bold;
-      color: white;
-      background-color: $color-logo;
-      border: 0;
-      &:active,
-      &:hover,
-      &:focus {
-        color: white;
-        background-color: $color_primary;
-        outline: $color_primary;
-      }
+      
   
     }
     
   .card_container{
     padding: 100px 120px;
     h3{
-      color: $color_primary;
+      color: $color-logo;
     }
     .card_box{
       margin-bottom: 3rem;
       box-shadow: 0px 0px 12px -5px rgba(92,91,92,1);
     }
     .btn_look{
+      @include look;
       margin: 10px 0s;
       padding: 10px 20px;
-      font-weight: bold;
-      color: white;
-      background-color: $color-logo;
-      border: 0;
-      &:active,
-      &:hover,
-      &:focus {
-        background-color: $color_primary;
-        outline: $color_primary;
-        border: 0;
-      }
-  
+      
+      
     }
   } 
   .service_container{

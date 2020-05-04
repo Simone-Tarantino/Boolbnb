@@ -23,3 +23,19 @@
     // height: 100%;
 
 }
+
+
+@mixin look {
+            font-weight: bold;
+            color: white;
+            background-color: $color-logo;
+            border-radius: 5px;
+            &:active,
+            &:hover,
+            &:focus {
+                color: white;
+                background-color: $color_primary;
+                outline: $color_primary;
+                opacity: 1;
+            }
+        }

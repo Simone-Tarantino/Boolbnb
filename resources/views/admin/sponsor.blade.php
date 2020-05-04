@@ -8,7 +8,7 @@
   
   <div class="container payment-container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-12">
         <h1>Sponsorizza il tuo appartamento</h1>
         
         <form action="{{route("admin.pay")}}" method ="POST">
@@ -21,7 +21,7 @@
 
                     <div class="card plan-standard-card">
                       <div class="card-body">
-                        <h5 class="card-title">{{$sponsor["name"]}}</h5>
+                        <h4 class="card-title">{{$sponsor["name"]}}</h4>
                         <h6 class="card-subtitle mb-2 text-muted">EUR {{$sponsor["price"]}}</h6>
                         <p class="card-text">{{$sponsor["description"]}}</p>
                         <a href="#" class="card-link">

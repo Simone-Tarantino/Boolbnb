@@ -5,16 +5,15 @@ main {
             .card {
                 .card-body {
                     button {
-                        background-color: $color_primary;
-                        border: 1px solid $color_primary;
-                        opacity: 0.6;
-                        transition: 0.3s;
+                    @include look;
+                    border: 1px solid $color-logo;
+                    
+                        
                     }
-                    button:hover {
-                        opacity: 1;
-                    }
+                    
                     a {
-                        color: $color_primary;
+                        color:black;
+
                     }
                 }
             }

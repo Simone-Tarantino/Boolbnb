@@ -15,7 +15,7 @@
     border-bottom: 0.2px solid lightslategray;
   }
   h2{
-    color: $color_primary ;
+    color: $color-logo;
     margin-bottom: 35px;
   }
   h4{
@@ -25,23 +25,14 @@
   .list_extra{
     list-style: none;
     h3{
-      color: $color_primary;
+      color: $color-logo;
     }
   }
   .btn_show{
+      @include look;
       margin: 10px;
       padding: 10px 20px;
-      font-weight: bold;
-      color: white;
-      background-color: $color-logo;
-      border: 0;
-      &:active,
-      &:hover,
-      &:focus {
-        color: white;
-        background-color: $color_primary;
-        outline: $color_primary;
-      }
+      
   
     }
     

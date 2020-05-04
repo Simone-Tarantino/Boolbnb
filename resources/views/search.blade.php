@@ -29,18 +29,56 @@
                    <input class="d-none" id="address-lat" type="text"  name="latitude"  value="" readonly placeholder="latitudine">
                    <input class="d-none" id="address-long" type="text" name="longitude" value="" readonly placeholder="longitudine">
                   
-               {{-- filtra risultati jquery --}}
-               <div class="search_radius">
-                   <input type="number" name="distance" id="distance">
-               </div>
-               <div class="filters">
-                   <label for="beds">Letti</label>
-                   <input type="number" name="beds" id="beds" placeholder="Numero di letti">
-                   <label for="bathroom">Bagni</label>
-                   <input type="number" name="bathroom" id="bathrooms" placeholder="Numero di bagni">
-                   <label for="room_number">Stanze</label>
-                   <input type="number" name="room_number" id="room_number" placeholder="Numero di stanze">
-                   <label for="checkbox">WiFi</label>
+         {{-- filtri --}}
+         <div class="filters">
+            {{-- raggio e opzioni camera --}}
+            <h5>Opzioni</h5>
+         <div class="wrapper d-flex">
+             <div class="option-wrap">
+                  <label for="distance"><i class="fas fa-map-marker-alt option_icon"></i>Raggio</label>
+             <input class="filter_input" type="number" name="distance" id="distance">
+             </div>
+             <div class="option-wrap">
+                <label for="beds"><i class="fas fa-bed option_icon"></i>Letti</label>
+             <input class="filter_input" type="number" name="beds" id="beds" placeholder="N° di letti">
+             </div>
+             <div class="option-wrap">
+
+             <label for="bathroom"><i class="fas fa-toilet option_icon"></i>Bagni</label>
+             <input class="filter_input" type="number" name="bathroom" id="bathrooms" placeholder="N° di bagni">
+             </div>
+             <div class="option-wrap">
+            <label for="room_number"><i class="fas fa-door-open option_icon"></i>Stanze</label>
+             <input class="filter_input" type="number" name="room_number" id="room_number" placeholder="N° di stanze"> 
+             </div>
+            
+             
+             
+            </div>
+       
+        {{-- fine raggio e opzioni camera --}}
+        {{-- extras --}}
+<div class="extras-filter">
+    <h5>Servizi</h5>
+    <label for="checkbox"><i class="fas fa-wifi extra_icon"></i>WiFi</label>
+    <input type="checkbox"  class="checkbox-filter" name="extra" value="WiFi" id="">
+    <label for="checkbox"><i class="fas fa-parking extra_icon"></i>Parcheggio</label>
+    <input type="checkbox" class="checkbox-filter" name="extra" value="Parcheggio" id="">
+    <label for="checkbox"><i class="fas fa-swimmer extra_icon"></i>Piscina</label>
+    <input type="checkbox" class="checkbox-filter" name="extra" value="Piscina" id="">
+    <label for="checkbox"><i class="fas fa-concierge-bell extra_icon"></i>Portineria</label>
+    <input type="checkbox" class="checkbox-filter" name="extra" value="Portineria" id="">
+    <label for="checkbox"><i class="fas fa-hot-tub extra_icon"></i>Sauna</label>
+    <input type="checkbox" class="checkbox-filter" name="extra" value="Sauna" id="">
+        <button class="btn btn_filters"type="submit" id="filter-button">Filtra</button>
+        <button class="btn btn_filters"type="submit" id="remove-filters">Rimuovi Filtri</button>
+</div>
+  {{-- fine extras --}}
+         </div>
+             {{-- <div class="search_radius">
+            </div> --}}
+               
+                   {{-- <label for="checkbox">WiFi</label>
                    <input type="checkbox"  class="checkbox-filter" name="extra" value="WiFi" id="">
                    <label for="checkbox">Parcheggio</label>
                    <input type="checkbox" class="checkbox-filter" name="extra" value="Parcheggio" id="">
@@ -49,12 +87,14 @@
                    <label for="checkbox">Portineria</label>
                    <input type="checkbox" class="checkbox-filter" name="extra" value="Portineria" id="">
                    <label for="checkbox">Sauna</label>
-                   <input type="checkbox" class="checkbox-filter" name="extra" value="Sauna" id="">
-                   <button type="submit" id="filter-button">Filtra</button>
-                   <button type="submit" id="remove-filters">Rimuovi Filtri</button>
-               </div>
+                   <input type="checkbox" class="checkbox-filter" name="extra" value="Sauna" id=""> --}}
+                   
+                
                
         </div>
+                       {{-- filtra risultati jquery --}}
+              
+
         <div class="container-fluid container-sponsored">
         <div class="row">
         @foreach ($sponsoredHouses as $housePromo)
@@ -86,21 +126,21 @@
                    @foreach ($houses as $house)
        <div class="col-lg-4 col-sm-6 col-xs-12 house">
             <div class="card card_box">
-                {{-- <div class="img_container">
+                <div class="img_container">
                     <img src="{{asset('storage/'.$house->img_path)}}" class="card-img-top img" alt="...">
-                </div> --}}
+                </div>
                 <div class="card-body">
                     <h5 class="card-title text-truncate">{{$house->address}}</h5>
-                    <p class="card-text card_text">{{$house->mq}}</p>
-                    <p class="card-text card_text">Camere: {{$house->room_number}}</p>
-                    <p class="card-text card_text">N° Bagni: {{$house->bathroom}}</p>
-                    <p class="card-text card_text">Posti letto: {{$house->bed}}</p>
+                    <p class="card-text card_text"><i class="fas fa-home"></i>Area: {{$house->mq}} mq</p>
+                    <p class="card-text card_text"><i class="fas fa-door-open"></i>Camere: {{$house->room_number}}</p>
+                    <p class="card-text card_text"><i class="fas fa-toilet"></i>N° Bagni: {{$house->bathroom}}</p>
+                    <p class="card-text card_text"><i class="fas fa-bed"></i>Posti letto: {{$house->bed}}</p>
                     <div class="extras">
                     @foreach ($house->extras as $extra)
                         {{$extra->name}}
                     @endforeach
                 </div>
-                    <a href="{{route('house.show', $house->id)}}" class="btn btn-send">Vedi Appartamento</a>
+                    <a href="{{route('house.show', $house->id)}}" class="btn btn_look">Vedi Appartamento</a>
                 </div>
                    @endforeach
         </div>   
@@ -135,25 +175,27 @@
     
         <script id="search-template" type="text/x-handlebars-template">
             <div class="entry-result">
+        <div class="col-lg-4 col-sm-6 col-xs-12">    
        <div class="house">
               
             <div class="card card_box">
                 <div class="img_container">
-                    <img src="@{{asset('storage/'.'@{{img_path}}')}}" class="card-img-top img" alt="...">
+                    <img src="{{ url('storage/')}}/@{{ img_path }}" class="card-img-top img" alt="...">
                 </div>
                 <div class="card-body">
                     <h5 class="card-title text-truncate">@{{address}}</h5>
-                    <p class="card-text card_text">@{{mq}}</p>
-                    <p class="card-text card_text">Camere: @{{room_number}}</p>
-                    <p class="card-text card_text">N° Bagni: @{{bathroom}}</p>
-                    <p class="card-text card_text">Posti letto: @{{bed}}</p>
+                    <p class="card-text card_text"><i class="fas fa-home"></i>Area: @{{mq}}</p>
+                    <p class="card-text card_text"><i class="fas fa-door-open"></i>Camere: @{{room_number}}</p>
+                    <p class="card-text card_text"><i class="fas fa-toilet"></i>N° Bagni: @{{bathroom}}</p>
+                    <p class="card-text card_text"><i class="fas fa-bed"></i>Posti letto: @{{bed}}</p>
                     <div class="extras">
                 @{{extra}}
                 </div>
-                    <a href="http://127.0.0.1:8000/show/@{{id}}">Mostra appartamento</a>
+                    <a href="http://127.0.0.1:8000/show/@{{id}}" class="btn btn_look">Mostra appartamento</a>
                 </div>
                 </div>
             
+            </div>
             </div>
         </script>
  

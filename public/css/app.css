@@ -11150,22 +11150,22 @@ main .container .sponsored-container .sponsored-houses {
   display: flex;
 }
 
-main .container .sponsored-container .sponsored-houses .row {
+main .container .sponsored-container .sponsored-houses .row._row {
   justify-content: center;
 }
 
-main .container .sponsored-container .sponsored-houses .row .space {
+main .container .sponsored-container .sponsored-houses .row._row .space {
   padding: 15px;
 }
 
-main .container .sponsored-container .sponsored-houses .row .space .card_box {
+main .container .sponsored-container .sponsored-houses .row._row .space .card_box {
   position: relative;
   box-shadow: 0px 0px 12px -5px #5c5b5c;
   height: 288px;
   padding: 10px;
 }
 
-main .container .sponsored-container .sponsored-houses .row .space .card_box .sponsored {
+main .container .sponsored-container .sponsored-houses .row._row .space .card_box .sponsored {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
@@ -11177,28 +11177,28 @@ main .container .sponsored-container .sponsored-houses .row .space .card_box .sp
   color: white;
 }
 
-main .container .sponsored-container .sponsored-houses .row .space .card_box .card-wrap {
+main .container .sponsored-container .sponsored-houses .row._row .space .card_box .card-wrap {
   height: 160px;
   width: 266px;
 }
 
-main .container .sponsored-container .sponsored-houses .row .space .card_box .card-wrap .card-img-top {
+main .container .sponsored-container .sponsored-houses .row._row .space .card_box .card-wrap .card-img-top {
   height: 100%;
   width: 100%;
 }
 
-main .container .sponsored-container .sponsored-houses .row .space .card_box .card-body .card-text {
+main .container .sponsored-container .sponsored-houses .row._row .space .card_box .card-body .card-text {
   margin: 0 0 0.6rem;
 }
 
-main .container .sponsored-container .sponsored-houses .row .space .card_box .card-body a.btn.btn-primary {
+main .container .sponsored-container .sponsored-houses .row._row .space .card_box .card-body a.btn.btn-primary {
   opacity: 0.6;
   transition: 0.3s;
   background-color: #e41b5e;
   border: 1px solid #e41b5e;
 }
 
-main .container .sponsored-container .sponsored-houses .row .space .card_box .card-body a.btn.btn-primary:hover {
+main .container .sponsored-container .sponsored-houses .row._row .space .card_box .card-body a.btn.btn-primary:hover {
   opacity: 1;
 }
 
@@ -11591,6 +11591,16 @@ main .container .sponsored-container .sponsored-houses .row .space .card_box .ca
   text-align: center;
 }
 
+.searchHouses {
+  display: inline-block;
+}
+
+.searchHouses ._search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .searchHouses .container-sponsored {
   background-color: brown;
 }
@@ -11602,6 +11612,11 @@ main .container .sponsored-container .sponsored-houses .row .space .card_box .ca
 .searchHouses .card_box {
   position: relative;
   box-shadow: 0px 0px 12px -5px #5c5b5c;
+  width: 250px;
+}
+
+.searchHouses .card_box .img-container img {
+  height: 300px;
 }
 
 .searchHouses .card_box .sponsored {
@@ -11630,6 +11645,70 @@ main .container .sponsored-container .sponsored-houses .row .space .card_box .ca
   color: white;
   background-color: #e41b5e;
   outline: #e41b5e;
+}
+
+.searchHouses .filters {
+  background-color: cadetblue;
+}
+
+.searchHouses .filters .filter_input {
+  -webkit-box-shadow: 0px 0px 7px 0px #dedede;
+  -moz-box-shadow: 0px 0px 7px 0px #dedede;
+  border: 0;
+  padding: 10px;
+  text-align: center;
+  height: 30px;
+  width: 50%;
+  border-radius: 50px;
+}
+
+.searchHouses .filters .filter_input:focus {
+  border-color: white;
+  outline: none;
+}
+
+.searchHouses .option_icon {
+  color: #e41b5e;
+  padding-right: 5px;
+}
+
+.searchHouses .extras-filter {
+  padding: 15px 0 10px 0;
+  border-bottom: 1px solid #F7F7F7;
+}
+
+.searchHouses .extras-filter .extra_icon {
+  color: #e41b5e;
+  padding-right: 5px;
+}
+
+.searchHouses .extras-filter input.checkbox-filter {
+  margin: 0 10px 0 5px;
+}
+
+.searchHouses .btn.btn_filters {
+  background-color: white;
+  padding: 10px 20px;
+  border: 2px solid #e41b5e;
+  border-radius: 50px;
+  color: #e41b5e;
+  font-weight: bold;
+}
+
+.searchHouses .btn.btn_filters:active,
+.searchHouses .btn.btn_filters:focus {
+  outline: none;
+}
+
+.searchHouses .btn.btn_filters:hover {
+  background-color: #e41b5e;
+  color: white;
+}
+
+@media screen and (max-width: 766px) {
+  .searchHouses .wrapper {
+    flex-direction: column;
+  }
 }
 
 .payment-container h1 {

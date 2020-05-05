@@ -47,7 +47,7 @@
         <div class="container-fluid container-sponsored">
             <div class="row">
                 @foreach ($sponsoredHouses as $housePromo)
-                    <div class="col-lg-4 col-sm-6 col-xs-12">
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                         <div class="card card_box">
                             <div class="sponsored">
                                 Sponsored

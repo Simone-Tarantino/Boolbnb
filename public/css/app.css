@@ -11851,6 +11851,10 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
     margin-right: 20px;
   }
 
+  .card.card_box {
+    margin: 0 20px;
+  }
+
   .radius-text {
     display: none;
   }

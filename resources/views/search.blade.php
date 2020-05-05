@@ -18,16 +18,16 @@
             <input class="d-none" id="address-long" type="text" name="longitude" value="" readonly placeholder="longitudine">
             <button class="btn_search" id='search'>Search</button>
             <label for="distance"><i class="fas fa-map-marker-alt option_icon"></i> <span class="radius-text">Raggio di ricerca (KM)</span></label>
-            <input type="number" name="distance" id="distance">
+            <input min="20" max="999" type="number" name="distance" id="distance">
         </div>
         {{-- filtra risultati jquery --}}
         <div class="filters">
             <i class="fas fa-bed option_icon"></i><label for="beds">Letti</label>
-            <input type="number" name="beds" id="beds" placeholder="Numero di letti">
+            <input min="1" max="10" type="number" name="beds" id="beds" placeholder="Numero di letti">
             <i class="fas fa-toilet option_icon"></i><label for="bathroom">Bagni</label>
-            <input type="number" name="bathroom" id="bathrooms" placeholder="Numero di bagni">
+            <input min="1" max="5" type="number" name="bathroom" id="bathrooms" placeholder="Numero di bagni">
             <i class="fas fa-door-open option_icon"></i><label for="room_number">Stanze</label>
-            <input type="number" name="room_number" id="room_number" placeholder="Numero di stanze">
+            <input  min="1" max="5"type="number" name="room_number" id="room_number" placeholder="Numero di stanze">
             <div class="extras">
                 <i class="fas fa-wifi extra_icon"></i> <label for="checkbox">WiFi</label>
                 <input type="checkbox"  class="checkbox-filter" name="extra" value="WiFi" id="">

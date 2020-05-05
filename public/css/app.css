@@ -11641,7 +11641,7 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
   display: inline-block;
   position: absolute;
   width: 100%;
-  margin-top: 30px;
+  margin-top: -45px;
   text-align: center;
 }
 
@@ -11700,11 +11700,10 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
 }
 
 .searchHouses .main-search .search_box #distance {
-  width: 100px;
+  width: 70px;
   padding: 5px;
   margin-right: 20px;
   border-radius: 10px;
-  border: 1px solid black;
 }
 
 .searchHouses .main-search .search_box .results.container {

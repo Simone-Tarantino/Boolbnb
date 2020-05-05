@@ -1,0 +1,50 @@
+
+.payment-container {
+
+
+    h1 {
+        color: $color-logo;
+        padding: 0 15px 30px 15px;
+    }
+
+    .plan-card-col {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        
+        .card {
+            width: 20rem;
+            border-color: rgb(181,181,181);
+
+
+            .card-title {
+                font-weight: 500;
+            }
+    
+            .card-link {
+              display: flex;
+              width: 100%;
+              justify-content: space-around;
+              padding-bottom: 1rem;
+            }
+    
+       }
+    }
+    
+    #dropin-container {
+        padding: 0 15px;
+    }
+    
+    .button-container-submit {
+        display: flex;
+        justify-content: flex-start;
+        padding: 0 15px;
+    
+    
+        .btn.btn-send {
+          @include look; 
+          padding: 10px 20px 10px 20px;                    
+        }
+    }
+    
+}

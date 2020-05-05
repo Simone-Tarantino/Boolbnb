@@ -1,11 +1,10 @@
-
 const $ = require("jquery");
 const Handlebars = require("handlebars");
 
 $(document).ready(function () {
 
     // All'entrata della pagina tutti i valori sono vuoti e la distanza di default è 20km
-
+    $('.results').hide();
     $('.address-input').val('');
     $('#address').val('');
     $('#address-lat').val('');
@@ -19,6 +18,9 @@ $(document).ready(function () {
         clearResults();
         if ($('.address-input').val().length >= 4) {
             search();
+            $('.results').show();
+        } else {
+            $('.results').hide();
         }
     });
 
@@ -36,13 +38,14 @@ $(document).ready(function () {
         $('#address-lat').val(lat);
         $('#address-long').val(long);
 
+        $('.results').hide();
         clearResults();
 
     });
 
     // Click su cerca per visualizzare gli appartamenti per lat long e distanza
 
-    $(document).on('click', '#search', function(){
+    $(document).on('click', '#search', function () {
         var latitude = $('#address-lat').val();
         var longitude = $('#address-long').val();
         var distance = $('#distance').val();
@@ -113,9 +116,9 @@ $(document).ready(function () {
             url: 'http://127.0.0.1:8000/api/filter',
             method: 'GET',
             data: {
-                'latitude' : latitude,
-                'longitude' : longitude,
-                'distance' : distance
+                'latitude': latitude,
+                'longitude': longitude,
+                'distance': distance
             },
             success: function (data) {
                 var results = JSON.parse(data);
@@ -134,7 +137,7 @@ $(document).ready(function () {
                             context.extras += results[i].extras[x].name + ' ';
                         else {
                             context.extras = results[i].extras[x].name + ' ';
-                        }                
+                        }
                     }
                     var html = template(context);
                     $(".house-results").append(html);
@@ -151,6 +154,6 @@ $(document).ready(function () {
             $("#noResults").fadeOut().empty();
         }
     };
-    
+
 
 });

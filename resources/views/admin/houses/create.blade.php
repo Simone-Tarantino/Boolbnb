@@ -122,7 +122,7 @@
 
 
                 <div class="form-group-inline row">
-                    <label for="address-input" class="col-sm-3 col-form-label">Indirizzo</label>
+                    <label for="address-input" class="col-sm-3 col-md-12 col-lg-3 col-form-label">Indirizzo</label>
                     <div class="col-sm-6 col-md-8 relative_address">
                         <input type="text" class="address-input form-control" name="address-input" placeholder="Cerca un indirizzo">
                          <div class="results_div">
@@ -136,7 +136,7 @@
                 </div>
 
                 <div class="form-group row">
-                <label for="address" class="col-sm-3 col-form-label"></label>
+                <label for="address" class="col-sm-3 col-md-12 col-lg-3 col-form-label"></label>
                 <div class="col-sm-6 col-md-8 address_hidden">
                         <input id="address" class="form-control" type="text" name="address"  value="" readonly placeholder="">
                 </div>
@@ -173,9 +173,9 @@
         {{-- Form status --}}
         <div class="form-group row">
             <label for="status" class="col-sm-3 col-form-label">Status</label>
-            <div class="col-sm-3 col-md-5 col-lg-3">
+            <div class="col-sm-4 col-md-5 col-lg-4">
                 <select class="custom-select mr-sm-2" id="status" name="status">
-                    <option value="1" selected>Publicato</option>
+                    <option value="1" selected>Pubblicato</option>
                     <option value="0">Non Pubblicato</option>
                 </select>
             </div>

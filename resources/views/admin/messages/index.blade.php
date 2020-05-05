@@ -1,8 +1,8 @@
 @extends('layouts.layout')
-{{-- @extends('layouts.app') --}}
+
 
 @section('main')
-<div class="container main inbox_messages">
+  <div class="container inbox_messages">
 <h2 class="mt-4 mb-4 text-center title">I Tuoi Messaggi</h2>
   @foreach ($results as $result)
   <div class="card mt-3">
@@ -18,8 +18,6 @@
 </div>
 @endforeach
 </div>
-
-
 
 @endsection
 

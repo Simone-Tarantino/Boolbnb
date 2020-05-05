@@ -15820,7 +15820,8 @@ var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebar
 $(document).ready(function () {
   clear();
   $(document).on('click', '#filter-button', function () {
-    $('.house').show();
+    $('.house').removeClass('hiding');
+    $(".house").css("pointer-events", "auto");
     var beds = $('#beds').val();
     var bathrooms = $('#bathrooms').val();
     var room_number = $('#room_number').val();
@@ -15830,9 +15831,10 @@ $(document).ready(function () {
       var houseRoom = parseInt($(this).find('.room_number').text());
 
       if (room_number <= houseRoom && beds <= houseBed && bathrooms <= houseBathroom) {
-        $(this).show();
+        $(this).removeClass('hiding');
       } else {
-        $(this).hide();
+        $(this).addClass('hiding');
+        $(".house").css("pointer-events", "none");
       }
     }); // sezione extra
 
@@ -15848,9 +15850,13 @@ $(document).ready(function () {
       extrasHouseString = extrasHouseString.replace(/\n/g, " ");
       extrasHouseString = extrasHouseString.replace(/ /g, '');
       var result = extrasHouseString.includes(extraCheckString);
+      console.log(extrasHouseString);
+      console.log(extraCheckString);
+      console.log(result);
 
       if (result == false) {
-        $(this).hide();
+        $(this).addClass('hiding');
+        $(".hiding").css("pointer-events", "none");
       }
     });
   });
@@ -15859,7 +15865,8 @@ $(document).ready(function () {
   });
 
   function clear() {
-    $('.house').show();
+    $('.house').removeClass('hiding');
+    $(".house").css("pointer-events", "auto");
     $('.checkbox-filter').prop('checked', false);
     $('#beds').val('');
     $('#bathrooms').val('');
@@ -15876,7 +15883,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/teo/Desktop/mamp_pubblic/boolbnb/resources/js/filter.js */"./resources/js/filter.js");
+module.exports = __webpack_require__(/*! C:\Users\eboul\Documents\Boolean_careers\esercitazioni\boolbnb\resources\js\filter.js */"./resources/js/filter.js");
 
 
 /***/ })

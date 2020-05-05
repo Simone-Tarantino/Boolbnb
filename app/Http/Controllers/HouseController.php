@@ -93,7 +93,6 @@ class HouseController extends Controller
                 'sponsoredHouses' => $sponsoredHouses
             ];
             return view('search', $data)->withErrors(['Nessun appartamento trovato nel raggio di 20km', 'The Message']);;
-            // return redirect()->back()->withErrors(['Nessun appartamento trovato', 'The Message']);
         } 
         $data = [
             'houses' => $houses,

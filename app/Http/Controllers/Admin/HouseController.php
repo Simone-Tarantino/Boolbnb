@@ -230,7 +230,6 @@ class HouseController extends Controller
                 'price'=>9.99
             ]
         ];
-
         return view("admin.sponsor", ["house"=>$house, "sponsors"=>$sponsors]);
     }
 

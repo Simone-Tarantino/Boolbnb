@@ -53,8 +53,8 @@ Route::name('admin.')
     Route::get('messages', 'MessageController@index')->name('messages');
     Route::get("sponsor/houses/{house}", "HouseController@showSponsor")->name("sponsor");
     Route::post("sponsor/houses/pay", "HouseController@pay")->name("pay");
+    Route::get('/payment/process', 'PaymentController@process')->name('payment.process');
 });
 
-Route::get('/payment/process', 'PaymentController@process')->name('payment.process');
 
 

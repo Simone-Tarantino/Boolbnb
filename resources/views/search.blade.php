@@ -68,34 +68,32 @@
             </div>
         </div>
     </div>
-        <div class="container-fluid container-sponsored">
-            <div class="row house-results">
-                @foreach ($houses as $house)
-                    <div class="house-container-bt col-lg-4 col-sm-6 col-xs-12">
-                        <div class="card house card_box">
-                            <div class="img_container">
-                                <img src="{{asset('storage/'.$house->img_path)}}" class="card-img-top img" alt="...">
+    <div class="container-fluid container-sponsored">
+        <div class="row house-results">
+            @foreach ($houses as $house)
+                <div class="house-container-bt col-lg-4 col-sm-6 col-xs-12">
+                    <div class="card house card_box">
+                        <div class="img_container">
+                            <img src="{{asset('storage/'.$house->img_path)}}" class="card-img-top img" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-truncate">{{$house->address}}</h5>
+                            <i class="fas fa-door-open"></i>Numero di stanze: <span class="card-text card_text room_number">{{$house->room_number}}</span><br>
+                            <i class="fas fa-toilet"></i>Numero di bagni: <span class="card-text card_text bathroom">{{$house->bathroom}}</span><br>
+                            <i class="fas fa-bed"></i>Numero di letti: <span class="card-text card_text bed">{{$house->bed}}</span>
+                            <div class="extras d-none">
+                                <h5 >Servizi extra:</h5>
+                                @foreach ($house->extras as $extra)
+                                    {{$extra->name}}
+                                @endforeach
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title text-truncate">{{$house->address}}</h5>
-                                <i class="fas fa-door-open"></i>Numero di stanze: <span class="card-text card_text room_number">{{$house->room_number}}</span><br>
-                                <i class="fas fa-toilet"></i>Numero di bagni: <span class="card-text card_text bathroom">{{$house->bathroom}}</span><br>
-                                <i class="fas fa-bed"></i>Numero di letti: <span class="card-text card_text bed">{{$house->bed}}</span>
-                                <div class="d-none extras">
-                                    <h5>Servizi extra:</h5>
-                                <div class="extras d-none">
-                                    <h5 >Servizi extra:</h5>
-                                    @foreach ($house->extras as $extra)
-                                        {{$extra->name}}
-                                    @endforeach
-                                </div>
-                                <a class="btn btn_look" href="{{route('house.show', $house->id)}}">Mostra appartamento</a>
-                            </div>
+                        <a class="btn btn_look" href="{{route('house.show', $house->id)}}">Mostra appartamento</a>
                         </div>
                     </div>
-                @endforeach
-            </div> 
-        </div>
+                </div>
+            @endforeach
+        </div> 
+    </div>
         {{-- SCRIPTS --}}
     <script id="entry-template" type="text/x-handlebars-template">
         <div class="entry-result">
@@ -119,7 +117,6 @@
                     <i class="fas fa-door-open"></i>Numero di stanze: <span class="card-text card_text room_number">@{{room_number}}</span><br>
                     <i class="fas fa-toilet"></i>Numero di bagni: <span class="card-text card_text bathroom">@{{bathroom}}</span><br>
                     <i class="fas fa-bed"></i>Numero di letti: <span class="card-text card_text bed">@{{bed}}</span><br>
-                    <div class="d-none extras">
                     <div class="extras d-none">
                         @{{extras}}
                     </div>

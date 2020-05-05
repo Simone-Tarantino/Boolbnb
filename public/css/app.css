@@ -11120,6 +11120,10 @@ main .container .search-container .search_box .btn_search i {
   margin-right: 5px;
 }
 
+main .container .search-container .search_box .btn_search:hover {
+  opacity: 1;
+}
+
 main .container .search-container .search_box .results.container {
   margin-top: 201px;
   z-index: 2;

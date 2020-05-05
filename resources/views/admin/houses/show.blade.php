@@ -4,7 +4,7 @@
 <div class="main_show">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-md-6">
+            <div class="col-xs-12 col-md-12 col-lg-6">
                 <img class="img_show" src="{{asset('storage/'.$house->img_path)}}" alt="">
                 <h2 class="address-map">{{$house->address}}</h2>
                 <ul class="list-inline extra">
@@ -39,9 +39,9 @@
                     <li>{{$extra->name}}</li>  
                     @endforeach
                 </ul>
-                <div id="map"></div>
+                
             </div>{{--  /col --}}
-            <div class="col-sm-12 col-md-6 card_container">
+            <div class="col-sm-12 col-md-10 col-lg-6 card_container">
                 <h3>Le Tue Case</h3>
                  @foreach ($data as $item)
                 @if (Auth::id()==$house->user_id && $house->id != $item->id)
@@ -63,7 +63,10 @@
                 @endif
                 @endforeach 
            
-            </div>{{--  /col --}}   
+            </div>{{--  /col --}}
+            <div class="col-md-12 col-lg-6">
+                <div id="map"></div>
+            </div>   
         </div>{{--  /row --}}
     </div>{{--  /container --}}
 </div>{{--  /main-show --}}

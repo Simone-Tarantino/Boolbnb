@@ -1,12 +1,10 @@
 @extends('layouts.layout')
-
 @section('main')
 @if($errors->any())
     <div id ="noResults" class="alert alert-danger">
         <h4>{{$errors->first()}}</h4>
     </div>
 @endif
-
 <div class="container searchHouses">
     <div class="main-search">
     <h1 class="mt-4 mb-4 primary">Appartamenti</h1>
@@ -15,16 +13,13 @@
             <input id="address" type="text" class="address-input" name="" placeholder="Cerca Indirizzo">
             {{-- suggerimenti ricerca --}}
             <div class="results container">
-                
             </div>
             <input class="d-none" id="address-lat" type="text"  name="latitude"  value="" readonly placeholder="latitudine">
             <input class="d-none" id="address-long" type="text" name="longitude" value="" readonly placeholder="longitudine">
-            
             <button class="btn_search" id='search'>Search</button>
             <label for="distance"><i class="fas fa-map-marker-alt option_icon"></i> <span class="radius-text">Raggio di ricerca (KM)</span></label>
             <input type="number" name="distance" id="distance">
         </div>
-    
         {{-- filtra risultati jquery --}}
         <div class="filters">
             <i class="fas fa-bed option_icon"></i><label for="beds">Letti</label>
@@ -48,9 +43,7 @@
                 <button type="submit" class="btn_filters" id="remove-filters">Rimuovi Filtri</button>
             </div>
         </div>
-    
         {{-- risultati dalla home da cancellare quando si fa chiamata api --}}
-
         <div class="container-fluid container-sponsored">
             <div class="row">
                 @foreach ($sponsoredHouses as $housePromo)
@@ -75,7 +68,6 @@
             </div>
         </div>
     </div>
-
         <div class="container-fluid container-sponsored">
             <div class="row house-results">
                 @foreach ($houses as $house)
@@ -102,7 +94,6 @@
                 @endforeach
             </div> 
         </div>
-        
         {{-- SCRIPTS --}}
     <script id="entry-template" type="text/x-handlebars-template">
         <div class="entry-result">
@@ -115,7 +106,6 @@
             </div>
         </div>
     </script>
-
     <script id="search-template" type="text/x-handlebars-template">
         <div class="entry-result col-lg-4 col-sm-6 col-xs-12">
             <div class="card house card_box">
@@ -133,34 +123,11 @@
                     </div>
                     <a class="btn btn_look" href="http://127.0.0.1:8000/show/@{{id}}">Mostra appartamento</a>
                 </div>
-=======
-        <div class="col-lg-4 col-sm-6 col-xs-12">    
-       <div class="house">
-              
-            <div class="card card_box">
-                <div class="img_container">
-                    <img src="{{ url('storage/')}}/@{{ img_path }}" class="card-img-top img" alt="...">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title text-truncate">@{{address}}</h5>
-                    <p class="card-text card_text"><i class="fas fa-home"></i>Area: @{{mq}}</p>
-                    <p class="card-text card_text"><i class="fas fa-door-open"></i>Camere: @{{room_number}}</p>
-                    <p class="card-text card_text"><i class="fas fa-toilet"></i>N° Bagni: @{{bathroom}}</p>
-                    <p class="card-text card_text"><i class="fas fa-bed"></i>Posti letto: @{{bed}}</p>
-                    <div class="extras">
-                @{{extra}}
-                </div>
-                    <a href="http://127.0.0.1:8000/show/@{{id}}" class="btn btn_look">Mostra appartamento</a>
-                </div>
-                </div>
-            
             </div>
         </div>
     </script>
 </div>
-
 @endsection
-
 @section('scripts')
     <script src="{{asset('js/search.js')}}"></script>
     <script src="{{asset('js/filter.js')}}"></script>

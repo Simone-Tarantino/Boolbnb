@@ -42226,15 +42226,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-module.exports = __webpack_require__(/*! C:\Users\dadol\Desktop\Boolean\mamp_public\boolbnb\resources\js\map.js */"./resources/js/map.js");
-=======
-module.exports = __webpack_require__(/*! C:\Users\eboul\Documents\Boolean_careers\esercitazioni\boolbnb\resources\js\map.js */"./resources/js/map.js");
->>>>>>> Fix-img-path
-=======
-module.exports = __webpack_require__(/*! /Users/teo/Desktop/mamp_pubblic/boolbnb/resources/js/map.js */"./resources/js/map.js");
->>>>>>> TeoGrafica
+module.exports = __webpack_require__(/*! C:\Users\Stikiman\Desktop\Web Development\Boolean\Esercizi\boolbnb\resources\js\map.js */"./resources/js/map.js");
 
 
 /***/ })

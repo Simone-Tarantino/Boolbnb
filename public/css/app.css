@@ -11642,29 +11642,141 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
 }
 
 .searchHouses {
-  display: inline-block;
+  margin-top: 100px;
 }
 
-.searchHouses ._search {
+.searchHouses .hiding {
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+}
+
+.searchHouses h1 {
+  color: #fe5b60;
+}
+
+.searchHouses .main-search .search_box {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 7px 0px #dedede;
+  -moz-box-shadow: 0px 0px 7px 0px #dedede;
 }
 
-.searchHouses #results {
-  top: 160px;
+.searchHouses .main-search .search_box #address {
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 60px;
+  width: 90%;
+  padding: 5px 20px;
 }
 
-.searchHouses .card_box {
+.searchHouses .main-search .search_box .btn_search {
+  font-weight: bold;
+  color: white;
+  background-color: #fe5b60;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 10px 20px;
+  margin-right: 5px;
+  display: flex;
+  border: 1px solid #fe5b60;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.searchHouses .main-search .search_box .btn_search:active,
+.searchHouses .main-search .search_box .btn_search:hover,
+.searchHouses .main-search .search_box .btn_search:focus {
+  color: white;
+  background-color: #e41b5e;
+  outline: #e41b5e;
+  opacity: 1;
+}
+
+.searchHouses .main-search .search_box #distance {
+  width: 100px;
+  padding: 5px;
+  margin-right: 20px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.searchHouses .main-search .search_box .results.container {
+  margin-top: 121px;
+  z-index: 2;
+  position: absolute;
+  padding: 10px 28px;
+  display: inline-block;
+  background-color: white;
+  top: 112px;
+  border-radius: 25px;
+  -webkit-box-shadow: 0px 5px 7px 0px #dedede;
+}
+
+.searchHouses .main-search .filters {
+  text-align: right;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.searchHouses .main-search .filters #bathrooms,
+.searchHouses .main-search .filters #room_number,
+.searchHouses .main-search .filters #beds {
+  width: 70px;
+  padding: 5px;
+  margin-right: 20px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.searchHouses .main-search .filters input[type=checkbox] {
+  margin-right: 25px;
+}
+
+.searchHouses .main-search .filters .btn_filters {
+  background-color: white;
+  padding: 5px 10px;
+  border: 2px solid #fe5b60;
+  border-radius: 50px;
+  color: #fe5b60;
+  font-weight: bold;
+}
+
+.searchHouses .main-search .filters .btn_filters:active,
+.searchHouses .main-search .filters .btn_filters:focus {
+  outline: none;
+}
+
+.searchHouses .main-search .filters .btn_filters:hover {
+  background-color: #e41b5e;
+  color: white;
+}
+
+.searchHouses .container-fluid .row .card.card_box,
+.searchHouses .container-sm .row .card.card_box,
+.searchHouses .container-md .row .card.card_box,
+.searchHouses .container-lg .row .card.card_box,
+.searchHouses .container-xl .row .card.card_box {
   position: relative;
   box-shadow: 0px 0px 12px -5px #5c5b5c;
+  margin-bottom: 20px;
 }
 
-.searchHouses .card_box .img-container img {
+.searchHouses .container-fluid .row .card.card_box .img_container img.card-img-top.img,
+.searchHouses .container-sm .row .card.card_box .img_container img.card-img-top.img,
+.searchHouses .container-md .row .card.card_box .img_container img.card-img-top.img,
+.searchHouses .container-lg .row .card.card_box .img_container img.card-img-top.img,
+.searchHouses .container-xl .row .card.card_box .img_container img.card-img-top.img {
   height: 300px;
 }
 
-.searchHouses .card_box .sponsored {
+.searchHouses .container-fluid .row .card.card_box .sponsored,
+.searchHouses .container-sm .row .card.card_box .sponsored,
+.searchHouses .container-md .row .card.card_box .sponsored,
+.searchHouses .container-lg .row .card.card_box .sponsored,
+.searchHouses .container-xl .row .card.card_box .sponsored {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
@@ -11676,7 +11788,11 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
   color: white;
 }
 
-.searchHouses .card_box .btn_look {
+.searchHouses .container-fluid .row .card.card_box .btn_look,
+.searchHouses .container-sm .row .card.card_box .btn_look,
+.searchHouses .container-md .row .card.card_box .btn_look,
+.searchHouses .container-lg .row .card.card_box .btn_look,
+.searchHouses .container-xl .row .card.card_box .btn_look {
   padding: 10px 20px;
   font-weight: bold;
   color: white;
@@ -11684,98 +11800,56 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
   border: 0;
 }
 
-.searchHouses .card_box .btn_look:active,
-.searchHouses .card_box .btn_look:hover,
-.searchHouses .card_box .btn_look:focus {
+.searchHouses .container-fluid .row .card.card_box .btn_look:active,
+.searchHouses .container-sm .row .card.card_box .btn_look:active,
+.searchHouses .container-md .row .card.card_box .btn_look:active,
+.searchHouses .container-lg .row .card.card_box .btn_look:active,
+.searchHouses .container-xl .row .card.card_box .btn_look:active,
+.searchHouses .container-fluid .row .card.card_box .btn_look:hover,
+.searchHouses .container-sm .row .card.card_box .btn_look:hover,
+.searchHouses .container-md .row .card.card_box .btn_look:hover,
+.searchHouses .container-lg .row .card.card_box .btn_look:hover,
+.searchHouses .container-xl .row .card.card_box .btn_look:hover,
+.searchHouses .container-fluid .row .card.card_box .btn_look:focus,
+.searchHouses .container-sm .row .card.card_box .btn_look:focus,
+.searchHouses .container-md .row .card.card_box .btn_look:focus,
+.searchHouses .container-lg .row .card.card_box .btn_look:focus,
+.searchHouses .container-xl .row .card.card_box .btn_look:focus {
   color: white;
   background-color: #e41b5e;
   outline: #e41b5e;
 }
 
-.searchHouses .filters {
-  margin-top: 15px;
+.searchHouses .container-fluid .row .house,
+.searchHouses .container-sm .row .house,
+.searchHouses .container-md .row .house,
+.searchHouses .container-lg .row .house,
+.searchHouses .container-xl .row .house {
+  margin-bottom: 100px;
+  line-height: 40px;
 }
 
-.searchHouses .filters .filter_input {
-  -webkit-box-shadow: 0px 0px 7px 0px #dedede;
-  -moz-box-shadow: 0px 0px 7px 0px #dedede;
-  border: 0;
-  padding: 10px;
-  text-align: center;
-  height: 30px;
-  width: 50%;
-  border-radius: 50px;
-}
-
-.searchHouses .filters .filter_input:focus {
-  border-color: white;
-  outline: none;
-}
-
-.searchHouses .option-wrap label {
-  margin-right: 10px;
-}
-
-.searchHouses .option_icon {
-  color: #e41b5e;
-  padding-right: 5px;
-}
-
-.searchHouses .service {
-  color: #e41b5e;
-}
-
-.searchHouses .extras-filter {
-  padding: 15px 0 10px 0;
-}
-
-.searchHouses .extras-filter .extra_icon {
-  color: #e41b5e;
-  padding-right: 5px;
-}
-
-.searchHouses .extras-filter input.checkbox-filter {
-  margin: 0 10px 0 5px;
-}
-
-.searchHouses .extras-filter .wrap_button {
-  margin: auto;
-}
-
-.searchHouses .btn.btn_filters {
-  background-color: white;
-  padding: 5px 10px;
-  border: 2px solid #e41b5e;
-  border-radius: 50px;
-  color: #e41b5e;
-  font-weight: bold;
-}
-
-.searchHouses .btn.btn_filters:active,
-.searchHouses .btn.btn_filters:focus {
-  outline: none;
-}
-
-.searchHouses .btn.btn_filters:hover {
-  background-color: #e41b5e;
-  color: white;
+.searchHouses .container-fluid .row .house .img_container img.card-img-top.img,
+.searchHouses .container-sm .row .house .img_container img.card-img-top.img,
+.searchHouses .container-md .row .house .img_container img.card-img-top.img,
+.searchHouses .container-lg .row .house .img_container img.card-img-top.img,
+.searchHouses .container-xl .row .house .img_container img.card-img-top.img {
+  height: 300px;
 }
 
 @media (min-width: 576px) {
-  .searchHouses .search_box {
+  .search_box {
     width: 80%;
   }
 }
 
 @media screen and (max-width: 766px) {
-  .searchHouses .wrapper {
-    flex-direction: column;
+  i.option_icon {
+    margin-right: 20px;
   }
 
-  .searchHouses .option-wrap {
-    padding: 10px 15px;
-    display: flex;
-    justify-content: space-between;
+  .radius-text {
+    display: none;
   }
 }
 

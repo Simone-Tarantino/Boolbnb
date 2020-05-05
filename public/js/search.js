@@ -15819,6 +15819,7 @@ var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebar
 
 $(document).ready(function () {
   // All'entrata della pagina tutti i valori sono vuoti e la distanza di default è 20km
+  $('.results').hide();
   $('.address-input').val('');
   $('#address').val('');
   $('#address-lat').val('');
@@ -15831,6 +15832,9 @@ $(document).ready(function () {
 
     if ($('.address-input').val().length >= 4) {
       search();
+      $('.results').show();
+    } else {
+      $('.results').hide();
     }
   }); // Click sul risultato del suggerimento per compilare latitudine e longitudine
 
@@ -15845,6 +15849,7 @@ $(document).ready(function () {
     $('#address').val(address);
     $('#address-lat').val(lat);
     $('#address-long').val(_long);
+    $('.results').hide();
     clearResults();
   }); // Click su cerca per visualizzare gli appartamenti per lat long e distanza
 

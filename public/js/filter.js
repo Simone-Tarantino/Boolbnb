@@ -15820,7 +15820,8 @@ var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebar
 $(document).ready(function () {
   clear();
   $(document).on('click', '#filter-button', function () {
-    $('.house').show();
+    $('.house').removeClass('hiding');
+    $(".house").css("pointer-events", "auto");
     var beds = $('#beds').val();
     var bathrooms = $('#bathrooms').val();
     var room_number = $('#room_number').val();
@@ -15830,9 +15831,10 @@ $(document).ready(function () {
       var houseRoom = parseInt($(this).find('.room_number').text());
 
       if (room_number <= houseRoom && beds <= houseBed && bathrooms <= houseBathroom) {
-        $(this).show();
+        $(this).removeClass('hiding');
       } else {
-        $(this).hide();
+        $(this).addClass('hiding');
+        $(".house").css("pointer-events", "none");
       }
     }); // sezione extra
 
@@ -15848,9 +15850,13 @@ $(document).ready(function () {
       extrasHouseString = extrasHouseString.replace(/\n/g, " ");
       extrasHouseString = extrasHouseString.replace(/ /g, '');
       var result = extrasHouseString.includes(extraCheckString);
+      console.log(extrasHouseString);
+      console.log(extraCheckString);
+      console.log(result);
 
       if (result == false) {
-        $(this).hide();
+        $(this).addClass('hiding');
+        $(".hiding").css("pointer-events", "none");
       }
     });
   });
@@ -15859,7 +15865,8 @@ $(document).ready(function () {
   });
 
   function clear() {
-    $('.house').show();
+    $('.house').removeClass('hiding');
+    $(".house").css("pointer-events", "auto");
     $('.checkbox-filter').prop('checked', false);
     $('#beds').val('');
     $('#bathrooms').val('');

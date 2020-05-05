@@ -4,7 +4,7 @@ const Handlebars = require("handlebars");
 $(document).ready(function () {
 
     // All'entrata della pagina tutti i valori sono vuoti e la distanza di default è 20km
-
+    $('.results').hide();
     $('.address-input').val('');
     $('#address').val('');
     $('#address-lat').val('');
@@ -18,6 +18,9 @@ $(document).ready(function () {
         clearResults();
         if ($('.address-input').val().length >= 4) {
             search();
+            $('.results').show();
+        } else {
+            $('.results').hide();
         }
     });
 
@@ -35,6 +38,7 @@ $(document).ready(function () {
         $('#address-lat').val(lat);
         $('#address-long').val(long);
 
+        $('.results').hide();
         clearResults();
 
     });

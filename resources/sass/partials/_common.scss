@@ -23,6 +23,10 @@ main {
 .navbar {
     top: 0;
     z-index: 3;
+    .navbar-brand{
+        font-weight: 5000;
+        color: $color-logo;
+    }
 
     .nav-item {
         .nav-link {

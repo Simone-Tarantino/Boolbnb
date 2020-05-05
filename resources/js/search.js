@@ -25,6 +25,10 @@ $(document).ready(function () {
             $('.results').hide();
         }
     });
+    
+    $(document).on('click', 'body', function () {
+        $('.results').hide();
+    });
 
     // Click sul risultato del suggerimento per compilare latitudine e longitudine
 

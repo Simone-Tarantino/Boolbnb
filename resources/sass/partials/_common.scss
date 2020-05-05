@@ -35,7 +35,7 @@ main {
             margin: 0 10px;
         }
         .dropdown-item:active {
-            background-color: $color_primary;
+            background-color: $color-logo;
         }
     }
 }
@@ -129,7 +129,7 @@ main {
     .navbar {
         .nav-item {
             .nav-link {
-                font-size: 0.8rem;
+                font-size: 0.6rem;
             }
         }
     }

@@ -23,11 +23,11 @@
         {{-- filtra risultati jquery --}}
         <div class="filters">
             <i class="fas fa-bed option_icon"></i><label for="beds">Letti</label>
-            <input min="1" max="10" type="number" name="beds" id="beds" placeholder="Numero di letti">
+            <input min="1" max="10" type="number" name="beds" id="beds" placeholder="1-10">
             <i class="fas fa-toilet option_icon"></i><label for="bathroom">Bagni</label>
-            <input min="1" max="5" type="number" name="bathroom" id="bathrooms" placeholder="Numero di bagni">
+            <input min="1" max="5" type="number" name="bathroom" id="bathrooms" placeholder="1-5">
             <i class="fas fa-door-open option_icon"></i><label for="room_number">Stanze</label>
-            <input  min="1" max="5"type="number" name="room_number" id="room_number" placeholder="Numero di stanze">
+            <input  min="1" max="5"type="number" name="room_number" id="room_number" placeholder="1-5">
             <div class="extras">
                 <i class="fas fa-wifi extra_icon"></i> <label for="checkbox">WiFi</label>
                 <input type="checkbox"  class="checkbox-filter" name="extra" value="WiFi" id="">
@@ -81,8 +81,8 @@
                                 <i class="fas fa-door-open"></i>Numero di stanze: <span class="card-text card_text room_number">{{$house->room_number}}</span><br>
                                 <i class="fas fa-toilet"></i>Numero di bagni: <span class="card-text card_text bathroom">{{$house->bathroom}}</span><br>
                                 <i class="fas fa-bed"></i>Numero di letti: <span class="card-text card_text bed">{{$house->bed}}</span>
-                                <div class="extras">
-                                    <h5>Servizi extra:</h5>
+                                <div class="extras d-none">
+                                    <h5 >Servizi extra:</h5>
                                     @foreach ($house->extras as $extra)
                                         {{$extra->name}}
                                     @endforeach
@@ -117,8 +117,7 @@
                     <i class="fas fa-door-open"></i>Numero di stanze: <span class="card-text card_text room_number">@{{room_number}}</span><br>
                     <i class="fas fa-toilet"></i>Numero di bagni: <span class="card-text card_text bathroom">@{{bathroom}}</span><br>
                     <i class="fas fa-bed"></i>Numero di letti: <span class="card-text card_text bed">@{{bed}}</span><br>
-                    <h5>Servizi extra:</h5>
-                    <div class="extras">
+                    <div class="extras d-none">
                         @{{extras}}
                     </div>
                     <a class="btn btn_look" href="http://127.0.0.1:8000/show/@{{id}}">Mostra appartamento</a>

@@ -1,7 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
     "/js/filter.js": "/js/filter.js",
     "/js/map.js": "/js/map.js",
-    "/js/search.js": "/js/search.js",
-    "/css/app.css": "/css/app.css"
+    "/js/search.js": "/js/search.js"
 }

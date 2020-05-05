@@ -112,13 +112,19 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
-        $data = House::limit(3)->get();
+        $data = House::inRandomOrder()->get();
+        $houseFiltered = [];
+        foreach ($data as $houseFilter) {
+            if ($houseFilter->user_id == Auth::user()->id && !in_array($houseFilter, $houseFiltered) && count($houseFiltered) < 2) {
+                $houseFiltered[] = $houseFilter;
+            }
+        }
         $extras = Extra::all();
         if (empty($house) || $house->user_id != Auth::user()->id) {
             abort('404');
         }
         
-        return view('admin.houses.show', compact('data', 'house'));
+        return view('admin.houses.show', compact('houseFiltered', 'house'));
     }
 
     /**

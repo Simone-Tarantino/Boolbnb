@@ -43,26 +43,25 @@
             </div>{{--  /col --}}
             <div class="col-sm-12 col-md-10 col-lg-6 card_container">
                 <h3>Le Tue Case</h3>
-                 @foreach ($data as $item)
-                @if (Auth::id()==$house->user_id && $house->id != $item->id)
-                <div class="card card_box">
-                    <img src="{{asset('storage/'.$item->img_path)}}" class="card-img-top img" alt="...">
-                    <div class="card-body">
-                        <h4 class="card-text">APPARTAMENTO</h4>
-                        <p class="card-text card_text">{{$item->address}}</p>
-                        @if ($item->status == 1)
-                        <p class="card-text">Pubblicato</p>
-                        @else
-                        <p class="card-text">Non Pubblicato</p>
-                        @endif  
-                    </div>
-                    <div class="btn_zone">
-                        <a class="btn btn_look" href="{{route('admin.houses.show', $item)}}" role="button">Mostra</a>
-                    </div>
-                </div>
-                @endif
-                @endforeach 
-           
+                @foreach ($houseFiltered as $item)
+                        @if ($house->id != $item->id)
+                        <div class="card card_box">
+                            <img src="{{asset('storage/'.$item->img_path)}}" class="card-img-top img" alt="...">
+                            <div class="card-body">
+                                <h4 class="card-text">APPARTAMENTO</h4>
+                                <p class="card-text card_text">{{$item->address}}</p>
+                                @if ($item->status == 1)
+                                    <p class="card-text">Pubblicato</p>
+                                @else
+                                    <p class="card-text">Non Pubblicato</p>
+                                @endif  
+                            </div>
+                            <div class="btn_zone">
+                                <a class="btn btn_look" href="{{route('admin.houses.show', $item)}}" role="button">Mostra</a>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach            
             </div>{{--  /col --}}
             <div class="col-md-12 col-lg-6">
                 <div id="map"></div>

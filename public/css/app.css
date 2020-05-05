@@ -10926,7 +10926,7 @@ main {
 }
 
 .navbar .nav-item .dropdown-item:active {
-  background-color: #e41b5e;
+  background-color: #fe5b60;
 }
 
 .main {
@@ -11012,7 +11012,7 @@ main {
 
 @media screen and (max-width: 991px) {
   .navbar .nav-item .nav-link {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
 }
 
@@ -11708,6 +11708,7 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
   padding: 5px;
   margin-right: 20px;
   border-radius: 10px;
+  border: 1px solid black;
 }
 
 .searchHouses .main-search .search_box .results.container {

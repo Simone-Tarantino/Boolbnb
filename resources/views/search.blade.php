@@ -81,6 +81,8 @@
                                 <i class="fas fa-door-open"></i>Numero di stanze: <span class="card-text card_text room_number">{{$house->room_number}}</span><br>
                                 <i class="fas fa-toilet"></i>Numero di bagni: <span class="card-text card_text bathroom">{{$house->bathroom}}</span><br>
                                 <i class="fas fa-bed"></i>Numero di letti: <span class="card-text card_text bed">{{$house->bed}}</span>
+                                <div class="d-none extras">
+                                    <h5>Servizi extra:</h5>
                                 <div class="extras d-none">
                                     <h5 >Servizi extra:</h5>
                                     @foreach ($house->extras as $extra)
@@ -117,6 +119,7 @@
                     <i class="fas fa-door-open"></i>Numero di stanze: <span class="card-text card_text room_number">@{{room_number}}</span><br>
                     <i class="fas fa-toilet"></i>Numero di bagni: <span class="card-text card_text bathroom">@{{bathroom}}</span><br>
                     <i class="fas fa-bed"></i>Numero di letti: <span class="card-text card_text bed">@{{bed}}</span><br>
+                    <div class="d-none extras">
                     <div class="extras d-none">
                         @{{extras}}
                     </div>

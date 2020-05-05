@@ -133,6 +133,27 @@
                     </div>
                     <a class="btn btn_look" href="http://127.0.0.1:8000/show/@{{id}}">Mostra appartamento</a>
                 </div>
+=======
+        <div class="col-lg-4 col-sm-6 col-xs-12">    
+       <div class="house">
+              
+            <div class="card card_box">
+                <div class="img_container">
+                    <img src="{{ url('storage/')}}/@{{ img_path }}" class="card-img-top img" alt="...">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-truncate">@{{address}}</h5>
+                    <p class="card-text card_text"><i class="fas fa-home"></i>Area: @{{mq}}</p>
+                    <p class="card-text card_text"><i class="fas fa-door-open"></i>Camere: @{{room_number}}</p>
+                    <p class="card-text card_text"><i class="fas fa-toilet"></i>N° Bagni: @{{bathroom}}</p>
+                    <p class="card-text card_text"><i class="fas fa-bed"></i>Posti letto: @{{bed}}</p>
+                    <div class="extras">
+                @{{extra}}
+                </div>
+                    <a href="http://127.0.0.1:8000/show/@{{id}}" class="btn btn_look">Mostra appartamento</a>
+                </div>
+                </div>
+            
             </div>
         </div>
     </script>

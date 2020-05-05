@@ -71,7 +71,11 @@ main {
                         margin-right: 5px;
                     }
                 }
-                
+
+                .btn_search:hover {
+                    opacity: 1;
+                }
+
                 .results.container {
                     margin-top: 201px;
                     z-index: 2;

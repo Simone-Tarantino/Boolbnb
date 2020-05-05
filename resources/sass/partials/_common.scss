@@ -24,8 +24,9 @@ main {
     top: 0;
     z-index: 3;
     .navbar-brand{
-        font-weight: 5000;
-        color: $color-logo;
+        img{
+            width: 150px;
+        }
     }
 
     .nav-item {

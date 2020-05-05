@@ -3,7 +3,8 @@
         <nav class="navbar position-fixed w-100 navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    BoolBnb
+                    {{-- BoolBnb --}}
+                    <img src="{{asset('storage/images/logoboolbnb.png')}}" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

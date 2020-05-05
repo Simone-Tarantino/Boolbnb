@@ -10904,9 +10904,8 @@ main {
   z-index: 3;
 }
 
-.navbar .navbar-brand {
-  font-weight: 5000;
-  color: #fe5b60;
+.navbar .navbar-brand img {
+  width: 150px;
 }
 
 .navbar .nav-item .nav-link {

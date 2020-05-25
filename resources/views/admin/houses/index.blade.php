@@ -9,7 +9,7 @@
         <div class="row"> 
             @foreach ($houses as $house)
             @if (Auth::id()==$house->user_id)
-            <div class="col-xs-12 col-sm-6 col-lg-4 box">
+            <div class="col-lg-4 box col-md-6 col-sm-12 col-xs-12">
                 <div class="card card_box">
                     @foreach ($sponsoredHouses as $item)
                     @if ($house->id == $item->id)

@@ -211,6 +211,7 @@
         .row {
             .card.card_box {
                 // @include cardBox;
+                height: 500px;
                 border-radius: 10px;
                 position: relative;
                 box-shadow: 0px 0px 12px -5px rgba(92, 91, 92, 1);

@@ -4,19 +4,19 @@
 <div class="main_show">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-md-12 col-lg-6">
+            <div class="col-xs-12 col-md-12 col-lg-6" id="houseShow">
                 <img class="img_show" src="{{asset('storage/'.$house->img_path)}}" alt="">
                 <h2 class="address-map">{{$house->address}}</h2>
                 <ul class="list-inline extra">
-                    <li class="list-inline-item">{{$house->mq}} mq</li>
-                    <li class="list-inline-item">{{$house->room_number}} camere</li>
-                    <li class="list-inline-item">{{$house->bed}} posti letti</li>
-                    <li class="list-inline-item">{{$house->bathroom}} bagni</li>
+                    <li class="list-inline-item"><i class="fas fa-home option_icon"></i>{{$house->mq}} mq</li>
+                    <li class="list-inline-item"><i class="fas fa-door-open option_icon "></i>{{$house->room_number}} camere</li>
+                    <li class="list-inline-item"><i class="fas fa-bed option_icon"></i>{{$house->bed}} Posti letto</li>
+                    <li class="list-inline-item"><i class="fas fa-toilet option_icon"></i>{{$house->bathroom}} bagni</li>
                 </ul>
                 <ul class="list-inline">
                     @if ($house->status == 1)
-                    <li class="list-inline-item">Questo appartamento è pubblicato</li> 
-                    @else 
+                    <li class="list-inline-item">Questo appartamento è pubblicato</li>
+                    @else
                     <li class="list-inline-item">Questo appartamento non è pubblicato</li>
                     @endif
                 </ul>
@@ -25,21 +25,32 @@
 
                 <div class='coord-lat d-none' value="{{$house->latitude}}">{{$house->latitude}}</div>
                 <div class='coord-lon d-none' value="{{$house->longitude}}">{{$house->longitude}}</div>
-
+                {{-- bottoni precedenti --}}
+                {{-- @if($house->user_id == Auth::user()->id)
+                <a class="btn btn_show" href="{{route('admin.houses.edit', $house)}}">Modifica dati</a>
+                @endif
                 @if($house->user_id == Auth::user()->id)
+                <a class="btn btn_show" href="{{route('admin.sponsor',$house->id)}}">Sponsorizza</a>
+                @endif --}}
+
+                <ul class="list_extra">
+                    <li><h4>SERVIZI</h4>
+                    @foreach ($house->extras as $extra)
+                    <li>{{$extra->name}}</li>
+                    @endforeach
+                </ul>
+                {{-- nuova posizione bottoni --}}
+                 @if($house->user_id == Auth::user()->id)
                 <a class="btn btn_show" href="{{route('admin.houses.edit', $house)}}">Modifica dati</a>
                 @endif
                 @if($house->user_id == Auth::user()->id)
                 <a class="btn btn_show" href="{{route('admin.sponsor',$house->id)}}">Sponsorizza</a>
                 @endif
+                {{-- fine bottoni --}}
 
-                <ul class="list_extra">
-                    <li><h3>Servizi</h3>
-                    @foreach ($house->extras as $extra)
-                    <li>{{$extra->name}}</li>  
-                    @endforeach
-                </ul>
-                
+                {{-- nuova map --}}
+                <div id="map"></div>
+                {{-- fine nuova map --}}
             </div>{{--  /col --}}
             <div class="col-sm-12 col-md-10 col-lg-6 card_container">
                 <h3>Le Tue Case</h3>
@@ -54,25 +65,30 @@
                                     <p class="card-text">Pubblicato</p>
                                 @else
                                     <p class="card-text">Non Pubblicato</p>
-                                @endif  
+                                @endif
                             </div>
                             <div class="btn_zone">
                                 <a class="btn btn_look" href="{{route('admin.houses.show', $item)}}" role="button">Mostra</a>
                             </div>
                         </div>
                     @endif
-                @endforeach            
+                @endforeach
             </div>{{--  /col --}}
-            <div class="col-md-12 col-lg-6">
+            {{-- vecchia mappa --}}
+            {{-- <div class="col-md-12 col-lg-6">
                 <div id="map"></div>
-            </div>   
-        </div>{{--  /row --}}
-    </div>{{--  /container --}}
-</div>{{--  /main-show --}}
+            </div> --}}
+            {{-- fine vecchia mappa --}}
+        </div>
+        {{--  /row --}}
+    </div>
+    {{--  /container --}}
+</div>
+{{--  /main-show --}}
 @endsection
 
 
 
-@section('scripts') 
+@section('scripts')
     <script src="{{asset('js/map.js')}}"></script>
 @endsection

@@ -2,12 +2,17 @@
     display: inline-block;
     position: absolute;
     width: 100%;
-    margin-top: -45px;
+    // margin-top: -45px;
+    margin-top: -25px;
 
     text-align: center;
 }
 
 .searchHouses {
+    i {
+        color: $color_primary;
+    }
+
     .hiding {
         // -webkit-filter: blur(5px);
         // -moz-filter: blur(5px);
@@ -77,6 +82,10 @@
             margin-top: 20px;
             margin-bottom: 50px;
 
+            i.option_icon {
+                margin-right: 5px;
+            }
+
             #bathrooms,
             #room_number,
             #beds {
@@ -102,11 +111,11 @@
                 &:active,
                 &:focus {
                     outline: none;
-                    // border: none;
                 }
 
                 &:hover {
                     background-color: $color_primary;
+                    border-color: $color_primary;
                     color: white;
                 }
             }

@@ -2,7 +2,8 @@
     margin-top: 90px;
     // background-color: purple;
 
-    #houseShow {
+    #houseShow,
+    #houseShowGuest {
 
         // background-color: pink;
 
@@ -12,11 +13,18 @@
         }
 
         .host_name {
+            // margin-bottom: 2rem;
+            // padding-bottom: 1rem;
+            // font-weight: 500;
+            // color: lightslategray;
+            // border-bottom: 0.4px solid silver;
+            // border-bottom: 0.2px solid #E41B5E;
+        }
+
+        .address-map {
             margin-bottom: 2rem;
             padding-bottom: 1rem;
-            font-weight: 500;
-            color: lightslategray;
-            border-bottom: 0.4px solid silver;
+            border-bottom: 0.2px solid #E41B5E;
         }
 
         .extra {
@@ -37,7 +45,8 @@
 
         h4 {
             font-weight: 600;
-            color: lightslategray;
+            // color: lightslategray;
+            color: $color-logo;
             margin-top: 20px;
         }
 
@@ -46,7 +55,8 @@
 
             h4 {
                 font-weight: 600;
-                color: lightslategray;
+                // color: lightslategray;
+                color: $color-logo;
             }
         }
     }
@@ -63,15 +73,14 @@
     }
 
     .card_container {
-        // padding: 100px 120px;
-        // background-color: royalblue;
-
         h3 {
             color: $color-logo;
+            width: 60%;
+            margin: 0 auto 30px;
         }
 
         .card_box {
-            margin-bottom: 3rem;
+            // margin-bottom: 3rem;
             box-shadow: 0px 0px 12px -5px rgba(92, 91, 92, 1);
             // nuove cose
             width: 60%;
@@ -88,10 +97,13 @@
     }
 
     .service_container {
-        width: 250px;
+        // width: 250px;
+        // background-color: pink;
+        width: 60%;
+        margin: 0 auto 30px;
 
         margin: 0 auto;
-        padding-top: 6rem;
+        // padding-top: 6rem;
 
         .card_box {
             margin-bottom: 3rem;
@@ -116,6 +128,7 @@
                 i {
                     margin-right: .6rem;
                     font-size: 1.2rem;
+                    color: $color_primary;
                 }
 
 
@@ -132,11 +145,31 @@
 
     @media screen and (max-width:996px) {
         .card_container {
-            padding: 30px;
+
+            // padding: 30px;
+            h3 {
+                width: 100%;
+                margin: 30px 0;
+            }
+
+            // aggiunta nuova query x card
+            .card_box {
+                margin: 0 0 30px 0;
+            }
+        }
+
+        .service_container {
+            margin: 30px 0 20px 0;
         }
     }
 
+
     @media screen and (max-width:766px) {
+        i.option_icon {
+            margin-right: 0;
+            padding-right: 0;
+        }
+
         .card_container {
             display: none;
         }

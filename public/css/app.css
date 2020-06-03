@@ -10963,6 +10963,10 @@ main {
   margin-left: 3em;
 }
 
+.footer_bottom_right i:hover {
+  color: #e41b5e;
+}
+
 @media screen and (max-width: 766px) {
   .navbar {
     text-align: right;
@@ -11155,22 +11159,22 @@ main .container .sponsored-container .sponsored-houses {
   display: flex;
 }
 
-main .container .sponsored-container .sponsored-houses .row._row {
+main .container .sponsored-container .sponsored-houses .row {
   justify-content: center;
 }
 
-main .container .sponsored-container .sponsored-houses .row._row .space {
+main .container .sponsored-container .sponsored-houses .row .space {
   padding: 15px;
 }
 
-main .container .sponsored-container .sponsored-houses .row._row .space .card_box {
+main .container .sponsored-container .sponsored-houses .row .space .card_box {
   position: relative;
   box-shadow: 0px 0px 12px -5px #5c5b5c;
   height: 288px;
   padding: 10px;
 }
 
-main .container .sponsored-container .sponsored-houses .row._row .space .card_box .sponsored {
+main .container .sponsored-container .sponsored-houses .row .space .card_box .sponsored {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
@@ -11182,28 +11186,28 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
   color: white;
 }
 
-main .container .sponsored-container .sponsored-houses .row._row .space .card_box .card-wrap {
+main .container .sponsored-container .sponsored-houses .row .space .card_box .card-wrap {
   height: 160px;
   width: 266px;
 }
 
-main .container .sponsored-container .sponsored-houses .row._row .space .card_box .card-wrap .card-img-top {
+main .container .sponsored-container .sponsored-houses .row .space .card_box .card-wrap .card-img-top {
   height: 100%;
   width: 100%;
 }
 
-main .container .sponsored-container .sponsored-houses .row._row .space .card_box .card-body .card-text {
+main .container .sponsored-container .sponsored-houses .row .space .card_box .card-body .card-text {
   margin: 0 0 0.6rem;
 }
 
-main .container .sponsored-container .sponsored-houses .row._row .space .card_box .card-body a.btn.btn-primary {
+main .container .sponsored-container .sponsored-houses .row .space .card_box .card-body a.btn.btn-primary {
   opacity: 1;
   transition: 0.3s;
   background-color: #e41b5e;
   border: 1px solid #e41b5e;
 }
 
-main .container .sponsored-container .sponsored-houses .row._row .space .card_box .card-body a.btn.btn-primary:hover {
+main .container .sponsored-container .sponsored-houses .row .space .card_box .card-body a.btn.btn-primary:hover {
   opacity: 0.6;
 }
 
@@ -11278,8 +11282,20 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
 }
 
 .box .card_box {
+  height: 500px;
+  border-radius: 10px;
   position: relative;
   box-shadow: 0px 0px 12px -5px #5c5b5c;
+  margin-bottom: 20px;
+}
+
+.box .card_box .img_container {
+  width: 100%;
+  height: 240px;
+}
+
+.box .card_box .img_container img.card-img-top.img {
+  width: 100%;
   height: 100%;
 }
 
@@ -11453,41 +11469,52 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
   margin-top: 90px;
 }
 
-.main_show .img_show {
+.main_show #houseShow .img_show,
+.main_show #houseShowGuest .img_show {
   width: 100%;
-  margin-bottom: 3rem;
 }
 
-.main_show .host_name {
+.main_show #houseShow .address-map,
+.main_show #houseShowGuest .address-map {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  font-weight: 500;
-  color: lightslategray;
-  border-bottom: 0.4px solid silver;
+  border-bottom: 0.2px solid #E41B5E;
 }
 
-.main_show .extra {
-  padding-bottom: 1rem;
-  border-bottom: 0.2px solid lightslategray;
+.main_show #houseShow .extra,
+.main_show #houseShowGuest .extra {
+  padding-bottom: 15px;
+  border-bottom: 0.2px solid #E41B5E;
 }
 
-.main_show h2 {
+.main_show #houseShow .extra .option_icon,
+.main_show #houseShowGuest .extra .option_icon {
+  color: #e41b5e;
+  padding-right: 5px;
+}
+
+.main_show #houseShow h2,
+.main_show #houseShowGuest h2 {
   color: #fe5b60;
-  margin-bottom: 35px;
+  margin: 30px 0 20px 0;
 }
 
-.main_show h4 {
+.main_show #houseShow h4,
+.main_show #houseShowGuest h4 {
   font-weight: 600;
-  color: lightslategray;
+  color: #fe5b60;
+  margin-top: 20px;
 }
 
-.main_show .list_extra {
+.main_show #houseShow .list_extra,
+.main_show #houseShowGuest .list_extra {
   list-style: none;
 }
 
-.main_show .list_extra h3 {
+.main_show #houseShow .list_extra h4,
+.main_show #houseShowGuest .list_extra h4 {
   font-weight: 600;
-  color: lightslategray;
+  color: #fe5b60;
 }
 
 .main_show .btn_show {
@@ -11497,7 +11524,8 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
   border-radius: 5px;
   border: 1px solid #fe5b60;
   margin-bottom: 10px;
-  padding: 10px 20px;
+  margin-right: 10px;
+  padding: 10px 15px;
 }
 
 .main_show .btn_show:active,
@@ -11509,17 +11537,16 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
   opacity: 1;
 }
 
-.main_show .card_container {
-  padding: 100px 120px;
-}
-
 .main_show .card_container h3 {
   color: #fe5b60;
+  width: 60%;
+  margin: 0 auto 30px;
 }
 
 .main_show .card_container .card_box {
-  margin-bottom: 3rem;
   box-shadow: 0px 0px 12px -5px #5c5b5c;
+  width: 60%;
+  margin: 0 auto 30px;
 }
 
 .main_show .card_container .btn_look {
@@ -11541,9 +11568,8 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
 }
 
 .main_show .service_container {
-  width: 250px;
+  width: 60%;
   margin: 0 auto;
-  padding-top: 6rem;
 }
 
 .main_show .service_container .card_box {
@@ -11571,19 +11597,35 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
 .main_show .service_container .card_box .list_service i {
   margin-right: 0.6rem;
   font-size: 1.2rem;
+  color: #e41b5e;
 }
 
 .main_show #map {
   width: 100%;
+  margin-top: 30px;
 }
 
 @media screen and (max-width: 996px) {
-  .main_show .card_container {
-    padding: 30px;
+  .main_show .card_container h3 {
+    width: 100%;
+    margin: 30px 0;
+  }
+
+  .main_show .card_container .card_box {
+    margin: 0 0 30px 0;
+  }
+
+  .main_show .service_container {
+    margin: 30px 0 20px 0;
   }
 }
 
 @media screen and (max-width: 766px) {
+  .main_show i.option_icon {
+    margin-right: 0;
+    padding-right: 0;
+  }
+
   .main_show .card_container {
     display: none;
   }
@@ -11645,12 +11687,16 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
   display: inline-block;
   position: absolute;
   width: 100%;
-  margin-top: -45px;
+  margin-top: -25px;
   text-align: center;
 }
 
 .searchHouses {
   margin-top: 100px;
+}
+
+.searchHouses i {
+  color: #e41b5e;
 }
 
 .searchHouses .hiding {
@@ -11729,6 +11775,10 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
   margin-bottom: 50px;
 }
 
+.searchHouses .main-search .filters i.option_icon {
+  margin-right: 5px;
+}
+
 .searchHouses .main-search .filters #bathrooms,
 .searchHouses .main-search .filters #room_number,
 .searchHouses .main-search .filters #beds {
@@ -11759,7 +11809,92 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
 
 .searchHouses .main-search .filters .btn_filters:hover {
   background-color: #e41b5e;
+  border-color: #e41b5e;
   color: white;
+}
+
+.searchHouses .main-search .filters .room_filters {
+  padding: 15px 0 10px 0;
+}
+
+.searchHouses .main-search .filters .room_filters input.radius {
+  height: 30px;
+  width: 150px;
+}
+
+.searchHouses .main-search .filters .room_filters input {
+  -webkit-box-shadow: 0px 0px 7px 0px #dedede;
+  -moz-box-shadow: 0px 0px 7px 0px #dedede;
+  border: 0;
+  padding: 10px;
+  text-align: center;
+  height: 30px;
+  width: 150px;
+  border-radius: 50px;
+}
+
+.searchHouses .main-search .filters .room_filters input:focus {
+  border-color: white;
+  outline: none;
+}
+
+.searchHouses .main-search .filters .room_filters .search_radius {
+  padding: 15px 0 10px 0;
+  border-bottom: 1px solid #F7F7F7;
+}
+
+.searchHouses .main-search .filters .room_filters .room-options {
+  padding: 15px 0 10px 0;
+  align-items: center;
+}
+
+.searchHouses .main-search .filters .room_filters .room-options .option-container {
+  align-content: center;
+  padding: 5px;
+}
+
+.searchHouses .main-search .filters .room_filters .room-options .option-container .left {
+  padding-right: 5px;
+  height: 30px;
+}
+
+.searchHouses .main-search .filters .room_filters .room-options .option-container .left span {
+  padding-right: 5px;
+}
+
+.searchHouses .main-search .filters .room_filters .room-options .option-container .left span i {
+  color: #e41b5e;
+}
+
+.searchHouses .main-search .filters .room_filters .room-options .option-container .right {
+  padding-left: 5px;
+}
+
+.searchHouses .main-search .filters .filter-buttons {
+  padding: 15px 0 10px 0;
+}
+
+.searchHouses .main-search .filters .btn.btn_filters {
+  background-color: white;
+  padding: 10px 20px;
+  border: 2px solid #e41b5e;
+  border-radius: 50px;
+  color: #e41b5e;
+  font-weight: bold;
+}
+
+.searchHouses .main-search .filters .btn.btn_filters:active,
+.searchHouses .main-search .filters .btn.btn_filters:focus {
+  outline: none;
+}
+
+.searchHouses .main-search .filters .btn.btn_filters:hover {
+  background-color: #e41b5e;
+  color: white;
+}
+
+.searchHouses .main-search .filters .extras {
+  margin-top: 15px;
 }
 
 .searchHouses .container-fluid .row .card.card_box,
@@ -11767,9 +11902,20 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
 .searchHouses .container-md .row .card.card_box,
 .searchHouses .container-lg .row .card.card_box,
 .searchHouses .container-xl .row .card.card_box {
+  height: 500px;
+  border-radius: 10px;
   position: relative;
   box-shadow: 0px 0px 12px -5px #5c5b5c;
   margin-bottom: 20px;
+}
+
+.searchHouses .container-fluid .row .card.card_box .img_container,
+.searchHouses .container-sm .row .card.card_box .img_container,
+.searchHouses .container-md .row .card.card_box .img_container,
+.searchHouses .container-lg .row .card.card_box .img_container,
+.searchHouses .container-xl .row .card.card_box .img_container {
+  width: 100%;
+  height: 240px;
 }
 
 .searchHouses .container-fluid .row .card.card_box .img_container img.card-img-top.img,
@@ -11777,7 +11923,8 @@ main .container .sponsored-container .sponsored-houses .row._row .space .card_bo
 .searchHouses .container-md .row .card.card_box .img_container img.card-img-top.img,
 .searchHouses .container-lg .row .card.card_box .img_container img.card-img-top.img,
 .searchHouses .container-xl .row .card.card_box .img_container img.card-img-top.img {
-  height: 300px;
+  width: 100%;
+  height: 100%;
 }
 
 .searchHouses .container-fluid .row .card.card_box .sponsored,

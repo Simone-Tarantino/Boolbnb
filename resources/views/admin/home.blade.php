@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <meta http-equiv="refresh" content="2;url=http://127.0.0.1:8000/admin/houses" />
-    {{-- FONT-AWESOME
+    {{-- FONT-AWESOME --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
     {{-- TOM-TOM-MAP --}}
     <title>{{ config('app.name') }}</title>

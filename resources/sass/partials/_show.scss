@@ -1,108 +1,151 @@
-.main_show{
-  margin-top: 90px;
-  
-  .img_show{
-    width: 100%;
-    margin-bottom: 3rem;
-  }
-  .host_name{
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    font-weight: 500;
-    color: lightslategray;
-    border-bottom: 0.4px solid silver;
-  }
-  .extra{
-    padding-bottom: 1rem;
-    border-bottom: 0.2px solid lightslategray;
-  }
-  h2{
-    color: $color-logo;
-    margin-bottom: 35px;
-  }
-  h4{
-    font-weight: 600;
-    color: lightslategray;
-  }
-  .list_extra{
-    list-style: none;
-    h3{
-      font-weight: 600;
-      color: lightslategray;
-    }
-  }
-  .btn_show{
-      @include look;
-      border: 1px solid $color-logo;
-      margin-bottom: 10px;
-      padding: 10px 20px;
-      
-  
-    }
-    
-  .card_container{
-    padding: 100px 120px;
-    h3{
-      color: $color-logo;
-    }
-    .card_box{
-      margin-bottom: 3rem;
-      box-shadow: 0px 0px 12px -5px rgba(92,91,92,1);
-    }
-    .btn_look{
-      @include look;
-      margin: 10px 10px;
-      padding: 10px 20px;
-      
-      
-    }
-  } 
-  .service_container{
-    width: 250px;
-    
-    margin: 0 auto;
-    padding-top: 6rem;
-    .card_box{
-      margin-bottom: 3rem;
-      padding: 0;
-      box-shadow: 0px 0px 12px -5px rgba(92,91,92,1);
-      border-radius: 0.3rem;
-      .card_title{
-        padding: 1.5rem 1rem;
-        background-color: $color-logo;
-        color: white;
-        font-weight: bold;
-        border-radius: 0.3rem 0.3rem 0 0;
-      }
-      .list_service{
-        display: flex;
-        align-items: center;
-        padding: 1rem 1rem;
-        border-top: 0.4px solid whitesmoke;
-        i{
-          margin-right: .6rem;
-          font-size: 1.2rem;
+.main_show {
+    margin-top: 90px;
+
+    #houseShow,
+    #houseShowGuest {
+
+        .img_show {
+            width: 100%;
         }
-        
-        
-      }
+
+        .address-map {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 0.2px solid #E41B5E;
+        }
+
+        .extra {
+            padding-bottom: 15px;
+            border-bottom: 0.2px solid #E41B5E;
+
+            .option_icon {
+                color: $color_primary;
+                padding-right: 5px;
+            }
+        }
+
+        h2 {
+            color: $color-logo;
+            margin: 30px 0 20px 0;
+        }
+
+        h4 {
+            font-weight: 600;
+            color: $color-logo;
+            margin-top: 20px;
+        }
+
+        .list_extra {
+            list-style: none;
+
+            h4 {
+                font-weight: 600;
+                color: $color-logo;
+            }
+        }
     }
-  }
-  
-  #map{
-    width: 100%;
-  }
 
-// MEDIA-QUERY
+    .btn_show {
+        @include look;
+        border: 1px solid $color-logo;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        padding: 10px 15px;
 
-@media screen and (max-width:996px){
-  .card_container{
-    padding: 30px;
-  } 
+
+    }
+
+    .card_container {
+        h3 {
+            color: $color-logo;
+            width: 60%;
+            margin: 0 auto 30px;
+        }
+
+        .card_box {
+            box-shadow: 0px 0px 12px -5px rgba(92, 91, 92, 1);
+            width: 60%;
+            margin: 0 auto 30px;
+        }
+
+        .btn_look {
+            @include look;
+            margin: 10px 10px;
+            padding: 10px 20px;
+
+
+        }
+    }
+
+    .service_container {
+        width: 60%;
+        margin: 0 auto;
+
+
+        .card_box {
+            margin-bottom: 3rem;
+            padding: 0;
+            box-shadow: 0px 0px 12px -5px rgba(92, 91, 92, 1);
+            border-radius: 0.3rem;
+
+            .card_title {
+                padding: 1.5rem 1rem;
+                background-color: $color-logo;
+                color: white;
+                font-weight: bold;
+                border-radius: 0.3rem 0.3rem 0 0;
+            }
+
+            .list_service {
+                display: flex;
+                align-items: center;
+                padding: 1rem 1rem;
+                border-top: 0.4px solid whitesmoke;
+
+                i {
+                    margin-right: .6rem;
+                    font-size: 1.2rem;
+                    color: $color_primary;
+                }
+
+
+            }
+        }
+    }
+
+    #map {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    // MEDIA-QUERY
+
+    @media screen and (max-width:996px) {
+        .card_container {
+            h3 {
+                width: 100%;
+                margin: 30px 0;
+            }
+
+            .card_box {
+                margin: 0 0 30px 0;
+            }
+        }
+
+        .service_container {
+            margin: 30px 0 20px 0;
+        }
+    }
+
+
+    @media screen and (max-width:766px) {
+        i.option_icon {
+            margin-right: 0;
+            padding-right: 0;
+        }
+
+        .card_container {
+            display: none;
+        }
+    }
 }
-@media screen and (max-width:766px){
-  .card_container{
-    display: none;
-  } 
-}
-} 

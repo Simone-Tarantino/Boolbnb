@@ -23,8 +23,9 @@ main {
 .navbar {
     top: 0;
     z-index: 3;
-    .navbar-brand{
-        img{
+
+    .navbar-brand {
+        img {
             width: 150px;
         }
     }
@@ -34,14 +35,16 @@ main {
             @include look;
             margin: 0 10px;
         }
+
         .dropdown-item:active {
             background-color: $color-logo;
         }
     }
 }
-.main{
-  padding-top: 50px;
-  min-height: 520px;
+
+.main {
+    padding-top: 50px;
+    min-height: 520px;
 }
 
 .active_search {
@@ -71,6 +74,10 @@ main {
 
 .footer_bottom_right i {
     margin-left: 3em;
+
+    &:hover {
+        color: $color_primary;
+    }
 }
 
 
@@ -84,12 +91,12 @@ main {
             a.nav-link {
                 font-size: 1.2rem;
                 background-color: white;
-                color:$color-logo;
+                color: $color-logo;
             }
 
             .nav-link:hover {
                 background-color: white;
-                color:$color_primary;
+                color: $color_primary;
                 opacity: 1;
             }
 

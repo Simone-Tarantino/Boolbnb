@@ -17,11 +17,13 @@
                             <p>Sponsored</p>
                         </div>
                     @endif
-                    @endforeach 
+                    @endforeach
+                    <div class="img_container">
                     <img src="{{asset('storage/'.$house->img_path)}}" class="card-img-top img" alt="...">
+                    </div>
                     <div class="card-body">
                         <h4 class="card-text">APPARTAMENTO</h4>
-                        <p class="card-text card_text">{{$house->address}}</p>
+                        <p class="card-text card_text text-truncate">{{$house->address}}</p>
                         @if ($house->status == 1)
                         <p class="card-text">Pubblicato</p>
                         @else

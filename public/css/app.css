@@ -11524,8 +11524,8 @@ main .container .sponsored-container .sponsored-houses .row .space .card_box .ca
   border-radius: 5px;
   border: 1px solid #fe5b60;
   margin-bottom: 10px;
-  padding: 10px 15px;
   margin-right: 10px;
+  padding: 10px 15px;
 }
 
 .main_show .btn_show:active,
@@ -11569,7 +11569,6 @@ main .container .sponsored-container .sponsored-houses .row .space .card_box .ca
 
 .main_show .service_container {
   width: 60%;
-  margin: 0 auto 30px;
   margin: 0 auto;
 }
 
@@ -11892,6 +11891,10 @@ main .container .sponsored-container .sponsored-houses .row .space .card_box .ca
 .searchHouses .main-search .filters .btn.btn_filters:hover {
   background-color: #e41b5e;
   color: white;
+}
+
+.searchHouses .main-search .filters .extras {
+  margin-top: 15px;
 }
 
 .searchHouses .container-fluid .row .card.card_box,

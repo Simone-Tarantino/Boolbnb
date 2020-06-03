@@ -2,7 +2,6 @@
     display: inline-block;
     position: absolute;
     width: 100%;
-    // margin-top: -45px;
     margin-top: -25px;
 
     text-align: center;
@@ -135,8 +134,6 @@
                     border: 0;
                     padding: 10px;
                     text-align: center;
-                    // height: 100%;
-                    // width: 200px;
                     height: 30px;
                     width: 150px;
                     border-radius: 50px;
@@ -154,23 +151,16 @@
 
                 .room-options {
                     padding: 15px 0 10px 0;
-                    // display: flex;
-                    // flex-basis: 30%;
-                    // justify-content: space-between;
                     align-items: center;
-                    // background-color: springgreen;
+
 
                     .option-container {
-                        // justify-content: space-between;
-                        // align-items: center;
                         align-content: center;
                         padding: 5px;
-                        // background-color: yellow;
+
 
                         .left {
                             padding-right: 5px;
-                            // background-color: purple;
-                            // display: flex;
                             height: 30px;
 
                             span {
@@ -184,7 +174,6 @@
 
                         .right {
                             padding-left: 5px;
-                            // background-color: salmon;
                         }
                     }
                 }
@@ -205,7 +194,6 @@
                 &:active,
                 &:focus {
                     outline: none;
-                    // border: none;
                 }
 
                 &:hover {
@@ -213,13 +201,16 @@
                     color: white;
                 }
             }
+
+            .extras {
+                margin-top: 15px;
+            }
         }
     }
 
     .container-fluid {
         .row {
             .card.card_box {
-                // @include cardBox;
                 height: 500px;
                 border-radius: 10px;
                 position: relative;
@@ -250,7 +241,6 @@
                 }
 
                 .btn_look {
-                    // margin: 10px;
                     padding: 10px 20px;
                     font-weight: bold;
                     color: white;

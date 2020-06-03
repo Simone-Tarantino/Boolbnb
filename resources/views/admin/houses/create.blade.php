@@ -22,9 +22,6 @@
     <div class="slogan">
         <h2>Diventa un host Boolbnb e inizia a guadagnare</h2>
     </div>
-    {{-- <div class="little_slogan">
-        <span>Raccontaci qualcosa sul tuo alloggio</span>
-    </div> --}}
     
     <form action="{{route('admin.houses.store')}}" method="POST" enctype="multipart/form-data">
         @csrf

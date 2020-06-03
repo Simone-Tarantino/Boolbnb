@@ -25,13 +25,6 @@
 
                 <div class='coord-lat d-none' value="{{$house->latitude}}">{{$house->latitude}}</div>
                 <div class='coord-lon d-none' value="{{$house->longitude}}">{{$house->longitude}}</div>
-                {{-- bottoni precedenti --}}
-                {{-- @if($house->user_id == Auth::user()->id)
-                <a class="btn btn_show" href="{{route('admin.houses.edit', $house)}}">Modifica dati</a>
-                @endif
-                @if($house->user_id == Auth::user()->id)
-                <a class="btn btn_show" href="{{route('admin.sponsor',$house->id)}}">Sponsorizza</a>
-                @endif --}}
 
                 <ul class="list_extra">
                     <li><h4>SERVIZI</h4>
@@ -39,7 +32,7 @@
                     <li>{{$extra->name}}</li>
                     @endforeach
                 </ul>
-                {{-- nuova posizione bottoni --}}
+                {{-- bottoni --}}
                  @if($house->user_id == Auth::user()->id)
                 <a class="btn btn_show" href="{{route('admin.houses.edit', $house)}}">Modifica dati</a>
                 @endif
@@ -48,10 +41,11 @@
                 @endif
                 {{-- fine bottoni --}}
 
-                {{-- nuova map --}}
+                {{-- map --}}
                 <div id="map"></div>
-                {{-- fine nuova map --}}
-            </div>{{--  /col --}}
+                {{-- fine map --}}
+            </div>
+            {{--  /col --}}
             <div class="col-sm-12 col-md-10 col-lg-6 card_container">
                 <h3>Le Tue Case</h3>
                 @foreach ($houseFiltered as $item)
@@ -73,12 +67,9 @@
                         </div>
                     @endif
                 @endforeach
-            </div>{{--  /col --}}
-            {{-- vecchia mappa --}}
-            {{-- <div class="col-md-12 col-lg-6">
-                <div id="map"></div>
-            </div> --}}
-            {{-- fine vecchia mappa --}}
+            </div>
+            {{--  /col --}}
+
         </div>
         {{--  /row --}}
     </div>
